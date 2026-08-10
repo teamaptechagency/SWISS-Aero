@@ -64,7 +64,7 @@
   <div style="max-width:1200px;margin:0 auto;padding:32px {{ secPadX }} 0">
     <sc-if value="{{ showFeatured }}">
     <a href="Insights.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));color:#14161B;margin-bottom:18px">
-      <div style="position:relative;width:100%;min-height:300px"><image-slot id="sa-feat" shape="rect" placeholder="Featured article image"></image-slot></div>
+      <div style="position:relative;width:100%;min-height:300px"><image-slot id="sa-feat" src="uploads/placeholder-article-compliance.svg" shape="rect" placeholder="Featured article image"></image-slot></div>
       <div style="padding:{{ featCardPad }}">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
           <span style="background:#FBEAE6;color:#C1391F;font-size:10.5px;font-weight:600;letter-spacing:.05em;padding:4px 10px;border-radius:11px">FEATURED</span>
@@ -81,7 +81,7 @@
       <sc-for list="{{ visiblePosts }}" as="p" hint-placeholder-count="6">
       <a href="Insights.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;overflow:hidden;display:block;color:#14161B">
         <div style="position:relative;width:100%;height:170px">
-          <image-slot id="{{ p.slotId }}" shape="rect" placeholder="Article image"></image-slot>
+          <image-slot id="{{ p.slotId }}" src="{{ p.img }}" shape="rect" placeholder="Article image"></image-slot>
         </div>
         <div style="padding:20px 22px 24px">
           <div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#C1391F;margin-bottom:10px">{{ p.category }}</div>
@@ -127,12 +127,12 @@ class Component extends DCLogic {
   subscribe = () => { if(!this.state.subscribeEmail.trim()) return; this.setState({subscribed:true}); };
 
   posts = [
-    {slotId:'sa-p1', category:'VAT', title:'VAT flat rate scheme: is it still worth it?', excerpt:'A short comparison of flat rate against standard accounting for typical service businesses.', author:'Eleanor Marsh', date:'30 Jun 2026', readTime:'4 min read'},
-    {slotId:'sa-p2', category:'PAYROLL', title:'Payroll changes for small employers this tax year', excerpt:'Thresholds, allowances and the two dates worth putting in your calendar now.', author:'Aisha Khan', date:'12 Jun 2026', readTime:'5 min read'},
-    {slotId:'sa-p3', category:'COMPLIANCE', title:'Confirmation statements: what Companies House actually checks', excerpt:'The five fields that cause most rejections, and how to keep your register clean.', author:'Priya Shah', date:'2 Jun 2026', readTime:'3 min read'},
-    {slotId:'sa-p4', category:'BOOKKEEPING', title:'Five bookkeeping habits that save you at year-end', excerpt:'Small monthly disciplines that turn a two-week year-end into a two-day one.', author:'Ben Okoro', date:'19 May 2026', readTime:'4 min read'},
-    {slotId:'sa-p5', category:'TAX', title:'Dividends or salary: how directors should pay themselves in 2026/27', excerpt:'A worked example at three profit levels, with the National Insurance effect shown.', author:'Tom Whitfield', date:'4 May 2026', readTime:'7 min read'},
-    {slotId:'sa-p6', category:'VAT', title:'Approaching the VAT threshold: what to do first', excerpt:'How to spot it early, what registration involves, and when voluntary registration pays.', author:'Eleanor Marsh', date:'21 Apr 2026', readTime:'5 min read'}
+    {slotId:'sa-p1', category:'VAT', img:'uploads/placeholder-article-vat.svg', title:'VAT flat rate scheme: is it still worth it?', excerpt:'A short comparison of flat rate against standard accounting for typical service businesses.', author:'Eleanor Marsh', date:'30 Jun 2026', readTime:'4 min read'},
+    {slotId:'sa-p2', category:'PAYROLL', img:'uploads/placeholder-article-payroll.svg', title:'Payroll changes for small employers this tax year', excerpt:'Thresholds, allowances and the two dates worth putting in your calendar now.', author:'Aisha Khan', date:'12 Jun 2026', readTime:'5 min read'},
+    {slotId:'sa-p3', category:'COMPLIANCE', img:'uploads/placeholder-article-compliance.svg', title:'Confirmation statements: what Companies House actually checks', excerpt:'The five fields that cause most rejections, and how to keep your register clean.', author:'Priya Shah', date:'2 Jun 2026', readTime:'3 min read'},
+    {slotId:'sa-p4', category:'BOOKKEEPING', img:'uploads/placeholder-article-bookkeeping.svg', title:'Five bookkeeping habits that save you at year-end', excerpt:'Small monthly disciplines that turn a two-week year-end into a two-day one.', author:'Ben Okoro', date:'19 May 2026', readTime:'4 min read'},
+    {slotId:'sa-p5', category:'TAX', img:'uploads/placeholder-article-tax.svg', title:'Dividends or salary: how directors should pay themselves in 2026/27', excerpt:'A worked example at three profit levels, with the National Insurance effect shown.', author:'Tom Whitfield', date:'4 May 2026', readTime:'7 min read'},
+    {slotId:'sa-p6', category:'VAT', img:'uploads/placeholder-article-vat.svg', title:'Approaching the VAT threshold: what to do first', excerpt:'How to spot it early, what registration involves, and when voluntary registration pays.', author:'Eleanor Marsh', date:'21 Apr 2026', readTime:'5 min read'}
   ];
 
   renderVals(){

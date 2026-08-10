@@ -1,0 +1,28 @@
+<svg viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#14161B"/>
+      <stop offset="100%" stop-color="#2A2E38"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="420" fill="url(#bg)"/>
+  <g opacity="0.9">
+    <circle cx="270" cy="230" r="72" fill="#C1391F"/>
+    <circle cx="400" cy="180" r="86" fill="#fff" opacity="0.92"/>
+    <circle cx="540" cy="240" r="72" fill="#C1391F" opacity="0.8"/>
+    <circle cx="650" cy="170" r="58" fill="#fff" opacity="0.6"/>
+  </g>
+  <g fill="#14161B" font-family="Georgia, serif" font-weight="600" text-anchor="middle">
+    <text x="400" y="192" font-size="34" fill="#14161B" opacity="0.85">EM</text>
+    <text x="270" y="240" font-size="30" fill="#fff">TW</text>
+    <text x="540" y="250" font-size="30" fill="#fff">AK</text>
+  </g>
+  <g opacity="0.16" stroke="#fff" stroke-width="1">
+    <line x1="0" y1="60" x2="900" y2="60"/>
+    <line x1="0" y1="360" x2="900" y2="360"/>
+  </g>
+  <g transform="translate(760,60)">
+    <rect width="42" height="42" rx="10" fill="#C1391F"/>
+    <rect x="8" y="24" width="26" height="4.5" rx="2.2" fill="#fff" transform="rotate(-28 21 26.25)"/>
+  </g>
+</svg>
