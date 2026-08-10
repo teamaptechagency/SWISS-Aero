@@ -3,5 +3,6 @@ Thumbs.db
 desktop.ini
 .thumbnail
 .vercel
+.claude/
 node_modules/
 *.log
