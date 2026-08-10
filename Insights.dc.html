@@ -24,15 +24,6 @@
   <div style="min-height:42px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 14px;background:#EFEDE6;border-bottom:1px dashed rgba(20,22,27,.28);font-family:'IBM Plex Mono',monospace">
     <div style="font-size:10.5px;color:rgba(20,22,27,.55);letter-spacing:.02em;white-space:nowrap">PROTOTYPE · SWISS AERO</div>
     <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-      
-      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
-        <button onClick="{{ setPreviewDesktop }}" style="{{ previewBtnStyle.desktop }}" title="Desktop preview">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-        </button>
-        <button onClick="{{ setPreviewMobile }}" style="{{ previewBtnStyle.mobile }}" title="Mobile preview">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
-        </button>
-      </div>
       <span style="font-size:10.5px;color:rgba(20,22,27,.55);white-space:nowrap">Viewing as</span>
       <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
         <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Owner</a>
@@ -118,9 +109,14 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { category: 'All', subscribeEmail: '', subscribed: false, previewMode: 'desktop' };
-  setPreviewDesktop = () => this.setState({previewMode:'desktop'});
-  setPreviewMobile = () => this.setState({previewMode:'mobile'});
+  state = { category: 'All', subscribeEmail: '', subscribed: false, isRealMobile: false };
+  componentDidMount(){
+    this.checkDevice();
+    this._onResize = () => this.checkDevice();
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount(){ window.removeEventListener('resize', this._onResize); }
+  checkDevice(){ const rm = window.innerWidth < 900; if (rm !== this.state.isRealMobile) this.setState({isRealMobile: rm}); }
 
   setCategory = (c) => this.setState({category:c});
   onSubscribeEmailChange = (e) => this.setState({subscribeEmail:e.target.value});
@@ -145,16 +141,11 @@ class Component extends DCLogic {
     });
     const visiblePosts = s.category==='All' ? this.posts : this.posts.filter(p=>p.category===s.category);
     const subscribeDisabled = !s.subscribeEmail.trim() || s.subscribed;
-    const pm = s.previewMode==='mobile';
+    const pm = s.isRealMobile;
     return {
       forcedMobile: pm,
-      pageRootStyle: pm ? 'width:100%;min-height:100vh;background:#D9D9D9;display:flex;justify-content:center;padding:24px 0' : 'width:100%;min-width:1100px',
-      pageFrameStyle: pm ? 'width:390px;max-width:100%;background:#F3F1EC;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);border:8px solid #14161B;max-height:844px;overflow-y:auto' : 'width:100%',
-      previewBtnStyle: {
-        desktop: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(!pm?'#14161B':'transparent')+';color:'+(!pm?'#fff':'rgba(20,22,27,.5)'),
-        mobile: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(pm?'#14161B':'transparent')+';color:'+(pm?'#fff':'rgba(20,22,27,.5)')
-      },
-      setPreviewDesktop: this.setPreviewDesktop, setPreviewMobile: this.setPreviewMobile,
+      pageRootStyle: 'width:100%',
+      pageFrameStyle: 'width:100%',
       secPadX: pm ? '24px' : '40px',
       featCardPad: pm ? '24px 22px' : '38px 40px',
       newsletterPad: pm ? '28px 24px' : '44px 48px',
