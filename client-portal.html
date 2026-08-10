@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F3F1EC;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;color:#14161B}
+  *{box-sizing:border-box}
+  input,select,textarea,button{font-family:'IBM Plex Sans',sans-serif}
+  a{color:#C1391F;text-decoration:none}
+  a:hover{color:#A62F18}
+  ::-webkit-scrollbar{width:9px;height:9px}
+  ::-webkit-scrollbar-thumb{background:rgba(20,22,27,.18);border-radius:5px}
+  ::-webkit-scrollbar-track{background:transparent}
+  @keyframes sa-bio-pulse{0%,100%{box-shadow:0 0 0 0 rgba(193,57,31,.25)}50%{box-shadow:0 0 0 10px rgba(193,57,31,.06)}}
+</style>
+</helmet>
+<div style="{{ rootWidthStyle }}">
+
+  <div style="{{ protoBarStyle }}">
+    <div style="font-size:11px;color:rgba(20,22,27,.55);letter-spacing:.03em">PROTOTYPE · SWISS AERO ADMIN &amp; CLIENT PORTAL</div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="index.html" style="font-size:11px;color:rgba(20,22,27,.55);font-weight:600;display:flex;align-items:center;gap:5px">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        View public site
+      </a>
+      <span style="font-size:11px;color:rgba(20,22,27,.55)">Viewing as</span>
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Owner</a>
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Junior Staff</a>
+        <span style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:#14161B;color:#fff">Client</span>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ showLogin }}" hint-placeholder-val="{{ false }}">
+  <div style="{{ gridLogin }}">
+    <div style="background:#14161B;color:#fff;padding:56px 60px;display:flex;flex-direction:column;justify-content:space-between">
+      <a href="index.html" style="display:flex;align-items:center;gap:11px;color:#fff">
+        <div style="width:34px;height:34px;background:#C1391F;border-radius:8px;position:relative;flex:none">
+          <div style="position:absolute;left:6px;top:16px;width:22px;height:3.5px;background:#fff;transform:rotate(-28deg);border-radius:2px"></div>
+          <div style="position:absolute;left:12px;top:22px;width:12px;height:3px;background:rgba(255,255,255,.55);transform:rotate(-28deg);border-radius:2px"></div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;letter-spacing:-.015em;line-height:1.1">Swiss Aero</div>
+          <div style="font-size:9.5px;letter-spacing:.14em;color:rgba(255,255,255,.5);font-weight:600">ACCOUNTANTS</div>
+        </div>
+      </a>
+      <div style="max-width:440px">
+        <h1 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.12;letter-spacing:-.022em;font-weight:600;margin:0 0 18px">Your filings, documents and accountant — in one place.</h1>
+        <p style="font-size:15.5px;line-height:1.68;color:rgba(255,255,255,.62);margin:0 0 32px">Upload receipts, track every deadline and message the person who handles your account. No email chains, no chasing.</p>
+        <div style="display:flex;flex-direction:column;gap:13px">
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">Encrypted document storage, UK-hosted</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">Two-factor authentication on every login</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">Every access logged for GDPR compliance</span></div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:rgba(255,255,255,.4);line-height:1.6">
+        Swiss Aero Accounting Ltd · Company no. 14829031<br>
+        ICO registration ZB294817 · clients.swissaero.co.uk
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:center;padding:56px">
+      <div style="width:100%;max-width:400px">
+
+        <sc-if value="{{ loginStepCreds }}">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-.018em;margin-bottom:8px">Sign in to your portal</div>
+        <div style="font-size:14px;color:rgba(20,22,27,.55);margin-bottom:28px;line-height:1.55">Use the email address your engagement letter was sent to.</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:16px">
+          <div>
+            <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">EMAIL ADDRESS</div>
+            <input value="{{ loginEmail }}" onChange="{{ onLoginEmailChange }}" placeholder="sam@marlowefinch.co.uk" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none;background:#fff"></input>
+          </div>
+          <div>
+            <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">PASSWORD</div>
+            <input type="password" value="{{ loginPassword }}" onChange="{{ onLoginPasswordChange }}" placeholder="••••••••••••" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none;background:#fff"></input>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px">
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(20,22,27,.6);cursor:pointer">
+            <input type="checkbox" checked="{{ rememberDevice }}" onChange="{{ toggleRememberDevice }}"></input>
+            Remember this device
+          </label>
+          <a href="Contact.dc.html" style="font-size:13px;font-weight:500">Forgot password?</a>
+        </div>
+        <button onClick="{{ submitCredentials }}" disabled="{{ credsDisabled }}" style="{{ credsBtnStyle }}">Continue</button>
+        <sc-if value="{{ loginError }}">
+        <div style="background:#FBE9E6;color:#B23B2E;border-radius:9px;padding:12px 14px;font-size:13px;margin-top:14px;line-height:1.5">{{ loginError }}</div>
+        </sc-if>
+
+        <sc-if value="{{ biometricAvailable }}">
+        <div style="display:flex;align-items:center;gap:10px;margin:20px 0">
+          <div style="flex:1;height:1px;background:rgba(20,22,27,.1)"></div>
+          <span style="font-size:11.5px;color:rgba(20,22,27,.42);font-weight:600">OR</span>
+          <div style="flex:1;height:1px;background:rgba(20,22,27,.1)"></div>
+        </div>
+        <button onClick="{{ startBiometric }}" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:13px;border:1.5px solid rgba(20,22,27,.16);background:#fff;border-radius:9px;font-size:13.5px;font-weight:600;color:#14161B;cursor:pointer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{{ biometricIconPath }}</svg>
+          {{ biometricLabel }}
+        </button>
+        </sc-if>
+
+        <sc-if value="{{ biometricPrompting }}">
+        <div style="margin-top:16px;background:#F8F7F4;border-radius:11px;padding:22px;text-align:center">
+          <div style="{{ biometricPulseStyle }}">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C1391F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{{ biometricIconPath }}</svg>
+          </div>
+          <div style="font-size:13px;color:rgba(20,22,27,.6);margin-top:12px">{{ biometricPromptText }}</div>
+        </div>
+        </sc-if>
+
+        <div style="margin-top:26px;padding-top:22px;border-top:1px solid rgba(20,22,27,.1);font-size:13px;color:rgba(20,22,27,.55);line-height:1.6">
+          New client? Set up your portal access — <a href="Quote.dc.html" style="display:none"></a><button onClick="{{ goRegister }}" style="background:none;border:none;padding:0;font-size:13px;font-weight:600;color:#C1391F;cursor:pointer;text-decoration:underline">create your account</button>.
+        </div>
+        <div style="margin-top:14px;background:#F8F7F4;border:1px dashed rgba(20,22,27,.18);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(20,22,27,.5);line-height:1.55">
+          Prototype: enter any email and password to continue.
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ loginStepTwoFa }}">
+        <button onClick="{{ backToCredentials }}" style="display:flex;align-items:center;gap:6px;background:none;border:none;padding:0;font-size:13px;color:rgba(20,22,27,.5);cursor:pointer;margin-bottom:20px">← Back</button>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-.018em;margin-bottom:8px">Two-factor authentication</div>
+        <div style="font-size:14px;color:rgba(20,22,27,.55);margin-bottom:28px;line-height:1.55">Enter the six-digit code from your authenticator app. 2FA is mandatory on all client accounts.</div>
+        <div style="display:flex;gap:9px;margin-bottom:20px">
+          <sc-for list="{{ codeBoxes }}" as="b" hint-placeholder-count="6">
+          <div style="{{ b.style }}">{{ b.char }}</div>
+          </sc-for>
+        </div>
+        <input value="{{ twoFaCode }}" onChange="{{ onTwoFaCodeChange }}" placeholder="Type your code" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none;background:#fff;font-family:'IBM Plex Mono',monospace;letter-spacing:.2em;margin-bottom:16px"></input>
+        <button onClick="{{ submitTwoFa }}" disabled="{{ twoFaDisabled }}" style="{{ twoFaBtnStyle }}">Verify and sign in</button>
+        <sc-if value="{{ loginError }}">
+        <div style="background:#FBE9E6;color:#B23B2E;border-radius:9px;padding:12px 14px;font-size:13px;margin-top:14px;line-height:1.5">{{ loginError }}</div>
+        </sc-if>
+        <div style="margin-top:22px;font-size:13px;color:rgba(20,22,27,.5);line-height:1.6">
+          Lost access to your device? <a href="Contact.dc.html">Contact your accountant</a> to reset it.
+        </div>
+        <div style="margin-top:14px;background:#F8F7F4;border:1px dashed rgba(20,22,27,.18);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(20,22,27,.5);line-height:1.55">
+          Prototype: the code is <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#14161B">204815</span>.
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ loginStepCreds }}">
+        <div style="display:flex;gap:6px;justify-content:center;margin-top:18px">
+          <sc-for list="{{ biometricKindOptions }}" as="k" hint-placeholder-count="3">
+          <button onClick="{{ k.onSelect }}" style="{{ k.style }}">{{ k.label }}</button>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ loginStepRegister }}">
+        <button onClick="{{ backToCredentials }}" style="display:flex;align-items:center;gap:6px;background:none;border:none;padding:0;font-size:13px;color:rgba(20,22,27,.5);cursor:pointer;margin-bottom:20px">← Back to sign in</button>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:22px">
+          <sc-for list="{{ registerStepDots }}" as="d" hint-placeholder-count="3">
+          <div style="height:4px;flex:1;border-radius:2px;background:{{ d.bg }}"></div>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ regStep1 }}">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;letter-spacing:-.018em;margin-bottom:8px">Create your portal account</div>
+        <div style="font-size:13.5px;color:rgba(20,22,27,.55);margin-bottom:24px;line-height:1.55">We'll match this against the engagement letter your accountant sent.</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px">
+          <div>
+            <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">FULL NAME</div>
+            <input value="{{ regName }}" onChange="{{ onRegNameChange }}" placeholder="Sam Marlowe" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none"></input>
+          </div>
+          <div>
+            <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">WORK EMAIL</div>
+            <input value="{{ regEmail }}" onChange="{{ onRegEmailChange }}" placeholder="sam@marlowefinch.co.uk" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none"></input>
+          </div>
+          <div>
+            <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">COMPANY NUMBER OR CLIENT REF</div>
+            <input value="{{ regClientRef }}" onChange="{{ onRegClientRefChange }}" placeholder="12093981" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none;font-family:'IBM Plex Mono',monospace"></input>
+            <div style="font-size:11.5px;color:rgba(20,22,27,.42);margin-top:5px">Find this on your engagement letter or a recent invoice.</div>
+          </div>
+        </div>
+        <button onClick="{{ regNext1 }}" disabled="{{ regStep1Disabled }}" style="{{ regStep1BtnStyle }}">Continue</button>
+        </sc-if>
+
+        <sc-if value="{{ regStep2 }}">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;letter-spacing:-.018em;margin-bottom:8px">Set a password</div>
+        <div style="font-size:13.5px;color:rgba(20,22,27,.55);margin-bottom:24px;line-height:1.55">At least 12 characters, with a mix of case and a number or symbol — 2FA is mandatory on top of this.</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:8px">
+          <div>
+            <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">PASSWORD</div>
+            <input type="password" value="{{ regPassword }}" onChange="{{ onRegPasswordChange }}" placeholder="••••••••••••" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none"></input>
+          </div>
+          <div>
+            <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">CONFIRM PASSWORD</div>
+            <input type="password" value="{{ regPasswordConfirm }}" onChange="{{ onRegPasswordConfirmChange }}" placeholder="••••••••••••" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none"></input>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:20px">
+          <sc-for list="{{ passwordRules }}" as="r" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:{{ r.color }}"><span>{{ r.icon }}</span>{{ r.label }}</div>
+          </sc-for>
+        </div>
+        <button onClick="{{ regNext2 }}" disabled="{{ regStep2Disabled }}" style="{{ regStep2BtnStyle }}">Continue</button>
+        </sc-if>
+
+        <sc-if value="{{ regStep3 }}">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;letter-spacing:-.018em;margin-bottom:8px">Set up two-factor authentication</div>
+        <div style="font-size:13.5px;color:rgba(20,22,27,.55);margin-bottom:22px;line-height:1.55">Mandatory for every client account. Scan this into an authenticator app.</div>
+        <div style="background:#F8F7F4;border-radius:11px;padding:22px;display:flex;align-items:center;gap:18px;margin-bottom:20px">
+          <div style="width:88px;height:88px;background:repeating-conic-gradient(#14161B 0% 25%, #fff 0% 50%) 0/14px 14px;border-radius:8px;flex:none;border:6px solid #fff"></div>
+          <div>
+            <div style="font-size:12px;color:rgba(20,22,27,.5);margin-bottom:6px">Can't scan? Enter this key manually:</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;background:#fff;border:1px solid rgba(20,22,27,.12);border-radius:6px;padding:8px 10px;display:inline-block">SWAE 4F7K 91QX P2LM</div>
+          </div>
+        </div>
+        <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">ENTER THE 6-DIGIT CODE TO CONFIRM</div>
+        <input value="{{ regTwoFaCode }}" onChange="{{ onRegTwoFaCodeChange }}" placeholder="000000" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:13px 15px;font-size:14px;outline:none;font-family:'IBM Plex Mono',monospace;letter-spacing:.2em;margin-bottom:16px"></input>
+        <button onClick="{{ completeRegistration }}" disabled="{{ regStep3Disabled }}" style="{{ regStep3BtnStyle }}">Activate my account</button>
+        <div style="margin-top:14px;background:#F8F7F4;border:1px dashed rgba(20,22,27,.18);border-radius:9px;padding:12px 14px;font-size:12px;color:rgba(20,22,27,.5);line-height:1.55">
+          Prototype: the code is <span style="font-family:'IBM Plex Mono',monospace;font-weight:600;color:#14161B">204815</span>.
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ regStep4 }}">
+        <div style="width:56px;height:56px;border-radius:50%;background:#E7F3EC;display:flex;align-items:center;justify-content:center;margin-bottom:20px">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2F7A4D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;letter-spacing:-.018em;margin-bottom:10px">You're all set, {{ regFirstName }}</div>
+        <div style="font-size:13.5px;color:rgba(20,22,27,.55);margin-bottom:26px;line-height:1.6">Your account is active and 2FA is enabled. We've linked it to {{ regClientRefDisplay }}.</div>
+        <button onClick="{{ enterPortal }}" style="{{ regEnterBtnStyle }}">Go to my dashboard</button>
+        </sc-if>
+        </sc-if>
+
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ showPortal }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex;height:100vh;overflow:hidden">
+
+    <div style="{{ sidebarStyle }}">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;padding:0 8px 20px;color:#14161B">
+        <div style="width:30px;height:30px;background:#C1391F;border-radius:7px;position:relative;flex:none">
+          <div style="position:absolute;left:5px;top:14px;width:20px;height:3px;background:#fff;transform:rotate(-28deg);border-radius:2px"></div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15.5px;letter-spacing:-.015em;line-height:1.1">Swiss Aero</div>
+          <div style="font-size:9px;letter-spacing:.14em;color:rgba(20,22,27,.45);font-weight:600">CLIENT PORTAL</div>
+        </div>
+      </a>
+
+      <button onClick="{{ goDashboard }}" style="{{ nb.dashboard }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>Dashboard</button>
+      <button onClick="{{ goDocuments }}" style="{{ nb.documents }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path></svg>Documents<sc-if value="{{ docRequestCount }}"><span style="{{ badgeStyle.documents }}">{{ docRequestCount }}</span></sc-if></button>
+      <button onClick="{{ goDeadlines }}" style="{{ nb.deadlines }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"></rect><line x1="3" y1="10" x2="21" y2="10"></line><line x1="7" y1="2" x2="7" y2="6"></line><line x1="17" y1="2" x2="17" y2="6"></line></svg>Deadlines</button>
+      <button onClick="{{ goStatements }}" style="{{ nb.statements }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="20" y2="21"></line><rect x="6" y="13" width="3" height="8"></rect><rect x="11" y="8" width="3" height="13"></rect><rect x="16" y="4" width="3" height="17"></rect></svg>Statements &amp; Reports</button>
+      <button onClick="{{ goMessages }}" style="{{ nb.messages }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path></svg>Messages<sc-if value="{{ unreadCount }}"><span style="{{ badgeStyle.messages }}">{{ unreadCount }}</span></sc-if></button>
+      <button onClick="{{ goInvoices }}" style="{{ nb.invoices }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2z"></path><line x1="8.5" y1="7" x2="15.5" y2="7"></line><line x1="8.5" y1="11" x2="15.5" y2="11"></line></svg>Invoices</button>
+      <button onClick="{{ goProfile }}" style="{{ nb.profile }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>Profile &amp; Security</button>
+      <button onClick="{{ goSupport }}" style="{{ nb.support }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 16v.01"></path><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 1-1 1.7"></path></svg>Support &amp; Tickets<sc-if value="{{ openTicketCount }}"><span style="{{ badgeStyle.support }}">{{ openTicketCount }}</span></sc-if></button>
+
+      <div style="margin-top:auto;background:#F8F7F4;border-radius:10px;padding:14px;margin-bottom:12px">
+        <div style="font-size:10.5px;font-weight:600;letter-spacing:.06em;color:rgba(20,22,27,.42);margin-bottom:9px">YOUR ACCOUNTANT</div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+          <div style="width:34px;height:34px;border-radius:50%;background:#EAEFF3;color:#3E5C76;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;flex:none">TW</div>
+          <div style="min-width:0">
+            <div style="font-size:12.5px;font-weight:600">Tom Whitfield</div>
+            <div style="font-size:11px;color:rgba(20,22,27,.5)">Senior Accountant</div>
+          </div>
+        </div>
+        <button onClick="{{ goMessages }}" style="width:100%;padding:8px;border:1px solid rgba(20,22,27,.14);background:#fff;border-radius:7px;font-size:11.5px;font-weight:600;cursor:pointer">Send a message</button>
+      </div>
+
+      <div style="padding-top:12px;border-top:1px solid rgba(20,22,27,.08);display:flex;align-items:center;gap:10px">
+        <div style="width:32px;height:32px;border-radius:50%;background:#FBEAE6;color:#C1391F;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;flex:none">SM</div>
+        <div style="min-width:0;flex:1">
+          <div style="font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Sam Marlowe</div>
+          <div style="font-size:11px;color:rgba(20,22,27,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Marlowe &amp; Finch Ltd</div>
+        </div>
+        <button onClick="{{ signOut }}" title="Sign out" style="background:none;border:none;padding:4px;cursor:pointer;color:rgba(20,22,27,.45);flex:none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;min-width:0">
+      <div style="{{ mobileTopBarStyle }}">
+        <sc-if value="{{ isMobile }}">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div style="width:26px;height:26px;background:#C1391F;border-radius:6px;position:relative;flex:none">
+            <div style="position:absolute;left:5px;top:12px;width:16px;height:3px;background:#fff;transform:rotate(-28deg);border-radius:1px"></div>
+          </div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px">{{ moduleTitle }}</div>
+        </div>
+        <div style="width:32px;height:32px;border-radius:50%;background:#FBEAE6;color:#C1391F;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:600;font-family:'Space Grotesk',sans-serif">SM</div>
+        </sc-if>
+        <sc-if value="{{ isDesktopChrome }}">
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px">{{ moduleTitle }}</div>
+          <div style="font-size:11.5px;color:rgba(20,22,27,.45);margin-top:1px">{{ moduleSubtitle }}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="display:flex;align-items:center;gap:7px;background:#E7F3EC;color:#2F7A4D;padding:6px 12px;border-radius:8px;font-size:11.5px;font-weight:600">
+            <span style="width:6px;height:6px;border-radius:50%;background:#2F7A4D"></span>Secure session
+          </div>
+          <div style="font-size:12px;color:rgba(20,22,27,.45);font-family:'IBM Plex Mono',monospace">10 Aug 2026</div>
+        </div>
+        </sc-if>
+      </div>
+
+      <div style="{{ contentAreaStyle }}">
+
+        <sc-if value="{{ isDashboard }}" hint-placeholder-val="{{ true }}">
+        <div style="{{ gridStat }}">
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:20px">
+            <div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.04em;margin-bottom:8px">NEXT DEADLINE</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600">VAT Return</div>
+            <div style="font-size:12.5px;color:#B8791A;font-weight:600;margin-top:3px">Due 7 Sep 2026 · 28 days</div>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:20px">
+            <div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.04em;margin-bottom:8px">FILING STATUS</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600">{{ onTrackLabel }}</div>
+            <div style="font-size:12.5px;color:#2F7A4D;margin-top:3px">Nothing overdue</div>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:20px">
+            <div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.04em;margin-bottom:8px">DOCUMENTS REQUESTED</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:{{ docRequestColor }}">{{ docRequestLabel }}</div>
+            <div style="font-size:12.5px;color:rgba(20,22,27,.5);margin-top:3px">{{ docRequestSub }}</div>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:20px">
+            <div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.04em;margin-bottom:8px">CURRENT PLAN</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600">Growth</div>
+            <div style="font-size:12.5px;color:rgba(20,22,27,.5);margin-top:3px">£485/month + VAT</div>
+          </div>
+        </div>
+
+        <sc-if value="{{ hasOpenRequests }}">
+        <div style="background:#FBF0DE;border:1px solid rgba(184,121,26,.25);border-radius:11px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:18px">
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#8A5A10;margin-bottom:3px">Tom needs one more document from you</div>
+            <div style="font-size:13px;color:#8A5A10;line-height:1.5">{{ openRequestText }}</div>
+          </div>
+          <button onClick="{{ goDocuments }}" style="flex:none;padding:11px 20px;background:#14161B;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Upload now</button>
+        </div>
+        </sc-if>
+
+        <div style="{{ gridDashboardMain }}">
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:22px">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px">Upcoming filings</div>
+              <button onClick="{{ goDeadlines }}" style="background:none;border:none;font-size:12.5px;font-weight:600;color:#C1391F;cursor:pointer;padding:0">View all →</button>
+            </div>
+            <sc-for list="{{ upcomingDeadlines }}" as="d" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div style="width:42px;text-align:center;flex:none">
+                <div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;line-height:1.1">{{ d.day }}</div>
+                <div style="font-size:10px;color:rgba(20,22,27,.45);font-weight:600;letter-spacing:.04em">{{ d.month }}</div>
+              </div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:13.5px;font-weight:600">{{ d.type }}</div>
+                <div style="font-size:11.5px;color:rgba(20,22,27,.5);margin-top:1px">{{ d.period }}</div>
+              </div>
+              <span style="background:{{ d.statusBg }};color:{{ d.statusColor }};font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:9px;flex:none">{{ d.statusLabel }}</span>
+            </div>
+            </sc-for>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:22px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:16px">Recent activity</div>
+            <sc-for list="{{ activityFeed }}" as="a" hint-placeholder-count="5">
+            <div style="display:flex;gap:12px;padding:10px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div style="width:7px;height:7px;border-radius:50%;background:{{ a.dot }};margin-top:6px;flex:none"></div>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:13px;color:rgba(20,22,27,.78);line-height:1.5">{{ a.text }}</div>
+                <div style="font-size:11px;color:rgba(20,22,27,.42);margin-top:2px">{{ a.time }}</div>
+              </div>
+            </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isDocuments }}">
+        <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:22px;margin-bottom:16px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px">Upload documents</div>
+            <select value="{{ uploadCategory }}" onChange="{{ setUploadCategory }}" style="border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:8px 12px;font-size:12.5px;background:#fff">
+              <sc-for list="{{ uploadCategories }}" as="c" hint-placeholder-count="5"><option value="{{ c }}">{{ c }}</option></sc-for>
+            </select>
+          </div>
+          <div style="{{ dropZoneStyle }}" onDragOver="{{ onDragOver }}" onDragLeave="{{ onDragLeave }}" onDrop="{{ onDrop }}">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3E5C76" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 8l5-5 5 5"></path><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path></svg>
+            <div style="font-size:13.5px;color:rgba(20,22,27,.6);margin:12px 0 4px">Drag files here to upload as <strong>{{ uploadCategory }}</strong></div>
+            <div style="font-size:12px;color:rgba(20,22,27,.42);margin-bottom:14px">PDF, JPG, PNG or CSV · up to 20MB each</div>
+            <button onClick="{{ simulateUpload }}" style="padding:10px 20px;background:#14161B;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer">Choose file</button>
+          </div>
+        </div>
+
+        <sc-if value="{{ hasOpenRequests }}">
+        <div style="background:#fff;border:1px solid rgba(184,121,26,.3);border-radius:11px;overflow:hidden;margin-bottom:16px">
+          <div style="background:#FBF0DE;padding:12px 20px;font-size:12.5px;font-weight:600;color:#8A5A10">Requested by your accountant</div>
+          <sc-for list="{{ openRequests }}" as="r" hint-placeholder-count="1">
+          <div style="display:flex;align-items:center;gap:16px;padding:14px 20px;border-top:1px solid rgba(20,22,27,.07)">
+            <div style="flex:1">
+              <div style="font-size:13.5px;font-weight:600">{{ r.label }}</div>
+              <div style="font-size:12px;color:rgba(20,22,27,.5);margin-top:2px">Requested {{ r.requestedAt }} · {{ r.note }}</div>
+            </div>
+            <button onClick="{{ r.onUpload }}" style="padding:8px 16px;background:#C1391F;color:#fff;border:none;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer">Upload</button>
+          </div>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;overflow:hidden">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(20,22,27,.08)">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px">Upload history</div>
+            <select value="{{ docFilter }}" onChange="{{ setDocFilter }}" style="border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:7px 11px;font-size:12px;background:#fff">
+              <option value="all">All categories</option><option value="Receipt">Receipts</option><option value="Invoice">Invoices</option><option value="Bank statement">Bank statements</option><option value="Payroll">Payroll</option><option value="Other">Other</option>
+            </select>
+          </div>
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <thead><tr style="background:#F8F7F4">
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">FILE</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">CATEGORY</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">UPLOADED</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">SIZE</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">STATUS</th>
+            </tr></thead>
+            <tbody>
+            <sc-for list="{{ filteredDocs }}" as="d" hint-placeholder-count="6">
+            <tr style="border-top:1px solid rgba(20,22,27,.07)">
+              <td style="padding:12px 20px;font-weight:600">{{ d.filename }}</td>
+              <td style="padding:12px 20px;color:rgba(20,22,27,.6)">{{ d.category }}</td>
+              <td style="padding:12px 20px;color:rgba(20,22,27,.55);font-family:'IBM Plex Mono',monospace;font-size:12px">{{ d.uploadedAt }}</td>
+              <td style="padding:12px 20px;color:rgba(20,22,27,.45);font-family:'IBM Plex Mono',monospace;font-size:12px">{{ d.size }}</td>
+              <td style="padding:12px 20px"><span style="background:{{ d.statusBg }};color:{{ d.statusColor }};font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:9px">{{ d.status }}</span></td>
+            </tr>
+            </sc-for>
+            </tbody>
+          </table>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isDeadlines }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+          <div style="display:flex;gap:14px">
+            <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:14px 20px"><div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600">UPCOMING</div><div style="font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600">{{ countUpcoming }}</div></div>
+            <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:14px 20px"><div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600">FILED THIS YEAR</div><div style="font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600;color:#2F7A4D">{{ countFiled }}</div></div>
+            <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:14px 20px"><div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600">OVERDUE</div><div style="font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600">{{ countOverdue }}</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:12.5px;color:rgba(20,22,27,.55)">Remind me by</span>
+            <select value="{{ reminderPref }}" onChange="{{ setReminderPref }}" style="border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:8px 12px;font-size:12.5px;background:#fff">
+              <option value="Email">Email</option><option value="SMS">SMS</option><option value="Email and SMS">Email and SMS</option><option value="Off">Don't remind me</option>
+            </select>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;overflow:hidden">
+          <sc-if value="{{ isDesktopChrome }}">
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <thead><tr style="background:#F8F7F4">
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">FILING</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">PERIOD</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">DUE DATE</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">HANDLED BY</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">STATUS</th>
+            </tr></thead>
+            <tbody>
+            <sc-for list="{{ allDeadlines }}" as="d" hint-placeholder-count="6">
+            <tr style="border-top:1px solid rgba(20,22,27,.07)">
+              <td style="padding:13px 20px;font-weight:600">{{ d.type }}</td>
+              <td style="padding:13px 20px;color:rgba(20,22,27,.6)">{{ d.period }}</td>
+              <td style="padding:13px 20px;font-family:'IBM Plex Mono',monospace;font-size:12.5px">{{ d.due }}</td>
+              <td style="padding:13px 20px;color:rgba(20,22,27,.6)">{{ d.handledBy }}</td>
+              <td style="padding:13px 20px"><span style="background:{{ d.statusBg }};color:{{ d.statusColor }};font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:9px">{{ d.statusLabel }}</span></td>
+            </tr>
+            </sc-for>
+            </tbody>
+          </table>
+          </sc-if>
+          <sc-if value="{{ isMobile }}">
+          <sc-for list="{{ allDeadlines }}" as="d" hint-placeholder-count="6">
+          <div style="padding:13px 16px;border-top:1px solid rgba(20,22,27,.07)">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:5px">
+              <div style="font-size:13.5px;font-weight:600">{{ d.type }}</div>
+              <span style="background:{{ d.statusBg }};color:{{ d.statusColor }};font-size:10px;font-weight:600;padding:3px 8px;border-radius:9px;flex:none">{{ d.statusLabel }}</span>
+            </div>
+            <div style="font-size:12px;color:rgba(20,22,27,.5)">{{ d.period }} · due {{ d.due }} · {{ d.handledBy }}</div>
+          </div>
+          </sc-for>
+          </sc-if>
+        </div>
+        <div style="margin-top:14px;font-size:12.5px;color:rgba(20,22,27,.5);line-height:1.6">We file everything listed here on your behalf. You'll get a reminder before each deadline, and confirmation once it's submitted.</div>
+        </sc-if>
+
+        <sc-if value="{{ isStatements }}">
+        <div style="{{ gridStatements }}">
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:22px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:4px">Monthly reports</div>
+            <div style="font-size:12px;color:rgba(20,22,27,.5);margin-bottom:12px">Profit &amp; loss, balance sheet and cash position.</div>
+            <sc-for list="{{ monthlyReports }}" as="r" hint-placeholder-count="4">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div>
+                <div style="font-size:13px;font-weight:600">{{ r.label }}</div>
+                <div style="font-size:11px;color:rgba(20,22,27,.42);margin-top:1px">{{ r.meta }}</div>
+              </div>
+              <button onClick="{{ r.onDownload }}" style="padding:5px 12px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer">PDF</button>
+            </div>
+            </sc-for>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:22px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:4px">Year-end accounts</div>
+            <div style="font-size:12px;color:rgba(20,22,27,.5);margin-bottom:12px">As filed with Companies House.</div>
+            <sc-for list="{{ yearEndDocs }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div>
+                <div style="font-size:13px;font-weight:600">{{ r.label }}</div>
+                <div style="font-size:11px;color:rgba(20,22,27,.42);margin-top:1px">{{ r.meta }}</div>
+              </div>
+              <button onClick="{{ r.onDownload }}" style="padding:5px 12px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer">PDF</button>
+            </div>
+            </sc-for>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:22px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:4px">Tax computations</div>
+            <div style="font-size:12px;color:rgba(20,22,27,.5);margin-bottom:12px">Corporation tax and director returns.</div>
+            <sc-for list="{{ taxDocs }}" as="r" hint-placeholder-count="3">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div>
+                <div style="font-size:13px;font-weight:600">{{ r.label }}</div>
+                <div style="font-size:11px;color:rgba(20,22,27,.42);margin-top:1px">{{ r.meta }}</div>
+              </div>
+              <button onClick="{{ r.onDownload }}" style="padding:5px 12px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer">PDF</button>
+            </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isMessages }}">
+        <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;display:flex;flex-direction:column;height:600px;overflow:hidden">
+          <div style="flex:none;padding:18px 24px;border-bottom:1px solid rgba(20,22,27,.08);display:flex;align-items:center;gap:12px">
+            <div style="width:38px;height:38px;border-radius:50%;background:#EAEFF3;color:#3E5C76;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:'Space Grotesk',sans-serif">TW</div>
+            <div style="flex:1">
+              <div style="font-size:14.5px;font-weight:600">Tom Whitfield</div>
+              <div style="font-size:11.5px;color:rgba(20,22,27,.5)">Senior Accountant · usually replies within a few hours</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:rgba(20,22,27,.45)">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+              End-to-end encrypted
+            </div>
+          </div>
+          <div style="flex:1;overflow-y:auto;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+            <sc-for list="{{ messages }}" as="m" hint-placeholder-count="4">
+            <div style="{{ m.wrapStyle }}">
+              <div style="{{ m.bubbleStyle }}">{{ m.text }}</div>
+              <div style="{{ m.metaStyle }}">{{ m.from }} · {{ m.time }}</div>
+            </div>
+            </sc-for>
+            <sc-if value="{{ typing }}">
+            <div style="font-size:12px;color:rgba(20,22,27,.42);font-style:italic">Tom is typing…</div>
+            </sc-if>
+          </div>
+          <div style="flex:none;padding:16px 24px;border-top:1px solid rgba(20,22,27,.08)">
+            <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap">
+              <sc-for list="{{ quickReplies }}" as="q" hint-placeholder-count="3">
+              <button onClick="{{ q.onClick }}" style="padding:6px 12px;border:1px dashed rgba(20,22,27,.22);background:#fff;border-radius:7px;font-size:11.5px;color:rgba(20,22,27,.55);cursor:pointer">{{ q.text }}</button>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:10px">
+              <input placeholder="Write a message…" value="{{ replyText }}" onChange="{{ onReplyChange }}" style="flex:1;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 15px;font-size:13.5px;outline:none"></input>
+              <button onClick="{{ sendMessage }}" disabled="{{ sendDisabled }}" style="{{ sendBtnStyle }}">Send</button>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isInvoices }}">
+        <div style="display:flex;gap:14px;margin-bottom:16px">
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:16px 22px"><div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600">OUTSTANDING</div><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">{{ outstandingLabel }}</div></div>
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:16px 22px"><div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600">PAID THIS YEAR</div><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600">{{ paidLabel }}</div></div>
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:16px 22px;flex:1;display:flex;align-items:center;justify-content:space-between">
+            <div><div style="font-size:11px;color:rgba(20,22,27,.5);font-weight:600">PAYMENT METHOD</div><div style="font-size:14px;font-weight:600;margin-top:4px">Direct Debit · ending 4471</div></div>
+            <button onClick="{{ manageMandate }}" style="padding:9px 16px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer">Manage mandate</button>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;overflow:hidden">
+          <sc-if value="{{ isDesktopChrome }}">
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <thead><tr style="background:#F8F7F4">
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">INVOICE</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">PERIOD</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">ISSUED</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">AMOUNT</th>
+              <th style="text-align:left;padding:11px 20px;font-size:10.5px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">STATUS</th>
+              <th style="padding:11px 20px"></th>
+            </tr></thead>
+            <tbody>
+            <sc-for list="{{ invoices }}" as="i" hint-placeholder-count="6">
+            <tr style="border-top:1px solid rgba(20,22,27,.07)">
+              <td style="padding:12px 20px;font-weight:600;font-family:'IBM Plex Mono',monospace">{{ i.id }}</td>
+              <td style="padding:12px 20px;color:rgba(20,22,27,.6)">{{ i.period }}</td>
+              <td style="padding:12px 20px;color:rgba(20,22,27,.55);font-family:'IBM Plex Mono',monospace;font-size:12px">{{ i.issued }}</td>
+              <td style="padding:12px 20px;font-family:'IBM Plex Mono',monospace;font-weight:600">{{ i.amountLabel }}</td>
+              <td style="padding:12px 20px"><span style="background:{{ i.statusBg }};color:{{ i.statusColor }};font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:9px">{{ i.status }}</span></td>
+              <td style="padding:12px 20px;text-align:right"><button onClick="{{ i.onDownload }}" style="padding:5px 12px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer">Download</button></td>
+            </tr>
+            </sc-for>
+            </tbody>
+          </table>
+          </sc-if>
+          <sc-if value="{{ isMobile }}">
+          <sc-for list="{{ invoices }}" as="i" hint-placeholder-count="6">
+          <div style="padding:13px 16px;border-top:1px solid rgba(20,22,27,.07)">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:5px">
+              <div style="font-size:13.5px;font-weight:600;font-family:'IBM Plex Mono',monospace">{{ i.id }}</div>
+              <span style="background:{{ i.statusBg }};color:{{ i.statusColor }};font-size:10px;font-weight:600;padding:3px 8px;border-radius:9px;flex:none">{{ i.status }}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div style="font-size:12px;color:rgba(20,22,27,.5)">{{ i.period }} · {{ i.issued }}</div>
+              <div style="font-size:13.5px;font-weight:600;font-family:'IBM Plex Mono',monospace">{{ i.amountLabel }}</div>
+            </div>
+            <button onClick="{{ i.onDownload }}" style="margin-top:8px;padding:6px 12px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:6px;font-size:11.5px;font-weight:600;cursor:pointer">Download</button>
+          </div>
+          </sc-for>
+          </sc-if>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isProfile }}">
+        <div style="{{ gridProfile }}">
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:24px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:16px">Company details</div>
+            <div style="display:flex;flex-direction:column;font-size:13px">
+              <div style="display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(20,22,27,.07)"><span style="color:rgba(20,22,27,.5)">Company</span><span style="font-weight:600">Marlowe &amp; Finch Interiors Ltd</span></div>
+              <div style="display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(20,22,27,.07)"><span style="color:rgba(20,22,27,.5)">Company number</span><span style="font-family:'IBM Plex Mono',monospace">12093981</span></div>
+              <div style="display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(20,22,27,.07)"><span style="color:rgba(20,22,27,.5)">VAT number</span><span style="font-family:'IBM Plex Mono',monospace">GB 356 7790 41</span></div>
+              <div style="display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(20,22,27,.07);gap:20px"><span style="color:rgba(20,22,27,.5)">Registered address</span><span style="text-align:right">14 Foundry Lane<br>London N1 6DA</span></div>
+              <div style="display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(20,22,27,.07)"><span style="color:rgba(20,22,27,.5)">Year end</span><span style="font-weight:600">31 March</span></div>
+            </div>
+            <button onClick="{{ requestDetailChange }}" style="margin-top:16px;padding:9px 16px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer">Request a change</button>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:24px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:16px">Contact &amp; login</div>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div><div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:5px">CONTACT NAME</div><input value="{{ profileName }}" onChange="{{ onProfileNameChange }}" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:10px 13px;font-size:13.5px;outline:none"></input></div>
+              <div><div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:5px">EMAIL</div><input value="{{ profileEmail }}" onChange="{{ onProfileEmailChange }}" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:10px 13px;font-size:13.5px;outline:none"></input></div>
+              <div><div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:5px">PHONE</div><input value="{{ profilePhone }}" onChange="{{ onProfilePhoneChange }}" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:10px 13px;font-size:13.5px;outline:none"></input></div>
+              <button onClick="{{ saveProfile }}" style="{{ saveProfileStyle }}">{{ saveProfileLabel }}</button>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:24px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:6px">Security</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div><div style="font-size:13.5px;font-weight:600">Two-factor authentication</div><div style="font-size:11.5px;color:rgba(20,22,27,.5);margin-top:2px">Required on all client accounts</div></div>
+              <span style="background:#E7F3EC;color:#2F7A4D;font-size:11px;font-weight:600;padding:5px 11px;border-radius:9px">Enabled</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div><div style="font-size:13.5px;font-weight:600">Password</div><div style="font-size:11.5px;color:rgba(20,22,27,.5);margin-top:2px">Last changed 3 months ago</div></div>
+              <button onClick="{{ changePassword }}" style="padding:7px 14px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer">Change</button>
+            </div>
+            <div style="padding:14px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+                <div><div style="font-size:13.5px;font-weight:600">Biometric unlock</div><div style="font-size:11.5px;color:rgba(20,22,27,.5);margin-top:2px">{{ profileBiometricStatus }}</div></div>
+                <span style="{{ profileBiometricBadgeStyle }}">{{ profileBiometricBadgeLabel }}</span>
+              </div>
+              <div style="display:flex;gap:6px">
+                <sc-for list="{{ profileBiometricOptions }}" as="b" hint-placeholder-count="3">
+                <button onClick="{{ b.onClick }}" style="{{ b.style }}">{{ b.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div style="padding-top:14px;border-top:1px solid rgba(20,22,27,.07)">
+              <div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:10px">RECENT LOGINS</div>
+              <sc-for list="{{ loginHistory }}" as="l" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:12.5px">
+                <span style="color:rgba(20,22,27,.65)">{{ l.device }}</span>
+                <span style="color:rgba(20,22,27,.42);font-family:'IBM Plex Mono',monospace;font-size:11.5px">{{ l.time }}</span>
+              </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:24px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:6px">Notifications</div>
+            <sc-for list="{{ notifPrefs }}" as="n" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div><div style="font-size:13.5px;font-weight:600">{{ n.label }}</div><div style="font-size:11.5px;color:rgba(20,22,27,.5);margin-top:2px">{{ n.desc }}</div></div>
+              <button onClick="{{ n.onToggle }}" style="{{ n.toggleStyle }}"><div style="width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:2px;left:{{ n.knobLeft }}"></div></button>
+            </div>
+            </sc-for>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(20,22,27,.07)">
+              <div style="display:flex;align-items:center;gap:9px">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="#2F7A4D"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2z" opacity="0"></path><path fill="#2F7A4D" d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.2-.6.9-.8 1-.1.2-.3.2-.5.1-1.7-.7-2.8-2.4-2.9-2.5-.1-.2 0-.4.1-.5.2-.2.4-.5.6-.7.1-.2.1-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1 0 1.3 1 2.5 1.1 2.7.1.2 1.6 2.6 4 3.5.6.2 1.1.4 1.5.5.6.2 1.2.1 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2 0-.1-.2-.2-.4-.3z"></path><path fill="#2F7A4D" d="M12 3.2c-4.9 0-8.8 4-8.8 8.8 0 1.7.5 3.4 1.4 4.8L3.2 21l4.4-1.4c1.3.8 2.9 1.2 4.4 1.2 4.9 0 8.8-4 8.8-8.8s-3.9-8.8-8.8-8.8zm0 16.1c-1.4 0-2.7-.4-3.9-1.1l-.3-.2-3 1 1-2.9-.2-.3c-.8-1.2-1.2-2.6-1.2-4.1 0-4.1 3.4-7.4 7.5-7.4s7.5 3.3 7.5 7.4-3.3 7.6-7.4 7.6z"></path></svg>
+                <div><div style="font-size:13.5px;font-weight:600">WhatsApp</div><div style="font-size:11.5px;color:rgba(20,22,27,.5)">Deadline and document alerts by WhatsApp</div></div>
+              </div>
+              <button onClick="{{ toggleWhatsapp }}" style="{{ whatsappToggleStyle }}"><div style="width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:2px;left:{{ whatsappKnobLeft }}"></div></button>
+            </div>
+            <sc-if value="{{ whatsappEnabled }}">
+            <div style="margin-top:4px;padding:12px;background:#F8F7F4;border-radius:8px">
+              <div style="font-size:10.5px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:6px">WHATSAPP NUMBER</div>
+              <div style="display:flex;gap:8px">
+                <input value="{{ whatsappNumber }}" onChange="{{ onWhatsappNumberChange }}" style="flex:1;border:1px solid rgba(20,22,27,.14);border-radius:7px;padding:8px 11px;font-size:12.5px;outline:none;font-family:'IBM Plex Mono',monospace"></input>
+                <button onClick="{{ saveWhatsappNumber }}" style="padding:8px 14px;border:none;background:#14161B;color:#fff;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer">{{ whatsappSaveLabel }}</button>
+              </div>
+              <div style="font-size:11px;color:rgba(20,22,27,.42);margin-top:7px;line-height:1.5">We'll send a one-time WhatsApp message to verify this number.</div>
+            </div>
+            </sc-if>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:24px;grid-column:1/3">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14.5px;margin-bottom:5px">Your data</div>
+            <div style="font-size:12.5px;color:rgba(20,22,27,.55);margin-bottom:16px;line-height:1.6;max-width:640px">Under UK GDPR you can request a copy of everything we hold about you, or ask us to erase it. Statutory records we're legally required to retain are kept for the required period and then deleted.</div>
+            <div style="display:flex;gap:10px">
+              <button onClick="{{ requestDataExport }}" style="padding:9px 16px;border:1px solid rgba(20,22,27,.15);background:#fff;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer">Request my data</button>
+              <button onClick="{{ requestErasure }}" style="padding:9px 16px;border:1px solid rgba(178,59,46,.3);background:#fff;color:#B23B2E;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer">Request erasure</button>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ isSupport }}">
+        <div style="{{ gridSupport }}">
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;overflow:hidden">
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(20,22,27,.08)">
+              <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px">Your tickets</div>
+              <select value="{{ ticketFilter }}" onChange="{{ setTicketFilter }}" style="border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:7px 11px;font-size:12px;background:#fff">
+                <option value="all">All tickets</option><option value="Open">Open</option><option value="In progress">In progress</option><option value="Resolved">Resolved</option>
+              </select>
+            </div>
+            <sc-for list="{{ filteredTickets }}" as="t" hint-placeholder-count="4">
+            <div style="padding:15px 20px;border-top:1px solid rgba(20,22,27,.07)">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px">
+                <div style="display:flex;align-items:center;gap:9px">
+                  <span style="{{ t.typeBadgeStyle }}">{{ t.type }}</span>
+                  <span style="font-size:13.5px;font-weight:600">{{ t.subject }}</span>
+                </div>
+                <span style="background:{{ t.statusBg }};color:{{ t.statusColor }};font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:9px;flex:none">{{ t.status }}</span>
+              </div>
+              <div style="font-size:12.5px;color:rgba(20,22,27,.58);line-height:1.5;margin-bottom:6px">{{ t.description }}</div>
+              <div style="font-size:11px;color:rgba(20,22,27,.42)">{{ t.id }} · opened {{ t.opened }} · {{ t.updates }} update(s)</div>
+            </div>
+            </sc-for>
+            <sc-if value="{{ noTickets }}">
+            <div style="padding:40px 20px;text-align:center;font-size:13px;color:rgba(20,22,27,.45)">No tickets in this category.</div>
+            </sc-if>
+          </div>
+
+          <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:11px;padding:22px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:14px;margin-bottom:14px">Raise a ticket</div>
+            <div style="display:flex;flex-direction:column;gap:11px">
+              <div>
+                <div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:5px">TYPE</div>
+                <div style="display:flex;gap:6px">
+                  <sc-for list="{{ ticketTypeOptions }}" as="o" hint-placeholder-count="2">
+                  <button onClick="{{ o.onSelect }}" style="{{ o.style }}">{{ o.label }}</button>
+                  </sc-for>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:5px">SUBJECT</div>
+                <input value="{{ newTicketSubject }}" onChange="{{ onNewTicketSubjectChange }}" placeholder="{{ subjectPlaceholder }}" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:10px 12px;font-size:13px;outline:none"></input>
+              </div>
+              <div>
+                <div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.5);margin-bottom:5px">DESCRIPTION</div>
+                <textarea value="{{ newTicketDescription }}" onChange="{{ onNewTicketDescriptionChange }}" placeholder="{{ descPlaceholder }}" rows="5" style="width:100%;border:1px solid rgba(20,22,27,.14);border-radius:8px;padding:10px 12px;font-size:13px;outline:none;resize:vertical;font-family:'IBM Plex Sans',sans-serif"></textarea>
+              </div>
+              <button onClick="{{ submitTicket }}" disabled="{{ submitTicketDisabled }}" style="{{ submitTicketStyle }}">Submit ticket</button>
+              <sc-if value="{{ ticketSubmitted }}">
+              <div style="background:#E7F3EC;color:#2F7A4D;border-radius:8px;padding:11px 13px;font-size:12.5px;line-height:1.5">Ticket raised — we'll respond within one business day.</div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+      </div>
+    </div>
+
+    <sc-if value="{{ isMobile }}">
+    <div style="position:fixed;bottom:0;left:0;right:0;height:64px;background:#fff;border-top:1px solid rgba(20,22,27,.1);display:flex;align-items:stretch;z-index:55;box-shadow:0 -6px 20px rgba(0,0,0,.05)">
+      <sc-for list="{{ mobileTabs }}" as="t" hint-placeholder-count="5">
+      <button onClick="{{ t.onClick }}" style="{{ t.style }}">
+        <div style="position:relative">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">{{ t.icon }}</svg>
+          <sc-if value="{{ t.badge }}"><span style="position:absolute;top:-4px;right:-7px;background:#C1391F;color:#fff;font-size:9px;font-weight:700;border-radius:8px;padding:1px 4px;line-height:1.3">{{ t.badge }}</span></sc-if>
+        </div>
+        <span style="font-size:10.5px;font-weight:600;margin-top:3px">{{ t.label }}</span>
+      </button>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ moreSheetOpen }}">
+    <div onClick="{{ toggleMoreSheet }}" style="position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:64"></div>
+    <div style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-radius:18px 18px 0 0;z-index:65;padding:10px 16px 26px;box-shadow:0 -10px 30px rgba(0,0,0,.2)">
+      <div style="width:36px;height:4px;background:rgba(20,22,27,.15);border-radius:3px;margin:4px auto 16px"></div>
+      <sc-for list="{{ moreSheetItems }}" as="m" hint-placeholder-count="5">
+      <button onClick="{{ m.onClick }}" style="width:100%;display:flex;align-items:center;gap:14px;padding:14px 6px;border:none;background:none;text-align:left;font-size:14.5px;font-weight:600;color:#14161B;cursor:pointer;border-bottom:1px solid rgba(20,22,27,.06)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#40434C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{{ m.icon }}</svg>
+        {{ m.label }}
+        <sc-if value="{{ m.badge }}"><span style="margin-left:auto;background:#FBEAE6;color:#C1391F;font-size:11px;font-weight:700;border-radius:9px;padding:2px 8px">{{ m.badge }}</span></sc-if>
+      </button>
+      </sc-for>
+      <button onClick="{{ signOut }}" style="width:100%;display:flex;align-items:center;gap:14px;padding:14px 6px;border:none;background:none;text-align:left;font-size:14.5px;font-weight:600;color:#B23B2E;cursor:pointer;margin-top:6px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B23B2E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        Sign out
+      </button>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ chatOpen }}">
+    <div style="{{ chatPanelStyle }}">
+      <div style="flex:none;background:#14161B;color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-size:13.5px;font-weight:600">Live chat</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.55)">Support team · online now</div>
+        </div>
+        <button onClick="{{ toggleChat }}" style="background:none;border:none;color:#fff;font-size:16px;cursor:pointer;opacity:.75;padding:0;line-height:1">✕</button>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ chatMessages }}" as="m" hint-placeholder-count="2">
+        <div style="{{ m.wrapStyle }}">
+          <div style="{{ m.bubbleStyle }}">{{ m.text }}</div>
+          <div style="font-size:10px;color:rgba(20,22,27,.4);margin-top:3px">{{ m.time }}</div>
+        </div>
+        </sc-for>
+        <sc-if value="{{ chatTyping }}">
+        <div style="font-size:11.5px;color:rgba(20,22,27,.45);font-style:italic">Support is typing…</div>
+        </sc-if>
+      </div>
+      <div style="flex:none;padding:10px;border-top:1px solid rgba(20,22,27,.09);display:flex;gap:8px">
+        <input value="{{ chatInput }}" onChange="{{ onChatInputChange }}" placeholder="Type a message…" style="flex:1;border:1px solid rgba(20,22,27,.15);border-radius:20px;padding:9px 14px;font-size:12.5px;outline:none"></input>
+        <button onClick="{{ sendChat }}" style="background:#C1391F;color:#fff;border:none;border-radius:20px;padding:9px 16px;font-size:12.5px;font-weight:600;cursor:pointer">Send</button>
+      </div>
+    </div>
+    </sc-if>
+    <sc-if value="{{ chatClosed }}">
+    <button onClick="{{ toggleChat }}" style="{{ chatFabStyle }}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"></path></svg>
+    </button>
+    </sc-if>
+
+    <sc-if value="{{ toast }}">
+    <div style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#14161B;color:#fff;padding:12px 20px;border-radius:9px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:70">{{ toast }}</div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    authed: false, loginStep: 'creds', loginEmail: '', loginPassword: '', rememberDevice: true,
+    twoFaCode: '', loginError: null, biometricKind: 'face', biometricPrompting: false,
+    regStep: 1, regName: '', regEmail: '', regClientRef: '', regPassword: '', regPasswordConfirm: '', regTwoFaCode: '',
+
+    module: 'dashboard', toast: null,
+
+    uploadCategory: 'Receipt', docFilter: 'all', dragging: false,
+    docs: [
+      {id:'d1',filename:'Receipts_July_2026.pdf',category:'Receipt',uploadedAt:'24 Jul 2026',size:'2.4 MB',status:'Processed'},
+      {id:'d2',filename:'Sales_Invoices_Q1.pdf',category:'Invoice',uploadedAt:'18 Jul 2026',size:'1.1 MB',status:'Processed'},
+      {id:'d3',filename:'Bank_Statement_May.pdf',category:'Bank statement',uploadedAt:'2 Jun 2026',size:'840 KB',status:'Filed'},
+      {id:'d4',filename:'Payroll_Summary_June.csv',category:'Payroll',uploadedAt:'28 Jun 2026',size:'62 KB',status:'Processed'},
+      {id:'d5',filename:'Supplier_Invoice_Timber.pdf',category:'Invoice',uploadedAt:'21 Jun 2026',size:'510 KB',status:'Filed'},
+      {id:'d6',filename:'Mileage_Log_Q1.csv',category:'Other',uploadedAt:'14 Jun 2026',size:'28 KB',status:'Processed'},
+      {id:'d7',filename:'Receipts_May_2026.pdf',category:'Receipt',uploadedAt:'3 Jun 2026',size:'3.1 MB',status:'Filed'}
+    ],
+    requests: [
+      {id:'r1',label:'June bank statement',requestedAt:'6 Aug 2026',note:'Needed to complete your VAT return',category:'Bank statement'}
+    ],
+
+    reminderPref: 'Email',
+
+    messages: [
+      {from:'Tom Whitfield',text:'Hi Sam — your July receipts came through, thanks. The VAT return draft will be ready by Friday.',time:'24 Jul, 3:12pm',mine:false},
+      {from:'You',text:'Perfect, thank you. Can you also flag the June bank statement? I think I missed sending it.',time:'24 Jul, 3:40pm',mine:true},
+      {from:'Tom Whitfield',text:'Good catch — yes, still outstanding. Upload it whenever you get a chance and I\u2019ll finish the return.',time:'24 Jul, 3:52pm',mine:false},
+      {from:'Tom Whitfield',text:'One more thing: your confirmation statement is due in September. Nothing needed from you unless your registered address has changed.',time:'6 Aug, 9:15am',mine:false}
+    ],
+    replyText: '', typing: false,
+
+    profileName: 'Sam Marlowe', profileEmail: 'sam@marlowefinch.co.uk', profilePhone: '07700 900123', profileSaved: false,
+    profileBiometricEnabled: false, profileBiometricKind: null,
+    notifs: {deadlines:true, documents:true, invoices:false, newsletter:true},
+    whatsappEnabled: false, whatsappNumber: '+44 7700 900123',
+
+    ticketFilter: 'all', newTicketType: 'Question', newTicketSubject: '', newTicketDescription: '', ticketSubmitted: false,
+    tickets: [
+      {id:'TCK-2031', type:'Bug', subject:'PDF download fails on year-end accounts', description:'Clicking download on the 2025/26 accounts shows a spinner but never produces a file.', status:'In progress', opened:'8 Aug 2026', updates:2},
+      {id:'TCK-2019', type:'Question', subject:'Can I add a second admin user to the portal?', description:'My co-director would like access to upload documents too.', status:'Open', opened:'5 Aug 2026', updates:0},
+      {id:'TCK-1988', type:'Bug', subject:'Deadline countdown showed the wrong date', description:'The VAT deadline briefly showed 7 August instead of 7 September on the dashboard.', status:'Resolved', opened:'22 Jul 2026', updates:3}
+    ],
+
+    isMobile: false, moreSheetOpen: false,
+    chatOpen: false, chatInput: '', chatTyping: false,
+    chatMessages: [{from:'them',text:'Hi Sam, support here — let us know if you need a hand with anything.',time:'2:04pm',mine:false}]
+  };
+
+  money(n){ return '£' + n.toLocaleString('en-GB'); }
+
+  componentDidMount(){
+    this.checkMobile();
+    this._onResize = () => this.checkMobile();
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount(){ window.removeEventListener('resize', this._onResize); }
+  checkMobile(){ const m = window.innerWidth < 820; if(m !== this.state.isMobile) this.setState({isMobile:m}); }
+  toggleMoreSheet = () => this.setState(s=>({moreSheetOpen:!s.moreSheetOpen}));
+  goModuleMobile = (m) => { this.setState({module:m, moreSheetOpen:false}); };
+  flashToast(msg){ this.setState({toast:msg}); clearTimeout(this._t); this._t = setTimeout(()=>this.setState({toast:null}), 2600); }
+
+  onLoginEmailChange = (e) => this.setState({loginEmail:e.target.value, loginError:null});
+  onLoginPasswordChange = (e) => this.setState({loginPassword:e.target.value, loginError:null});
+  toggleRememberDevice = () => this.setState(s=>({rememberDevice:!s.rememberDevice}));
+  submitCredentials = () => {
+    if(!this.state.loginEmail.trim() || !this.state.loginPassword.trim()) return;
+    this.setState({loginStep:'twofa', loginError:null});
+  };
+  backToCredentials = () => this.setState({loginStep:'creds', twoFaCode:'', loginError:null});
+  onTwoFaCodeChange = (e) => this.setState({twoFaCode:e.target.value.replace(/\D/g,'').slice(0,6), loginError:null});
+  submitTwoFa = () => {
+    if(this.state.twoFaCode.length !== 6) return;
+    if(this.state.twoFaCode !== '204815'){ this.setState({loginError:'That code was not recognised. Check your authenticator app and try again.'}); return; }
+    this.setState({authed:true, loginError:null});
+  };
+  signOut = () => this.setState({authed:false, loginStep:'creds', loginEmail:'', loginPassword:'', twoFaCode:'', biometricPrompting:false, module:'dashboard'});
+
+  setBiometricKind = (k) => this.setState({biometricKind:k});
+  goRegister = () => this.setState({loginStep:'register', regStep:1, loginError:null});
+  onRegNameChange = (e) => this.setState({regName:e.target.value});
+  onRegEmailChange = (e) => this.setState({regEmail:e.target.value});
+  onRegClientRefChange = (e) => this.setState({regClientRef:e.target.value});
+  onRegPasswordChange = (e) => this.setState({regPassword:e.target.value});
+  onRegPasswordConfirmChange = (e) => this.setState({regPasswordConfirm:e.target.value});
+  onRegTwoFaCodeChange = (e) => this.setState({regTwoFaCode:e.target.value.replace(/\D/g,'').slice(0,6)});
+  regNext1 = () => this.setState({regStep:2});
+  regNext2 = () => this.setState({regStep:3});
+  completeRegistration = () => { if(this.state.regTwoFaCode.length!==6) return; this.setState({regStep:4}); };
+  enterPortal = () => this.setState({authed:true});
+
+  startBiometric = () => {
+    this.setState({biometricPrompting:true, loginError:null});
+    clearTimeout(this._bio);
+    this._bio = setTimeout(()=>{ this.setState({authed:true, biometricPrompting:false}); }, 1500);
+  };
+
+  goDashboard = () => this.setState({module:'dashboard'});
+  goDocuments = () => this.setState({module:'documents'});
+  goDeadlines = () => this.setState({module:'deadlines'});
+  goStatements = () => this.setState({module:'statements'});
+  goMessages = () => this.setState({module:'messages'});
+  goInvoices = () => this.setState({module:'invoices'});
+  goProfile = () => this.setState({module:'profile'});
+  goSupport = () => this.setState({module:'support'});
+
+  setTicketFilter = (e) => this.setState({ticketFilter:e.target.value});
+  setNewTicketType = (t) => this.setState({newTicketType:t, ticketSubmitted:false});
+  onNewTicketSubjectChange = (e) => this.setState({newTicketSubject:e.target.value, ticketSubmitted:false});
+  onNewTicketDescriptionChange = (e) => this.setState({newTicketDescription:e.target.value, ticketSubmitted:false});
+  submitTicket = () => {
+    const subj = this.state.newTicketSubject.trim(), desc = this.state.newTicketDescription.trim();
+    if(!subj || !desc) return;
+    const id = 'TCK-'+(2000+Math.floor(Math.random()*90)+40);
+    this.setState(s=>({
+      tickets:[{id, type:s.newTicketType, subject:subj, description:desc, status:'Open', opened:'11 Aug 2026', updates:0}, ...s.tickets],
+      newTicketSubject:'', newTicketDescription:'', ticketSubmitted:true
+    }));
+    this.flashToast('Ticket '+id+' submitted');
+  };
+
+  setUploadCategory = (e) => this.setState({uploadCategory:e.target.value});
+  setDocFilter = (e) => this.setState({docFilter:e.target.value});
+  onDragOver = (e) => { e.preventDefault(); if(!this.state.dragging) this.setState({dragging:true}); };
+  onDragLeave = () => this.setState({dragging:false});
+  onDrop = (e) => { e.preventDefault(); this.setState({dragging:false}); this.addUpload(this.state.uploadCategory); };
+  simulateUpload = () => this.addUpload(this.state.uploadCategory);
+  addUpload = (category, label) => {
+    const names = {'Receipt':'Receipts_August_2026.pdf','Invoice':'Sales_Invoices_August.pdf','Bank statement':'Bank_Statement_June.pdf','Payroll':'Payroll_Summary_July.csv','Other':'Supporting_Documents.pdf'};
+    const filename = label || names[category] || 'Uploaded_Document.pdf';
+    this.setState(s=>({
+      docs:[{id:'d'+Date.now(), filename, category, uploadedAt:'10 Aug 2026', size:'1.6 MB', status:'Received'}, ...s.docs],
+      requests: category==='Bank statement' ? s.requests.filter(r=>r.category!=='Bank statement') : s.requests
+    }));
+    this.flashToast('Uploaded ' + filename);
+  };
+  uploadForRequest = (req) => { this.setState({uploadCategory:req.category}); this.addUpload(req.category); };
+
+  setReminderPref = (e) => { this.setState({reminderPref:e.target.value}); this.flashToast('Reminder preference updated'); };
+
+  onReplyChange = (e) => this.setState({replyText:e.target.value});
+  setQuickReply = (text) => this.setState({replyText:text});
+  sendMessage = () => {
+    const text = this.state.replyText.trim(); if(!text) return;
+    this.setState(s=>({messages:[...s.messages,{from:'You',text,time:'Just now',mine:true}], replyText:'', typing:true}));
+    setTimeout(()=>{
+      this.setState(s=>({typing:false, messages:[...s.messages,{from:'Tom Whitfield',text:'Thanks Sam — got it. I\u2019ll come back to you shortly.',time:'Just now',mine:false}]}));
+    }, 1600);
+  };
+
+  onProfileNameChange = (e) => this.setState({profileName:e.target.value, profileSaved:false});
+  onProfileEmailChange = (e) => this.setState({profileEmail:e.target.value, profileSaved:false});
+  onProfilePhoneChange = (e) => this.setState({profilePhone:e.target.value, profileSaved:false});
+  saveProfile = () => { this.setState({profileSaved:true}); this.flashToast('Contact details saved'); };
+  toggleNotif = (key) => this.setState(s=>({notifs:{...s.notifs,[key]:!s.notifs[key]}}));
+  toggleWhatsapp = () => { this.setState(s=>({whatsappEnabled:!s.whatsappEnabled})); if(!this.state.whatsappEnabled) this.flashToast('WhatsApp notifications enabled'); };
+  onWhatsappNumberChange = (e) => this.setState({whatsappNumber:e.target.value, whatsappSaved:false});
+  saveWhatsappNumber = () => { this.setState({whatsappSaved:true}); this.flashToast('Verification code sent on WhatsApp'); };
+  changePassword = () => this.flashToast('Password reset link sent to your email');
+  registerProfileBiometric = (kind) => {
+    const labels = {face:'Face ID', fingerprint:'Fingerprint', windows:'Windows Hello'};
+    this.setState({profileBiometricEnabled:true, profileBiometricKind:kind});
+    this.flashToast(labels[kind]+' registered for this device');
+  };
+  requestDetailChange = () => this.flashToast('Change request sent to Tom Whitfield');
+  requestDataExport = () => this.flashToast('Data export requested — we will email a copy within 30 days');
+  requestErasure = () => this.flashToast('Erasure request submitted for review');
+  manageMandate = () => this.flashToast('Opening Direct Debit mandate…');
+  downloadItem = (label) => this.flashToast('Downloading ' + label);
+
+  toggleChat = () => this.setState(s=>({chatOpen:!s.chatOpen}));
+  onChatInputChange = (e) => this.setState({chatInput:e.target.value});
+  sendChat = () => {
+    const text = this.state.chatInput.trim(); if(!text) return;
+    this.setState(s=>({chatMessages:[...s.chatMessages,{from:'me',text,time:'Just now',mine:true}], chatInput:'', chatTyping:true}));
+    setTimeout(()=>{
+      this.setState(s=>({chatTyping:false, chatMessages:[...s.chatMessages,{from:'them',text:'Thanks — one moment while I check that for you.',time:'Just now',mine:false}]}));
+    }, 1500);
+  };
+
+  renderVals(){
+    const s = this.state;
+
+    const navKeys = ['dashboard','documents','deadlines','statements','messages','invoices','profile','support'];
+    const nb = {};
+    navKeys.forEach(k=>{
+      const active = s.module===k;
+      nb[k] = 'display:flex;align-items:center;gap:10px;width:100%;padding:10px;margin-bottom:2px;border:none;border-radius:8px;cursor:pointer;text-align:left;font-size:13px;font-family:\'IBM Plex Sans\',sans-serif;'
+        + (active ? 'background:#C1391F;color:#fff;font-weight:600;' : 'background:transparent;color:#40434C;font-weight:500;');
+    });
+
+    const titles = {dashboard:'Dashboard', documents:'Documents', deadlines:'Deadlines', statements:'Statements & Reports', messages:'Messages', invoices:'Invoices', profile:'Profile & Security', support:'Support & Tickets'};
+    const subtitles = {
+      dashboard:'Marlowe & Finch Interiors Ltd · Growth plan',
+      documents:'Upload records and see what we have received',
+      deadlines:'Every filing we handle on your behalf',
+      statements:'Download reports, accounts and computations',
+      messages:'Secure thread with your assigned accountant',
+      invoices:'Your monthly fee invoices and payment status',
+      profile:'Company details, login security and data rights',
+      support:'Report a bug or ask the support team a question'
+    };
+
+    const dlStatusBg = {upcoming:'#EAEFF3', due:'#FBF0DE', filed:'#E7F3EC', overdue:'#FBE9E6'};
+    const dlStatusColor = {upcoming:'#3E5C76', due:'#B8791A', filed:'#2F7A4D', overdue:'#B23B2E'};
+    const dlStatusLabel = {upcoming:'Upcoming', due:'Due soon', filed:'Filed', overdue:'Overdue'};
+    const deadlineData = [
+      {type:'VAT Return', period:'Q2 2026 (Apr–Jun)', due:'7 Sep 2026', day:'07', month:'SEP', status:'due', handledBy:'Tom Whitfield'},
+      {type:'PAYE / RTI', period:'August 2026', due:'22 Sep 2026', day:'22', month:'SEP', status:'upcoming', handledBy:'Aisha Khan'},
+      {type:'Confirmation Statement', period:'2026', due:'30 Sep 2026', day:'30', month:'SEP', status:'upcoming', handledBy:'Tom Whitfield'},
+      {type:'Corporation Tax', period:'YE 31 Mar 2026', due:'1 Jan 2027', day:'01', month:'JAN', status:'upcoming', handledBy:'Eleanor Marsh'},
+      {type:'Self Assessment', period:'2025/26', due:'31 Jan 2027', day:'31', month:'JAN', status:'upcoming', handledBy:'Tom Whitfield'},
+      {type:'Year-end Accounts', period:'YE 31 Mar 2026', due:'31 Dec 2026', day:'31', month:'DEC', status:'upcoming', handledBy:'Eleanor Marsh'},
+      {type:'VAT Return', period:'Q1 2026 (Jan–Mar)', due:'7 Jun 2026', day:'07', month:'JUN', status:'filed', handledBy:'Tom Whitfield'},
+      {type:'PAYE / RTI', period:'July 2026', due:'22 Aug 2026', day:'22', month:'AUG', status:'filed', handledBy:'Aisha Khan'}
+    ].map(d=>({...d, statusBg:dlStatusBg[d.status], statusColor:dlStatusColor[d.status], statusLabel:dlStatusLabel[d.status]}));
+    const upcomingDeadlines = deadlineData.filter(d=>d.status!=='filed').slice(0,4);
+    const countUpcoming = deadlineData.filter(d=>d.status==='upcoming'||d.status==='due').length;
+    const countFiled = deadlineData.filter(d=>d.status==='filed').length;
+    const countOverdue = deadlineData.filter(d=>d.status==='overdue').length;
+
+    const docStatusBg = {Received:'#FBF0DE', Processed:'#EAEFF3', Filed:'#E7F3EC'};
+    const docStatusColor = {Received:'#B8791A', Processed:'#3E5C76', Filed:'#2F7A4D'};
+    const filteredDocs = (s.docFilter==='all' ? s.docs : s.docs.filter(d=>d.category===s.docFilter))
+      .map(d=>({...d, statusBg:docStatusBg[d.status]||'#EEE', statusColor:docStatusColor[d.status]||'#666'}));
+    const openRequests = s.requests.map(r=>({...r, onUpload:()=>this.uploadForRequest(r)}));
+
+    const activityFeed = [
+      {text:'Tom Whitfield requested your June bank statement', time:'6 Aug 2026, 9:20am', dot:'#B8791A'},
+      {text:'PAYE for July filed with HMRC', time:'22 Jul 2026, 11:02am', dot:'#2F7A4D'},
+      {text:'You uploaded Receipts_July_2026.pdf', time:'24 Jul 2026, 3:05pm', dot:'#3E5C76'},
+      {text:'Invoice INV-1051 paid by Direct Debit', time:'15 Jul 2026, 6:00am', dot:'#2F7A4D'},
+      {text:'Q1 VAT return filed with HMRC', time:'4 Jun 2026, 2:41pm', dot:'#2F7A4D'}
+    ];
+
+    const monthlyReports = [
+      {label:'July 2026', meta:'P&L, balance sheet, cash'},
+      {label:'June 2026', meta:'P&L, balance sheet, cash'},
+      {label:'May 2026', meta:'P&L, balance sheet, cash'},
+      {label:'April 2026', meta:'P&L, balance sheet, cash'}
+    ].map(r=>({...r, onDownload:()=>this.downloadItem(r.label+' report')}));
+    const yearEndDocs = [
+      {label:'Year-end accounts 2025/26', meta:'Filed 12 Jul 2026'},
+      {label:'Year-end accounts 2024/25', meta:'Filed 28 Jun 2025'},
+      {label:'Year-end accounts 2023/24', meta:'Filed 3 Jul 2024'}
+    ].map(r=>({...r, onDownload:()=>this.downloadItem(r.label)}));
+    const taxDocs = [
+      {label:'Corporation tax 2025/26', meta:'£14,280 payable 1 Jan 2027'},
+      {label:'Self Assessment 2025/26', meta:'Draft — under review'},
+      {label:'Corporation tax 2024/25', meta:'Paid 2 Jan 2026'}
+    ].map(r=>({...r, onDownload:()=>this.downloadItem(r.label)}));
+
+    const messages = s.messages.map(m=>({
+      ...m,
+      wrapStyle: 'max-width:74%;'+(m.mine?'align-self:flex-end;margin-left:auto;text-align:right':'align-self:flex-start'),
+      bubbleStyle: m.mine
+        ? 'background:#14161B;color:#fff;padding:12px 15px;border-radius:12px 12px 2px 12px;font-size:13.5px;line-height:1.55;text-align:left'
+        : 'background:#F8F7F4;color:#14161B;padding:12px 15px;border-radius:12px 12px 12px 2px;font-size:13.5px;line-height:1.55',
+      metaStyle: 'font-size:11px;color:rgba(20,22,27,.42);margin-top:5px'
+    }));
+    const quickReplies = [
+      'Could you confirm what you still need from me?',
+      'When will the VAT return be filed?',
+      'I\u2019d like to book a review call.'
+    ].map(t=>({text:t, onClick:()=>this.setQuickReply(t)}));
+
+    const invStatusBg = {Paid:'#E7F3EC', Due:'#FBF0DE', Overdue:'#FBE9E6'};
+    const invStatusColor = {Paid:'#2F7A4D', Due:'#B8791A', Overdue:'#B23B2E'};
+    const invoiceData = [
+      {id:'INV-1063', period:'August 2026', issued:'1 Aug 2026', amount:485, status:'Due'},
+      {id:'INV-1051', period:'July 2026', issued:'1 Jul 2026', amount:485, status:'Paid'},
+      {id:'INV-1039', period:'June 2026', issued:'1 Jun 2026', amount:485, status:'Paid'},
+      {id:'INV-1027', period:'May 2026', issued:'1 May 2026', amount:485, status:'Paid'},
+      {id:'INV-1015', period:'April 2026', issued:'1 Apr 2026', amount:460, status:'Paid'},
+      {id:'INV-1003', period:'March 2026', issued:'1 Mar 2026', amount:460, status:'Paid'}
+    ];
+    const invoices = invoiceData.map(i=>({...i, amountLabel:this.money(i.amount), statusBg:invStatusBg[i.status], statusColor:invStatusColor[i.status], onDownload:()=>this.downloadItem(i.id)}));
+    const outstanding = invoiceData.filter(i=>i.status!=='Paid').reduce((a,b)=>a+b.amount,0);
+    const paid = invoiceData.filter(i=>i.status==='Paid').reduce((a,b)=>a+b.amount,0);
+
+    const notifMeta = {
+      deadlines:{label:'Deadline reminders', desc:'Before every filing is due'},
+      documents:{label:'Document requests', desc:'When we need something from you'},
+      invoices:{label:'Invoice notifications', desc:'When a new invoice is issued'},
+      newsletter:{label:'Monthly insights email', desc:'Tax and compliance updates'}
+    };
+    const notifPrefs = Object.keys(notifMeta).map(k=>({
+      key:k, label:notifMeta[k].label, desc:notifMeta[k].desc,
+      onToggle:()=>this.toggleNotif(k),
+      toggleStyle:'width:38px;height:22px;border-radius:11px;border:none;cursor:pointer;position:relative;padding:0;flex:none;background:'+(s.notifs[k]?'#2F7A4D':'#D8D5CC'),
+      knobLeft: s.notifs[k]?'18px':'2px'
+    }));
+
+    const loginHistory = [
+      {device:'Chrome · macOS · London', time:'10 Aug, 8:41am'},
+      {device:'Safari · iPhone · London', time:'6 Aug, 7:12pm'},
+      {device:'Chrome · macOS · London', time:'24 Jul, 3:02pm'}
+    ];
+
+    const codeBoxes = [0,1,2,3,4,5].map(i=>{
+      const char = s.twoFaCode[i] || '';
+      return { char: char || '·', style:'flex:1;height:52px;display:flex;align-items:center;justify-content:center;border-radius:9px;font-family:\'IBM Plex Mono\',monospace;font-size:20px;font-weight:600;'
+        + (char ? 'border:1.5px solid #C1391F;background:#FBEAE6;color:#14161B' : 'border:1.5px solid rgba(20,22,27,.12);background:#fff;color:rgba(20,22,27,.22)') };
+    });
+
+    const credsDisabled = !s.loginEmail.trim() || !s.loginPassword.trim();
+    const twoFaDisabled = s.twoFaCode.length !== 6;
+    const btn = (disabled) => 'width:100%;padding:14px;border:none;border-radius:9px;font-size:14px;font-weight:600;'+(disabled?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff;cursor:pointer');
+    const sendDisabled = !s.replyText.trim();
+
+    const chatMessages = s.chatMessages.map(m=>({
+      ...m,
+      wrapStyle: 'max-width:82%;'+(m.mine?'align-self:flex-end;margin-left:auto;text-align:right':'align-self:flex-start'),
+      bubbleStyle: m.mine
+        ? 'background:#C1391F;color:#fff;padding:9px 13px;border-radius:12px 12px 2px 12px;font-size:12.5px;line-height:1.45;text-align:left'
+        : 'background:#F0EEE8;color:#14161B;padding:9px 13px;border-radius:12px 12px 12px 2px;font-size:12.5px;line-height:1.45'
+    }));
+
+    return {
+      showLogin: !s.authed, showPortal: s.authed,
+      loginStepCreds: s.loginStep==='creds', loginStepTwoFa: s.loginStep==='twofa', loginStepRegister: s.loginStep==='register',
+      goRegister: this.goRegister,
+      regStepDots1: s.regStep===1, regStepDots2: s.regStep===2,
+      registerStepDots: [1,2,3].map(n=>({bg: n<=Math.min(s.regStep,3) ? '#C1391F' : 'rgba(20,22,27,.12)'})),
+      regStep1: s.regStep===1, regStep2: s.regStep===2, regStep3: s.regStep===3, regStep4: s.regStep===4,
+      regName: s.regName, onRegNameChange: this.onRegNameChange,
+      regEmail: s.regEmail, onRegEmailChange: this.onRegEmailChange,
+      regClientRef: s.regClientRef, onRegClientRefChange: this.onRegClientRefChange,
+      regStep1Disabled: !s.regName.trim() || !s.regEmail.trim() || !s.regClientRef.trim(),
+      regStep1BtnStyle: (()=>{ const d = !s.regName.trim()||!s.regEmail.trim()||!s.regClientRef.trim(); return 'width:100%;padding:14px;border:none;border-radius:9px;font-size:14px;font-weight:600;'+(d?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff;cursor:pointer'); })(),
+      regNext1: this.regNext1,
+      regPassword: s.regPassword, onRegPasswordChange: this.onRegPasswordChange,
+      regPasswordConfirm: s.regPasswordConfirm, onRegPasswordConfirmChange: this.onRegPasswordConfirmChange,
+      passwordRules: (()=>{
+        const len = s.regPassword.length>=12, mixed = /[a-z]/.test(s.regPassword) && /[A-Z]/.test(s.regPassword), num = /[0-9!@#$%^&*]/.test(s.regPassword), match = s.regPassword && s.regPassword===s.regPasswordConfirm;
+        return [
+          {label:'At least 12 characters', ok:len},
+          {label:'Upper and lower case letters', ok:mixed},
+          {label:'Passwords match', ok:match}
+        ].map(r=>({label:r.label, icon: r.ok?'✓':'○', color: r.ok?'#2F7A4D':'rgba(20,22,27,.4)'}));
+      })(),
+      regStep2Disabled: !(s.regPassword.length>=12 && /[a-z]/.test(s.regPassword) && /[A-Z]/.test(s.regPassword) && s.regPassword===s.regPasswordConfirm && s.regPasswordConfirm),
+      regStep2BtnStyle: (()=>{ const d = !(s.regPassword.length>=12 && /[a-z]/.test(s.regPassword) && /[A-Z]/.test(s.regPassword) && s.regPassword===s.regPasswordConfirm && s.regPasswordConfirm); return 'width:100%;padding:14px;border:none;border-radius:9px;font-size:14px;font-weight:600;'+(d?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff;cursor:pointer'); })(),
+      regNext2: this.regNext2,
+      regTwoFaCode: s.regTwoFaCode, onRegTwoFaCodeChange: this.onRegTwoFaCodeChange,
+      regStep3Disabled: s.regTwoFaCode.length!==6,
+      regStep3BtnStyle: (()=>{ const d = s.regTwoFaCode.length!==6; return 'width:100%;padding:14px;border:none;border-radius:9px;font-size:14px;font-weight:600;'+(d?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff;cursor:pointer'); })(),
+      completeRegistration: this.completeRegistration,
+      regFirstName: (s.regName.trim().split(' ')[0]) || 'there',
+      regClientRefDisplay: s.regClientRef.trim() ? ('client ref '+s.regClientRef.trim()) : 'your company record',
+      enterPortal: this.enterPortal,
+      regEnterBtnStyle: 'width:100%;padding:14px;border:none;border-radius:9px;font-size:14px;font-weight:600;background:#C1391F;color:#fff;cursor:pointer',
+      loginEmail:s.loginEmail, onLoginEmailChange:this.onLoginEmailChange,
+      loginPassword:s.loginPassword, onLoginPasswordChange:this.onLoginPasswordChange,
+      rememberDevice:s.rememberDevice, toggleRememberDevice:this.toggleRememberDevice,
+      submitCredentials:this.submitCredentials, credsDisabled, credsBtnStyle: btn(credsDisabled),
+      backToCredentials:this.backToCredentials,
+      twoFaCode:s.twoFaCode, onTwoFaCodeChange:this.onTwoFaCodeChange, codeBoxes,
+      submitTwoFa:this.submitTwoFa, twoFaDisabled, twoFaBtnStyle: btn(twoFaDisabled),
+      loginError: s.loginError, signOut: this.signOut,
+      biometricAvailable: s.loginStep==='creds' && !s.biometricPrompting,
+      biometricPrompting: s.biometricPrompting,
+      startBiometric: this.startBiometric,
+      biometricKind: s.biometricKind,
+      biometricLabel: s.biometricKind==='face' ? 'Unlock with Face ID' : (s.biometricKind==='windows' ? 'Unlock with Windows Hello' : 'Unlock with fingerprint'),
+      biometricPromptText: s.biometricKind==='face' ? 'Look at your camera to continue…' : (s.biometricKind==='windows' ? 'Follow the prompt from Windows Hello…' : 'Touch the sensor to continue…'),
+      biometricIconPath: s.biometricKind==='face'
+        ? React.createElement(React.Fragment, null,
+            React.createElement('path',{d:'M7 3H5a2 2 0 0 0-2 2v2'}),
+            React.createElement('path',{d:'M17 3h2a2 2 0 0 1 2 2v2'}),
+            React.createElement('path',{d:'M7 21H5a2 2 0 0 1-2-2v-2'}),
+            React.createElement('path',{d:'M17 21h2a2 2 0 0 0 2-2v-2'}),
+            React.createElement('circle',{cx:9,cy:10,r:0.6,fill:'currentColor'}),
+            React.createElement('circle',{cx:15,cy:10,r:0.6,fill:'currentColor'}),
+            React.createElement('path',{d:'M9 15c1 1 5 1 6 0'})
+          )
+        : (s.biometricKind==='windows'
+          ? React.createElement(React.Fragment, null, React.createElement('rect',{x:3,y:3,width:8,height:8}), React.createElement('rect',{x:13,y:3,width:8,height:8}), React.createElement('rect',{x:3,y:13,width:8,height:8}), React.createElement('rect',{x:13,y:13,width:8,height:8}))
+          : React.createElement(React.Fragment, null,
+              React.createElement('path',{d:'M12 11a3 3 0 0 0-3 3c0 3.5-1 5.5-2 7'}),
+              React.createElement('path',{d:'M12 11a3 3 0 0 1 3 3c0 1 0 2-.3 3'}),
+              React.createElement('path',{d:'M8 21a13 13 0 0 0 1.5-6.5'}),
+              React.createElement('path',{d:'M17.5 18a17 17 0 0 0 .5-4 6 6 0 0 0-9-5.2'}),
+              React.createElement('path',{d:'M6.5 8.5A6 6 0 0 1 12 5'})
+            )),
+      biometricPulseStyle: 'width:52px;height:52px;border-radius:50%;background:#FBEAE6;display:flex;align-items:center;justify-content:center;margin:0 auto;animation:sa-bio-pulse 1.1s ease-in-out infinite',
+      biometricKindOptions: [{k:'face',l:'Face ID'},{k:'fingerprint',l:'Fingerprint'},{k:'windows',l:'Windows Hello'}].map(o=>{
+        const active = s.biometricKind===o.k;
+        return { label:o.l, onSelect:()=>this.setBiometricKind(o.k), style:'padding:6px 11px;border-radius:7px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid '+(active?'#C1391F':'rgba(20,22,27,.14)')+';background:'+(active?'#FBEAE6':'#fff')+';color:'+(active?'#C1391F':'rgba(20,22,27,.5)') };
+      }),
+
+      nb, moduleTitle: titles[s.module], moduleSubtitle: subtitles[s.module],
+      goDashboard:this.goDashboard, goDocuments:this.goDocuments, goDeadlines:this.goDeadlines,
+      goStatements:this.goStatements, goMessages:this.goMessages, goInvoices:this.goInvoices, goProfile:this.goProfile, goSupport:this.goSupport,
+      badgeStyle: {
+        documents:'margin-left:auto;background:'+(s.module==='documents'?'rgba(255,255,255,.25)':'#FBF0DE')+';color:'+(s.module==='documents'?'#fff':'#B8791A')+';padding:1px 7px;border-radius:9px;font-size:11px;font-family:\'IBM Plex Mono\',monospace;font-weight:600',
+        messages:'margin-left:auto;background:'+(s.module==='messages'?'rgba(255,255,255,.25)':'#FBEAE6')+';color:'+(s.module==='messages'?'#fff':'#C1391F')+';padding:1px 7px;border-radius:9px;font-size:11px;font-family:\'IBM Plex Mono\',monospace;font-weight:600',
+        support:'margin-left:auto;background:'+(s.module==='support'?'rgba(255,255,255,.25)':'#FBEAE6')+';color:'+(s.module==='support'?'#fff':'#C1391F')+';padding:1px 7px;border-radius:9px;font-size:11px;font-family:\'IBM Plex Mono\',monospace;font-weight:600'
+      },
+      docRequestCount: s.requests.length, unreadCount: 1,
+
+      isDashboard: s.module==='dashboard', isDocuments: s.module==='documents', isDeadlines: s.module==='deadlines',
+      isStatements: s.module==='statements', isMessages: s.module==='messages', isInvoices: s.module==='invoices', isProfile: s.module==='profile', isSupport: s.module==='support',
+
+      onTrackLabel: (countUpcoming - countOverdue) + ' on track',
+      docRequestLabel: s.requests.length===0 ? 'All clear' : (s.requests.length + (s.requests.length===1?' document':' documents')),
+      docRequestColor: s.requests.length===0 ? '#2F7A4D' : '#C1391F',
+      docRequestSub: s.requests.length===0 ? 'Nothing outstanding' : s.requests[0].label,
+      hasOpenRequests: s.requests.length>0,
+      openRequestText: s.requests.length ? (s.requests[0].label + ' — ' + s.requests[0].note.toLowerCase()) : '',
+      openRequests,
+      upcomingDeadlines, activityFeed,
+
+      uploadCategory: s.uploadCategory, setUploadCategory: this.setUploadCategory,
+      uploadCategories: ['Receipt','Invoice','Bank statement','Payroll','Other'],
+      dropZoneStyle: 'border:2px dashed '+(s.dragging?'#C1391F':'rgba(20,22,27,.18)')+';background:'+(s.dragging?'#FBEAE6':'transparent')+';border-radius:11px;padding:34px;display:flex;flex-direction:column;align-items:center;text-align:center',
+      onDragOver: this.onDragOver, onDragLeave: this.onDragLeave, onDrop: this.onDrop, simulateUpload: this.simulateUpload,
+      docFilter: s.docFilter, setDocFilter: this.setDocFilter, filteredDocs,
+
+      allDeadlines: deadlineData, countUpcoming, countFiled, countOverdue,
+      reminderPref: s.reminderPref, setReminderPref: this.setReminderPref,
+
+      monthlyReports, yearEndDocs, taxDocs,
+
+      messages, typing: s.typing, quickReplies,
+      replyText: s.replyText, onReplyChange: this.onReplyChange, sendMessage: this.sendMessage,
+      sendDisabled, sendBtnStyle:'padding:12px 22px;border:none;border-radius:9px;font-size:13.5px;font-weight:600;'+(sendDisabled?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#14161B;color:#fff;cursor:pointer'),
+
+      invoices, outstandingLabel: this.money(outstanding), paidLabel: this.money(paid), manageMandate: this.manageMandate,
+
+      profileName:s.profileName, onProfileNameChange:this.onProfileNameChange,
+      profileEmail:s.profileEmail, onProfileEmailChange:this.onProfileEmailChange,
+      profilePhone:s.profilePhone, onProfilePhoneChange:this.onProfilePhoneChange,
+      saveProfile:this.saveProfile, saveProfileLabel: s.profileSaved ? 'Saved' : 'Save changes',
+      saveProfileStyle:'align-self:flex-start;padding:10px 18px;border:none;border-radius:8px;font-size:12.5px;font-weight:600;cursor:pointer;'+(s.profileSaved?'background:#E7F3EC;color:#2F7A4D':'background:#14161B;color:#fff'),
+      notifPrefs, loginHistory,
+      whatsappEnabled: s.whatsappEnabled,
+      whatsappToggleStyle: 'width:38px;height:22px;border-radius:11px;border:none;cursor:pointer;position:relative;padding:0;flex:none;background:'+(s.whatsappEnabled?'#2F7A4D':'#D8D5CC'),
+      whatsappKnobLeft: s.whatsappEnabled?'18px':'2px',
+      toggleWhatsapp: this.toggleWhatsapp,
+      whatsappNumber: s.whatsappNumber, onWhatsappNumberChange: this.onWhatsappNumberChange,
+      saveWhatsappNumber: this.saveWhatsappNumber, whatsappSaveLabel: s.whatsappSaved ? 'Sent' : 'Verify',
+      profileBiometricStatus: s.profileBiometricEnabled ? ({face:'Face ID',fingerprint:'Fingerprint',windows:'Windows Hello'}[s.profileBiometricKind]+' registered on this device') : 'Not set up on this device',
+      profileBiometricBadgeStyle: 'font-size:11px;font-weight:600;padding:5px 11px;border-radius:9px;'+(s.profileBiometricEnabled?'background:#E7F3EC;color:#2F7A4D':'background:#F0EEE8;color:rgba(20,22,27,.45)'),
+      profileBiometricBadgeLabel: s.profileBiometricEnabled ? 'Enabled' : 'Not set up',
+      profileBiometricOptions: [{k:'face',l:'Face ID'},{k:'fingerprint',l:'Fingerprint'},{k:'windows',l:'Windows Hello'}].map(o=>{
+        const active = s.profileBiometricEnabled && s.profileBiometricKind===o.k;
+        return { label: active ? o.l+' ✓' : o.l, onClick:()=>this.registerProfileBiometric(o.k),
+          style:'padding:8px 13px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid '+(active?'#2F7A4D':'rgba(20,22,27,.15)')+';background:'+(active?'#E7F3EC':'#fff')+';color:'+(active?'#2F7A4D':'#40434C') };
+      }),
+      changePassword:this.changePassword, requestDetailChange:this.requestDetailChange,
+      requestDataExport:this.requestDataExport, requestErasure:this.requestErasure,
+
+      openTicketCount: s.tickets.filter(t=>t.status!=='Resolved').length,
+      ticketFilter: s.ticketFilter, setTicketFilter: this.setTicketFilter,
+      filteredTickets: (s.ticketFilter==='all' ? s.tickets : s.tickets.filter(t=>t.status===s.ticketFilter)).map(t=>{
+        const statusBg = {Open:'#FBF0DE','In progress':'#EAEFF3',Resolved:'#E7F3EC'}[t.status];
+        const statusColor = {Open:'#B8791A','In progress':'#3E5C76',Resolved:'#2F7A4D'}[t.status];
+        return { ...t, statusBg, statusColor, typeBadgeStyle: 'font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;'+(t.type==='Bug'?'background:#FBE9E6;color:#B23B2E':'background:#EAEFF3;color:#3E5C76') };
+      }),
+      noTickets: (s.ticketFilter!=='all' && s.tickets.filter(t=>t.status===s.ticketFilter).length===0),
+      ticketTypeOptions: ['Question','Bug'].map(t=>{
+        const active = s.newTicketType===t;
+        return { label: t==='Bug' ? 'Bug report' : 'Question', onSelect:()=>this.setNewTicketType(t),
+          style:'flex:1;padding:9px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;'+(active?'border:1.5px solid #C1391F;background:#FBEAE6;color:#C1391F':'border:1.5px solid rgba(20,22,27,.14);background:#fff;color:#40434C') };
+      }),
+      subjectPlaceholder: s.newTicketType==='Bug' ? 'e.g. Download button not working' : 'e.g. Question about my VAT filing',
+      descPlaceholder: s.newTicketType==='Bug' ? 'What happened, and what did you expect instead? Include steps to reproduce if you can.' : 'Tell us what you need help with.',
+      newTicketSubject: s.newTicketSubject, onNewTicketSubjectChange: this.onNewTicketSubjectChange,
+      newTicketDescription: s.newTicketDescription, onNewTicketDescriptionChange: this.onNewTicketDescriptionChange,
+      submitTicket: this.submitTicket, ticketSubmitted: s.ticketSubmitted,
+      submitTicketDisabled: !s.newTicketSubject.trim() || !s.newTicketDescription.trim(),
+      submitTicketStyle: 'padding:11px;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;'+((!s.newTicketSubject.trim()||!s.newTicketDescription.trim())?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff'),
+
+      isMobile: s.isMobile, isDesktopChrome: !s.isMobile,
+      rootWidthStyle: 'width:100%;'+(s.isMobile?'':'min-width:1100px'),
+      gridLogin: s.isMobile ? 'min-height:100vh;display:flex;flex-direction:column' : 'min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr',
+      gridStat: 'display:grid;grid-template-columns:'+(s.isMobile?'repeat(2,1fr)':'repeat(4,1fr)')+';gap:'+(s.isMobile?'10px':'16px')+';margin-bottom:18px',
+      gridDashboardMain: 'display:grid;grid-template-columns:'+(s.isMobile?'1fr':'1.25fr 1fr')+';gap:16px',
+      gridStatements: 'display:grid;grid-template-columns:'+(s.isMobile?'1fr':'repeat(3,1fr)')+';gap:16px',
+      gridProfile: 'display:grid;grid-template-columns:'+(s.isMobile?'1fr':'1fr 1fr')+';gap:16px;align-items:start',
+      gridSupport: 'display:grid;grid-template-columns:'+(s.isMobile?'1fr':'1.3fr .7fr')+';gap:16px;align-items:start',
+      profileFullSpan: s.isMobile ? '' : 'grid-column:1/3',
+      protoBarStyle: 'min-height:42px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px '+(s.isMobile?'12px':'18px')+';background:#EFEDE6;border-bottom:1px dashed rgba(20,22,27,.28);font-family:\'IBM Plex Mono\',monospace;font-size:'+(s.isMobile?'10px':'11px'),
+      sidebarStyle: s.isMobile
+        ? 'display:none'
+        : 'flex:none;width:252px;background:#fff;border-right:1px solid rgba(20,22,27,.09);display:flex;flex-direction:column;padding:20px 14px;overflow-y:auto',
+      mobileTopBarStyle: s.isMobile
+        ? 'flex:none;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#fff;border-bottom:1px solid rgba(20,22,27,.09)'
+        : 'flex:none;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:#fff;border-bottom:1px solid rgba(20,22,27,.09)',
+      contentAreaStyle: s.isMobile
+        ? 'flex:1;overflow-y:auto;padding:18px 16px 88px'
+        : 'flex:1;overflow-y:auto;padding:28px 32px 80px',
+      moreSheetOpen: s.moreSheetOpen, toggleMoreSheet: this.toggleMoreSheet,
+      mobileTabs: (()=>{
+        const tabDef = [
+          {m:'dashboard', label:'Home', icon:React.createElement(React.Fragment,null,React.createElement('rect',{x:3,y:3,width:7,height:7,rx:1.4}),React.createElement('rect',{x:14,y:3,width:7,height:7,rx:1.4}),React.createElement('rect',{x:3,y:14,width:7,height:7,rx:1.4}),React.createElement('rect',{x:14,y:14,width:7,height:7,rx:1.4}))},
+          {m:'documents', label:'Docs', badge: s.requests.length||null, icon:React.createElement('path',{d:'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z'})},
+          {m:'messages', label:'Messages', badge:1, icon:React.createElement('path',{d:'M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z'})},
+          {m:'invoices', label:'Invoices', icon:React.createElement(React.Fragment,null,React.createElement('path',{d:'M6 2h12v20l-3-2-3 2-3-2-3 2V2z'}),React.createElement('line',{x1:8.5,y1:7,x2:15.5,y2:7}),React.createElement('line',{x1:8.5,y1:11,x2:15.5,y2:11}))}
+        ];
+        const items = tabDef.map(t=>({
+          onClick:()=>this.goModuleMobile(t.m), icon:t.icon, label:t.label, badge:t.badge,
+          style:'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;'+(s.module===t.m?'color:#C1391F':'color:#7A7D84')
+        }));
+        items.push({
+          onClick:this.toggleMoreSheet, label:'More', badge:null,
+          icon:React.createElement(React.Fragment,null,React.createElement('circle',{cx:5,cy:12,r:1.4,fill:'currentColor'}),React.createElement('circle',{cx:12,cy:12,r:1.4,fill:'currentColor'}),React.createElement('circle',{cx:19,cy:12,r:1.4,fill:'currentColor'})),
+          style:'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:'+(['deadlines','statements','profile','support'].indexOf(s.module)>-1?'#C1391F':'#7A7D84')
+        });
+        return items;
+      })(),
+      moreSheetItems: [
+        {m:'deadlines', label:'Deadlines', icon:React.createElement(React.Fragment,null,React.createElement('rect',{x:3,y:5,width:18,height:16,rx:2}),React.createElement('line',{x1:3,y1:10,x2:21,y2:10}))},
+        {m:'statements', label:'Statements & Reports', icon:React.createElement(React.Fragment,null,React.createElement('line',{x1:4,y1:21,x2:20,y2:21}),React.createElement('rect',{x:6,y:13,width:3,height:8}),React.createElement('rect',{x:16,y:4,width:3,height:17}))},
+        {m:'support', label:'Support & Tickets', badge: this.state.tickets.filter(t=>t.status!=='Resolved').length||null, icon:React.createElement(React.Fragment,null,React.createElement('circle',{cx:12,cy:12,r:9}),React.createElement('path',{d:'M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 1-1 1.7'}))},
+        {m:'profile', label:'Profile & Security', icon:React.createElement(React.Fragment,null,React.createElement('circle',{cx:12,cy:8,r:4}),React.createElement('path',{d:'M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8'}))}
+      ].map(m=>({...m, onClick:()=>this.goModuleMobile(m.m)})),
+
+      chatOpen: s.chatOpen, chatClosed: !s.chatOpen, toggleChat: this.toggleChat,
+      chatFabStyle: 'position:fixed;'+(s.isMobile?'bottom:80px;right:16px;width:48px;height:48px':'bottom:24px;right:24px;width:56px;height:56px')+';border-radius:50%;background:#C1391F;color:#fff;border:none;box-shadow:0 10px 28px rgba(193,57,31,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:60',
+      chatPanelStyle: s.isMobile
+        ? 'position:fixed;bottom:0;left:0;right:0;width:100%;height:70vh;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.25);display:flex;flex-direction:column;z-index:66;overflow:hidden'
+        : 'position:fixed;bottom:24px;right:24px;width:330px;height:440px;background:#fff;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.25);border:1px solid rgba(20,22,27,.1);display:flex;flex-direction:column;z-index:60;overflow:hidden',
+      chatMessages, chatTyping: s.chatTyping, chatInput: s.chatInput,
+      onChatInputChange: this.onChatInputChange, sendChat: this.sendChat,
+
+      toast: s.toast
+    };
+  }
+}
+
+</script>
+</body>
+</html>

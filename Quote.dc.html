@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F3F1EC;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;color:#14161B}
+  *{box-sizing:border-box}
+  input,select,textarea,button{font-family:'IBM Plex Sans',sans-serif}
+  a{color:#C1391F;text-decoration:none}
+  a:hover{color:#A62F18}
+</style>
+</helmet>
+<div style="{{ pageRootStyle }}">
+<div style="{{ pageFrameStyle }}">
+
+  <div style="min-height:42px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 14px;background:#EFEDE6;border-bottom:1px dashed rgba(20,22,27,.28);font-family:'IBM Plex Mono',monospace">
+    <div style="font-size:10.5px;color:rgba(20,22,27,.55);letter-spacing:.02em;white-space:nowrap">PROTOTYPE · SWISS AERO</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <button onClick="{{ setPreviewDesktop }}" style="{{ previewBtnStyle.desktop }}" title="Desktop preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+        <button onClick="{{ setPreviewMobile }}" style="{{ previewBtnStyle.mobile }}" title="Mobile preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
+        </button>
+      </div>
+      <span style="font-size:10.5px;color:rgba(20,22,27,.55);white-space:nowrap">Viewing as</span>
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Owner</a>
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Junior Staff</a>
+        <a href="client-portal.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Client</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteHeader" force-mobile="{{ forcedMobile }}" active="" hint-size="100%,124px"></dc-import>
+
+  <div style="max-width:1200px;margin:0 auto;padding:56px {{ secPadX }} 20px">
+    <div style="font-size:12.5px;color:rgba(20,22,27,.45);margin-bottom:18px"><a href="index.html" style="color:rgba(20,22,27,.45)">Home</a> · Get a quote</div>
+    <div style="max-width:620px">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">INSTANT QUOTE</div>
+      <h1 style="{{ heroTitleStyle }}">Know your fee before you speak to anyone.</h1>
+      <p style="{{ heroBodyStyle }}">Six questions, no obligation. The price you see is the price we charge — no setup fees, no year-end surprises.</p>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:32px {{ secPadX }} 80px">
+    <div style="background:#14161B;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+      <div style="padding:{{ quoteInnerPad }};color:#fff">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:600;margin-bottom:22px">What's included, whatever you pick</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">Fixed monthly fee, rolling contract</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">Cancel with 30 days' notice</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">Free transfer from your current accountant</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">One named accountant on your account</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="color:#8FC7A6;flex:none;margin-top:1px">✓</span><span style="font-size:13.5px;color:rgba(255,255,255,.78)">Deadline reminders before anything is due</span></div>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.13);font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.6">Complex structures — groups, £1m+ turnover, overdue filings or non-UK directors — need a short call so we quote accurately.</div>
+        <div style="margin-top:28px;font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.6">Prefer to talk it through? <a href="Contact.dc.html" style="color:#E8A99A">Book a call instead</a>.</div>
+      </div>
+
+      <div style="background:#fff;padding:40px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:26px">
+          <sc-for list="{{ stepDots }}" as="d" hint-placeholder-count="6">
+          <div style="height:4px;flex:1;border-radius:2px;background:{{ d.bg }}"></div>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ qStep1 }}" hint-placeholder-val="{{ true }}">
+        <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.4);letter-spacing:.06em;margin-bottom:8px">STEP 1 OF 6</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:22px">What kind of business do you run?</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px">
+          <sc-for list="{{ businessTypeOptions }}" as="o" hint-placeholder-count="4">
+          <button onClick="{{ o.onSelect }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+        <label style="display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid rgba(20,22,27,.12);border-radius:9px;font-size:13.5px;cursor:pointer;margin-bottom:8px">
+          <input type="checkbox" checked="{{ dormant }}" onChange="{{ toggleDormant }}"></input>
+          The company is dormant or not currently trading
+        </label>
+        <label style="display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid rgba(20,22,27,.12);border-radius:9px;font-size:13.5px;cursor:pointer">
+          <input type="checkbox" checked="{{ groupStructure }}" onChange="{{ toggleGroup }}"></input>
+          Part of a group, or has non-UK directors
+        </label>
+        </sc-if>
+
+        <sc-if value="{{ qStep2 }}">
+        <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.4);letter-spacing:.06em;margin-bottom:8px">STEP 2 OF 6</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:8px">What is your annual turnover?</div>
+        <div style="font-size:13px;color:rgba(20,22,27,.5);margin-bottom:20px">An estimate is fine — we can adjust later.</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px">
+          <sc-for list="{{ turnoverOptions }}" as="o" hint-placeholder-count="8">
+          <button onClick="{{ o.onSelect }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ qStep3 }}">
+        <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.4);letter-spacing:.06em;margin-bottom:8px">STEP 3 OF 6</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:22px">Are you VAT registered?</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ vatOptions }}" as="o" hint-placeholder-count="3">
+          <button onClick="{{ o.onSelect }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ qStep4 }}">
+        <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.4);letter-spacing:.06em;margin-bottom:8px">STEP 4 OF 6</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:22px">Do you run payroll?</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:18px">
+          <sc-for list="{{ payrollOptions }}" as="o" hint-placeholder-count="4">
+          <button onClick="{{ o.onSelect }}" style="{{ o.style }}">{{ o.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ showEmployeeCount }}">
+        <div style="display:flex;align-items:center;gap:12px;background:#F8F7F4;border-radius:9px;padding:14px 16px">
+          <span style="font-size:13.5px;color:rgba(20,22,27,.7)">How many employees?</span>
+          <input value="{{ employeeCount }}" onChange="{{ onEmployeeCountChange }}" style="width:70px;border:1px solid rgba(20,22,27,.15);border-radius:7px;padding:8px 10px;font-size:13.5px;font-family:'IBM Plex Mono',monospace;text-align:center;outline:none"></input>
+        </div>
+        </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ qStep5 }}">
+        <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.4);letter-spacing:.06em;margin-bottom:8px">STEP 5 OF 6</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:8px">Anything else you'd like us to handle?</div>
+        <div style="font-size:13px;color:rgba(20,22,27,.5);margin-bottom:20px">Optional — add or drop these at any time.</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <sc-for list="{{ addonOptions }}" as="a" hint-placeholder-count="3">
+          <label style="{{ a.style }}">
+            <input type="checkbox" checked="{{ a.checked }}" onChange="{{ a.onToggle }}"></input>
+            <span style="flex:1">
+              <span style="display:block;font-size:14px;font-weight:600">{{ a.label }}</span>
+              <span style="display:block;font-size:12.5px;color:rgba(20,22,27,.5);margin-top:2px">{{ a.desc }}</span>
+            </span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;font-weight:600;white-space:nowrap">+£{{ a.price }}</span>
+          </label>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ qStep6 }}">
+        <sc-if value="{{ needsCall }}">
+        <div style="background:#FBF0DE;border-radius:11px;padding:22px;margin-bottom:20px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:#8A5A10;margin-bottom:8px">Let's put a short call in the diary</div>
+          <p style="font-size:13.5px;line-height:1.6;color:#8A5A10;margin:0">{{ callReason }} We'd rather quote you accurately than guess — a 15-minute call is enough.</p>
+        </div>
+        </sc-if>
+        <sc-if value="{{ hasPrice }}">
+        <div style="background:#F8F7F4;border-radius:11px;padding:24px;margin-bottom:20px">
+          <div style="font-size:11.5px;font-weight:600;color:rgba(20,22,27,.45);letter-spacing:.05em;margin-bottom:6px">YOUR ESTIMATED FEE</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:16px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;letter-spacing:-.02em">{{ quoteTotal }}</div>
+            <div style="font-size:15px;color:rgba(20,22,27,.5);font-weight:500">/month + VAT</div>
+          </div>
+          <sc-for list="{{ quoteBreakdown }}" as="b" hint-placeholder-count="3">
+          <div style="display:flex;justify-content:space-between;padding:7px 0;border-top:1px solid rgba(20,22,27,.08);font-size:13px">
+            <span style="color:rgba(20,22,27,.65)">{{ b.label }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-weight:600">{{ b.value }}</span>
+          </div>
+          </sc-for>
+          <div style="font-size:12px;color:rgba(20,22,27,.45);margin-top:14px;line-height:1.55">Includes year-end accounts, corporation tax or Self Assessment return, and unlimited email support.</div>
+        </div>
+        </sc-if>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:14px">
+          <input placeholder="Your name" value="{{ leadName }}" onChange="{{ onLeadNameChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none"></input>
+          <input placeholder="Email address" value="{{ leadEmail }}" onChange="{{ onLeadEmailChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none"></input>
+          <input placeholder="Business name (optional)" value="{{ leadCompany }}" onChange="{{ onLeadCompanyChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none"></input>
+        </div>
+        <sc-if value="{{ quoteSubmitted }}">
+        <div style="background:#E7F3EC;color:#2F7A4D;border-radius:9px;padding:14px 16px;font-size:13.5px;line-height:1.55;margin-bottom:14px">Thank you, {{ submittedName }} — your quote is on its way to {{ submittedEmail }}. One of our accountants will follow up within one business day.</div>
+        </sc-if>
+        </sc-if>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(20,22,27,.08)">
+          <sc-if value="{{ canGoBack }}">
+          <button onClick="{{ prevStep }}" style="padding:12px 20px;border:1px solid rgba(20,22,27,.16);background:#fff;border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer">Back</button>
+          </sc-if>
+          <sc-if value="{{ showNext }}">
+          <button onClick="{{ nextStep }}" disabled="{{ nextDisabled }}" style="{{ nextStyle }}">{{ nextLabel }}</button>
+          </sc-if>
+          <sc-if value="{{ qStep6 }}">
+          <button onClick="{{ submitQuote }}" disabled="{{ submitDisabled }}" style="{{ submitStyle }}">{{ submitLabel }}</button>
+          <button onClick="{{ restartQuote }}" style="padding:12px 18px;border:none;background:none;color:rgba(20,22,27,.5);font-size:13px;font-weight:600;cursor:pointer">Start again</button>
+          </sc-if>
+          <div style="margin-left:auto;font-size:11.5px;color:rgba(20,22,27,.4)">{{ stepCounter }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    previewMode: 'desktop',
+    step: 1,
+    businessType: '', dormant: false, groupStructure: false,
+    turnover: '', vat: '', payroll: '', employeeCount: '4',
+    addons: [], leadName: '', leadEmail: '', leadCompany: '',
+    quoteSubmitted: false, submittedName: '', submittedEmail: ''
+  };
+
+  money(n){ return '£' + n.toLocaleString('en-GB'); }
+
+  baseMatrix = {
+    'Sole Trader':      {'£0–20k':45,'£20k–90k':85,'£90k–200k':130,'£200k–350k':175,'£350k–500k':215,'£500k–750k':265,'£750k–1m':320,'£1m+':0},
+    'Limited Company':  {'£0–20k':65,'£20k–90k':110,'£90k–200k':165,'£200k–350k':220,'£350k–500k':270,'£500k–750k':330,'£750k–1m':395,'£1m+':0},
+    'Partnership':      {'£0–20k':55,'£20k–90k':95,'£90k–200k':150,'£200k–350k':200,'£350k–500k':245,'£500k–750k':300,'£750k–1m':360,'£1m+':0},
+    'LLP':              {'£0–20k':70,'£20k–90k':120,'£90k–200k':175,'£200k–350k':230,'£350k–500k':285,'£500k–750k':345,'£750k–1m':410,'£1m+':0},
+    'Contractor/IR35':  {'£0–20k':55,'£20k–90k':100,'£90k–200k':150,'£200k–350k':195,'£350k–500k':240,'£500k–750k':290,'£750k–1m':345,'£1m+':0}
+  };
+  addonPrices = {'VAT returns':45,'Bookkeeping':60,'Pension':25};
+  payrollPrices = {'No payroll':0,'Monthly payroll':35,'Fortnightly payroll':45,'Weekly payroll':60};
+
+  setBusinessType = (v) => this.setState({businessType:v});
+  toggleDormant = () => this.setState(s=>({dormant:!s.dormant}));
+  toggleGroup = () => this.setState(s=>({groupStructure:!s.groupStructure}));
+  setTurnover = (v) => this.setState({turnover:v});
+  setVat = (v) => this.setState({vat:v, addons: v==='Yes, registered' ? Array.from(new Set([...this.state.addons,'VAT returns'])) : this.state.addons.filter(a=>a!=='VAT returns')});
+  setPayroll = (v) => this.setState({payroll:v});
+  onEmployeeCountChange = (e) => this.setState({employeeCount:e.target.value});
+  toggleAddon = (name) => this.setState(s=>({addons: s.addons.indexOf(name)>-1 ? s.addons.filter(a=>a!==name) : [...s.addons,name]}));
+  onLeadNameChange = (e) => this.setState({leadName:e.target.value});
+  onLeadEmailChange = (e) => this.setState({leadEmail:e.target.value});
+  onLeadCompanyChange = (e) => this.setState({leadCompany:e.target.value});
+
+  nextStep = () => this.setState(s=>({step: Math.min(6, s.dormant && s.step===1 ? 3 : s.step+1)}));
+  prevStep = () => this.setState(s=>({step: Math.max(1, s.dormant && s.step===3 ? 1 : s.step-1)}));
+  restartQuote = () => this.setState({step:1, businessType:'', dormant:false, groupStructure:false, turnover:'', vat:'', payroll:'', addons:[], leadName:'', leadEmail:'', leadCompany:'', quoteSubmitted:false});
+  submitQuote = () => {
+    if(!this.state.leadEmail.trim()) return;
+    this.setState({quoteSubmitted:true, submittedName:this.state.leadName.trim()||'there', submittedEmail:this.state.leadEmail.trim()});
+  };
+
+  setPreviewDesktop = () => this.setState({previewMode:'desktop'});
+  setPreviewMobile = () => this.setState({previewMode:'mobile'});
+
+  renderVals(){
+    const s = this.state;
+    const pm = s.previewMode==='mobile';
+    const accent = '#C1391F';
+    const optBase = 'padding:13px 15px;border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer;text-align:left;';
+    const optStyle = (active) => optBase + (active ? 'border:1.5px solid '+accent+';background:#FBEAE6;color:'+accent : 'border:1.5px solid rgba(20,22,27,.12);background:#fff;color:#14161B');
+
+    const businessTypeOptions = ['Sole Trader','Limited Company','Partnership','LLP','Contractor/IR35'].map(v=>({label:v, onSelect:()=>this.setBusinessType(v), style:optStyle(s.businessType===v)}));
+    const turnoverOptions = ['£0–20k','£20k–90k','£90k–200k','£200k–350k','£350k–500k','£500k–750k','£750k–1m','£1m+'].map(v=>({label:v, onSelect:()=>this.setTurnover(v), style:optStyle(s.turnover===v)}));
+    const vatOptions = ['Yes, registered','No, below the threshold','Not sure yet'].map(v=>({label:v, onSelect:()=>this.setVat(v), style:optStyle(s.vat===v)}));
+    const payrollOptions = ['No payroll','Monthly payroll','Fortnightly payroll','Weekly payroll'].map(v=>({label:v, onSelect:()=>this.setPayroll(v), style:optStyle(s.payroll===v)}));
+    const descs = {'VAT returns':'MTD-compliant quarterly filing','Bookkeeping':'Bank reconciliation and receipt filing','Pension':'Auto-enrolment assessment, enrolment and submissions'};
+    const addonOptions = Object.keys(this.addonPrices).map(name=>{
+      const checked = s.addons.indexOf(name)>-1;
+      return { label:name, desc:descs[name], price:this.addonPrices[name], checked, onToggle:()=>this.toggleAddon(name),
+        style:'display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:9px;cursor:pointer;'+(checked?'border:1.5px solid '+accent+';background:#FBEAE6':'border:1.5px solid rgba(20,22,27,.12);background:#fff') };
+    });
+
+    let base = 0, needsCall = false, callReason = '';
+    if(s.dormant){ base = 40; }
+    else if(s.businessType && s.turnover){
+      base = this.baseMatrix[s.businessType][s.turnover];
+      if(base===0){ needsCall = true; callReason = 'Turnover of £1m or more means we need to understand the structure first.'; }
+    }
+    if(s.groupStructure){ needsCall = true; callReason = 'Group structures and non-UK directors need a partner to review before we quote.'; }
+
+    const payrollCost = this.payrollPrices[s.payroll] || 0;
+    const employeeSurcharge = (payrollCost>0 && parseInt(s.employeeCount,10)>5) ? (parseInt(s.employeeCount,10)-5)*4 : 0;
+    const addonsCost = s.addons.reduce((sum,a)=>sum+(this.addonPrices[a]||0),0);
+    const total = base + payrollCost + employeeSurcharge + addonsCost;
+
+    const quoteBreakdown = [];
+    if(base>0) quoteBreakdown.push({label: s.dormant ? 'Dormant company accounts' : (s.businessType+' · '+s.turnover), value:this.money(base)});
+    if(payrollCost>0) quoteBreakdown.push({label:s.payroll+(employeeSurcharge>0?(' · '+s.employeeCount+' employees'):''), value:this.money(payrollCost+employeeSurcharge)});
+    s.addons.forEach(a=>quoteBreakdown.push({label:a, value:this.money(this.addonPrices[a])}));
+
+    const stepValid = {1: !!s.businessType, 2: !!s.turnover, 3: !!s.vat, 4: !!s.payroll, 5: true, 6: true};
+    const nextDisabled = !stepValid[s.step];
+    const btnPrimary = (disabled) => 'padding:13px 24px;border:none;border-radius:9px;font-size:13.5px;font-weight:600;'+(disabled?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:'+accent+';color:#fff;cursor:pointer');
+    const submitDisabled = !s.leadEmail.trim() || s.quoteSubmitted;
+
+    return {
+      stepDots: [1,2,3,4,5,6].map(n=>({bg: n<=s.step ? accent : 'rgba(20,22,27,.12)'})),
+      stepCounter: 'Step '+s.step+' of 6',
+      qStep1: s.step===1, qStep2: s.step===2, qStep3: s.step===3, qStep4: s.step===4, qStep5: s.step===5, qStep6: s.step===6,
+      businessTypeOptions, turnoverOptions, vatOptions, payrollOptions, addonOptions,
+      dormant: s.dormant, toggleDormant: this.toggleDormant,
+      groupStructure: s.groupStructure, toggleGroup: this.toggleGroup,
+      showEmployeeCount: !!s.payroll && s.payroll!=='No payroll',
+      employeeCount: s.employeeCount, onEmployeeCountChange: this.onEmployeeCountChange,
+      canGoBack: s.step>1, showNext: s.step<6, nextStep: this.nextStep, prevStep: this.prevStep,
+      nextDisabled, nextStyle: btnPrimary(nextDisabled), nextLabel: s.step===5 ? 'See my quote' : 'Continue',
+      needsCall, callReason, hasPrice: !needsCall && total>0, quoteTotal: this.money(total), quoteBreakdown,
+      leadName: s.leadName, onLeadNameChange: this.onLeadNameChange,
+      leadEmail: s.leadEmail, onLeadEmailChange: this.onLeadEmailChange,
+      leadCompany: s.leadCompany, onLeadCompanyChange: this.onLeadCompanyChange,
+      submitQuote: this.submitQuote, restartQuote: this.restartQuote,
+      submitDisabled, submitStyle: btnPrimary(submitDisabled),
+      submitLabel: needsCall ? 'Request a call' : 'Email me this quote',
+      quoteSubmitted: s.quoteSubmitted, submittedName: s.submittedName, submittedEmail: s.submittedEmail,
+
+      forcedMobile: pm,
+      pageRootStyle: pm ? 'width:100%;min-height:100vh;background:#D9D9D9;display:flex;justify-content:center;padding:24px 0' : 'width:100%;min-width:1100px',
+      pageFrameStyle: pm ? 'width:390px;max-width:100%;background:#F3F1EC;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);border:8px solid #14161B;max-height:844px;overflow-y:auto' : 'width:100%',
+      previewBtnStyle: {
+        desktop: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(!pm?'#14161B':'transparent')+';color:'+(!pm?'#fff':'rgba(20,22,27,.5)'),
+        mobile: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(pm?'#14161B':'transparent')+';color:'+(pm?'#fff':'rgba(20,22,27,.5)')
+      },
+      setPreviewDesktop: this.setPreviewDesktop, setPreviewMobile: this.setPreviewMobile,
+      heroTitleStyle: "font-family:'Space Grotesk',sans-serif;font-size:"+(pm?'32px':'44px')+";line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:0 0 18px",
+      heroBodyStyle: "font-size:"+(pm?'14.5px':'16.5px')+";line-height:1.6;color:rgba(20,22,27,.64);margin:0",
+      secPadX: pm ? '24px' : '40px',
+      quoteInnerPad: pm ? '28px 24px' : '44px 40px'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

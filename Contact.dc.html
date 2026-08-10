@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F3F1EC;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;color:#14161B}
+  *{box-sizing:border-box}
+  input,select,textarea,button{font-family:'IBM Plex Sans',sans-serif}
+  a{color:#C1391F;text-decoration:none}
+  a:hover{color:#A62F18}
+</style>
+</helmet>
+<div style="{{ pageRootStyle }}">
+<div style="{{ pageFrameStyle }}">
+
+  <div style="min-height:42px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 14px;background:#EFEDE6;border-bottom:1px dashed rgba(20,22,27,.28);font-family:'IBM Plex Mono',monospace">
+    <div style="font-size:10.5px;color:rgba(20,22,27,.55);letter-spacing:.02em;white-space:nowrap">PROTOTYPE · SWISS AERO</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <button onClick="{{ setPreviewDesktop }}" style="{{ previewBtnStyle.desktop }}" title="Desktop preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+        <button onClick="{{ setPreviewMobile }}" style="{{ previewBtnStyle.mobile }}" title="Mobile preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
+        </button>
+      </div>
+      <span style="font-size:10.5px;color:rgba(20,22,27,.55);white-space:nowrap">Viewing as</span>
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Owner</a>
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Junior Staff</a>
+        <a href="client-portal.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Client</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteHeader" force-mobile="{{ forcedMobile }}" active="contact" hint-size="100%,124px"></dc-import>
+
+  <div style="max-width:1200px;margin:0 auto;padding:56px {{ secPadX }} 0">
+    <div style="font-size:12.5px;color:rgba(20,22,27,.45);margin-bottom:18px"><a href="index.html" style="color:rgba(20,22,27,.45)">Home</a> · Contact</div>
+    <div style="max-width:640px">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">CONTACT</div>
+      <h1 style="{{ heroTitleStyle }}">Talk to an accountant, not a call centre.</h1>
+      <p style="{{ heroBodyStyle }}">Tell us where you are and what you need. We'll reply within one business day with a straight answer.</p>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:48px {{ secPadX }} 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:start">
+    <div>
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;padding:28px 30px;margin-bottom:18px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:16px">Direct details</div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <div style="display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid rgba(20,22,27,.08);font-size:14px"><span style="color:rgba(20,22,27,.55)">Phone</span><span style="font-weight:600">020 3890 4471</span></div>
+          <div style="display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid rgba(20,22,27,.08);font-size:14px"><span style="color:rgba(20,22,27,.55)">Email</span><span style="font-weight:600">hello@swissaero.co.uk</span></div>
+          <div style="display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid rgba(20,22,27,.08);font-size:14px;gap:20px"><span style="color:rgba(20,22,27,.55)">Office</span><span style="font-weight:600;text-align:right">27 Alder Street<br>London EC2M 4QP</span></div>
+          <div style="display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid rgba(20,22,27,.08);font-size:14px"><span style="color:rgba(20,22,27,.55)">Hours</span><span style="font-weight:600">Mon–Fri, 9am–5:30pm</span></div>
+          <div style="display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid rgba(20,22,27,.08);font-size:14px"><span style="color:rgba(20,22,27,.55)">Response time</span><span style="font-weight:600;color:#2F7A4D">Within 1 business day</span></div>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;padding:28px 30px;margin-bottom:18px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:8px">Already a client?</div>
+        <p style="font-size:13.5px;line-height:1.6;color:rgba(20,22,27,.6);margin:0 0 16px">Use the client portal to upload documents, check deadlines and message your accountant securely.</p>
+        <a href="client-portal.html" style="display:inline-flex;align-items:center;gap:7px;background:#14161B;color:#fff;font-size:13.5px;font-weight:600;padding:12px 20px;border-radius:8px">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+          Client login
+        </a>
+      </div>
+
+      <div style="background:#F8F7F4;border:1px solid rgba(20,22,27,.08);border-radius:14px;padding:24px 26px">
+        <div style="font-size:13.5px;font-weight:600;margin-bottom:8px">How we handle your data</div>
+        <p style="font-size:12.5px;line-height:1.65;color:rgba(20,22,27,.58);margin:0">Enquiry details are stored in our UK-hosted system, accessible only to the staff assigned to your enquiry, and deleted on request. We are ICO registered (ZB294817). See our <a href="Contact.dc.html">privacy policy</a> for the full detail.</p>
+      </div>
+    </div>
+
+    <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;padding:32px">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:20px">Send us a message</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+          <input placeholder="Name" value="{{ contactName }}" onChange="{{ onContactNameChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none"></input>
+          <input placeholder="Email" value="{{ contactEmail }}" onChange="{{ onContactEmailChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none"></input>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+          <input placeholder="Business name" value="{{ contactCompany }}" onChange="{{ onContactCompanyChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none"></input>
+          <input placeholder="Phone (optional)" value="{{ contactPhone }}" onChange="{{ onContactPhoneChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none"></input>
+        </div>
+        <select value="{{ contactSubject }}" onChange="{{ onContactSubjectChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;background:#fff">
+          <option value="New enquiry">New enquiry</option>
+          <option value="Switching accountant">Switching accountant</option>
+          <option value="Payroll">Payroll</option>
+          <option value="VAT / MTD">VAT / MTD</option>
+          <option value="Self Assessment">Self Assessment</option>
+          <option value="Company formation">Company formation</option>
+          <option value="Something else">Something else</option>
+        </select>
+        <select value="{{ contactPreference }}" onChange="{{ onContactPreferenceChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;background:#fff">
+          <option value="Email reply">Prefer an email reply</option>
+          <option value="Phone call">Prefer a phone call</option>
+          <option value="Video call">Prefer a video call</option>
+        </select>
+        <textarea placeholder="How can we help?" value="{{ contactMessage }}" onChange="{{ onContactMessageChange }}" rows="6" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:12px 14px;font-size:14px;outline:none;resize:vertical;font-family:'IBM Plex Sans',sans-serif"></textarea>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.55;color:rgba(20,22,27,.6);cursor:pointer">
+          <input type="checkbox" checked="{{ contactConsent }}" onChange="{{ toggleContactConsent }}" style="margin-top:2px"></input>
+          I agree to Swiss Aero storing my details to respond to this enquiry, as described in the privacy policy.
+        </label>
+        <button onClick="{{ submitContact }}" disabled="{{ contactDisabled }}" style="{{ contactBtnStyle }}">{{ contactBtnLabel }}</button>
+        <sc-if value="{{ contactSubmitted }}">
+        <div style="background:#E7F3EC;color:#2F7A4D;border-radius:9px;padding:13px 15px;font-size:13.5px;line-height:1.55">Message received — we'll be in touch within one business day, by {{ contactPreference }}.</div>
+        </sc-if>
+        <div style="font-size:12px;color:rgba(20,22,27,.42);line-height:1.55">Looking for a price instead? The <a href="Quote.dc.html">quote calculator</a> gives you a figure in about two minutes.</div>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { contactName:'', contactEmail:'', contactCompany:'', contactPhone:'', contactSubject:'New enquiry', contactPreference:'Email reply', contactMessage:'', contactConsent:false, contactSubmitted:false, previewMode:'desktop' };
+  setPreviewDesktop = () => this.setState({previewMode:'desktop'});
+  setPreviewMobile = () => this.setState({previewMode:'mobile'});
+
+  onContactNameChange = (e) => this.setState({contactName:e.target.value});
+  onContactEmailChange = (e) => this.setState({contactEmail:e.target.value});
+  onContactCompanyChange = (e) => this.setState({contactCompany:e.target.value});
+  onContactPhoneChange = (e) => this.setState({contactPhone:e.target.value});
+  onContactSubjectChange = (e) => this.setState({contactSubject:e.target.value});
+  onContactPreferenceChange = (e) => this.setState({contactPreference:e.target.value});
+  onContactMessageChange = (e) => this.setState({contactMessage:e.target.value});
+  toggleContactConsent = () => this.setState(s=>({contactConsent:!s.contactConsent}));
+  submitContact = () => { if(!this.state.contactEmail.trim()||!this.state.contactConsent) return; this.setState({contactSubmitted:true}); };
+
+  renderVals(){
+    const s = this.state;
+    const disabled = !s.contactEmail.trim() || !s.contactConsent || s.contactSubmitted;
+    const pm = s.previewMode==='mobile';
+    return {
+      forcedMobile: pm,
+      pageRootStyle: pm ? 'width:100%;min-height:100vh;background:#D9D9D9;display:flex;justify-content:center;padding:24px 0' : 'width:100%;min-width:1100px',
+      pageFrameStyle: pm ? 'width:390px;max-width:100%;background:#F3F1EC;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);border:8px solid #14161B;max-height:844px;overflow-y:auto' : 'width:100%',
+      previewBtnStyle: {
+        desktop: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(!pm?'#14161B':'transparent')+';color:'+(!pm?'#fff':'rgba(20,22,27,.5)'),
+        mobile: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(pm?'#14161B':'transparent')+';color:'+(pm?'#fff':'rgba(20,22,27,.5)')
+      },
+      setPreviewDesktop: this.setPreviewDesktop, setPreviewMobile: this.setPreviewMobile,
+      secPadX: pm ? '24px' : '40px',
+      heroTitleStyle: "font-family:'Space Grotesk',sans-serif;font-size:"+(pm?'32px':'44px')+";line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:0 0 18px",
+      heroBodyStyle: "font-size:"+(pm?'14.5px':'16.5px')+";line-height:1.6;color:rgba(20,22,27,.64);margin:0",
+      contactName:s.contactName, onContactNameChange:this.onContactNameChange,
+      contactEmail:s.contactEmail, onContactEmailChange:this.onContactEmailChange,
+      contactCompany:s.contactCompany, onContactCompanyChange:this.onContactCompanyChange,
+      contactPhone:s.contactPhone, onContactPhoneChange:this.onContactPhoneChange,
+      contactSubject:s.contactSubject, onContactSubjectChange:this.onContactSubjectChange,
+      contactPreference:s.contactPreference, onContactPreferenceChange:this.onContactPreferenceChange,
+      contactMessage:s.contactMessage, onContactMessageChange:this.onContactMessageChange,
+      contactConsent:s.contactConsent, toggleContactConsent:this.toggleContactConsent,
+      submitContact:this.submitContact, contactSubmitted:s.contactSubmitted,
+      contactDisabled: disabled,
+      contactBtnStyle: 'padding:13px 24px;border:none;border-radius:9px;font-size:13.5px;font-weight:600;'+(disabled?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff;cursor:pointer'),
+      contactBtnLabel: s.contactSubmitted ? 'Message sent' : 'Send message'
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:#F3F1EC;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;color:#14161B}
+  *{box-sizing:border-box}
+  a{color:#C1391F;text-decoration:none}
+  a:hover{color:#A62F18}
+</style>
+</helmet>
+<div style="{{ pageRootStyle }}">
+<div style="{{ pageFrameStyle }}">
+
+  <div style="min-height:42px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 14px;background:#EFEDE6;border-bottom:1px dashed rgba(20,22,27,.28);font-family:'IBM Plex Mono',monospace">
+    <div style="font-size:10.5px;color:rgba(20,22,27,.55);letter-spacing:.02em;white-space:nowrap">PROTOTYPE · SWISS AERO</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <button onClick="{{ setPreviewDesktop }}" style="{{ previewBtnStyle.desktop }}" title="Desktop preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+        <button onClick="{{ setPreviewMobile }}" style="{{ previewBtnStyle.mobile }}" title="Mobile preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
+        </button>
+      </div>
+      <span style="font-size:10.5px;color:rgba(20,22,27,.55);white-space:nowrap">Viewing as</span>
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Owner</a>
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Junior Staff</a>
+        <a href="client-portal.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Client</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteHeader" force-mobile="{{ forcedMobile }}" active="insights" hint-size="100%,124px"></dc-import>
+
+  <div style="max-width:1200px;margin:0 auto;padding:56px {{ secPadX }} 0">
+    <div style="font-size:12.5px;color:rgba(20,22,27,.45);margin-bottom:18px"><a href="index.html" style="color:rgba(20,22,27,.45)">Home</a> · Insights</div>
+    <div style="max-width:640px">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">INSIGHTS</div>
+      <h1 style="{{ heroTitleStyle }}">Plain-English notes on the rules that affect you.</h1>
+      <p style="{{ heroBodyStyle }}">Written by our accountants, for people who would rather not read HMRC guidance.</p>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:40px {{ secPadX }} 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <sc-for list="{{ categoryChips }}" as="c" hint-placeholder-count="5">
+      <button onClick="{{ c.onSelect }}" style="{{ c.style }}">{{ c.label }}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:32px {{ secPadX }} 0">
+    <sc-if value="{{ showFeatured }}">
+    <a href="Insights.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));color:#14161B;margin-bottom:18px">
+      <div style="position:relative;width:100%;min-height:300px"><image-slot id="sa-feat" shape="rect" placeholder="Featured article image"></image-slot></div>
+      <div style="padding:{{ featCardPad }}">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <span style="background:#FBEAE6;color:#C1391F;font-size:10.5px;font-weight:600;letter-spacing:.05em;padding:4px 10px;border-radius:11px">FEATURED</span>
+          <span style="font-size:11px;font-weight:600;letter-spacing:.06em;color:rgba(20,22,27,.45)">COMPLIANCE</span>
+        </div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;line-height:1.2;letter-spacing:-.015em;font-weight:600;margin:0 0 14px">Making Tax Digital for ITSA: what changes in 2026</h2>
+        <p style="font-size:14.5px;line-height:1.65;color:rgba(20,22,27,.62);margin:0 0 20px">Who is in scope, what quarterly updates actually involve, and how to prepare without changing the way you run your business. We walk through the thresholds, the software requirements and the two dates worth putting in your calendar now.</p>
+        <div style="font-size:12.5px;color:rgba(20,22,27,.45)">Tom Whitfield · 14 Jul 2026 · 6 min read</div>
+      </div>
+    </a>
+    </sc-if>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+      <sc-for list="{{ visiblePosts }}" as="p" hint-placeholder-count="6">
+      <a href="Insights.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;overflow:hidden;display:block;color:#14161B">
+        <div style="position:relative;width:100%;height:170px">
+          <image-slot id="{{ p.slotId }}" shape="rect" placeholder="Article image"></image-slot>
+        </div>
+        <div style="padding:20px 22px 24px">
+          <div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#C1391F;margin-bottom:10px">{{ p.category }}</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:16.5px;font-weight:600;line-height:1.32;margin-bottom:10px">{{ p.title }}</div>
+          <div style="font-size:13px;line-height:1.55;color:rgba(20,22,27,.58);margin-bottom:14px">{{ p.excerpt }}</div>
+          <div style="font-size:11.5px;color:rgba(20,22,27,.42)">{{ p.author }} · {{ p.date }} · {{ p.readTime }}</div>
+        </div>
+      </a>
+      </sc-for>
+    </div>
+    <sc-if value="{{ noPosts }}">
+    <div style="background:#fff;border:1px dashed rgba(20,22,27,.18);border-radius:12px;padding:48px;text-align:center;font-size:14px;color:rgba(20,22,27,.5)">No articles in this category yet.</div>
+    </sc-if>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:72px {{ secPadX }} 80px">
+    <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:16px;padding:{{ newsletterPad }};display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+      <div style="max-width:520px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:{{ newsletterTitleSize }};line-height:1.16;letter-spacing:-.02em;font-weight:600;margin:0 0 12px">Deadline reminders, once a month.</h2>
+        <p style="font-size:15px;line-height:1.62;color:rgba(20,22,27,.62);margin:0">What's due, what's changed, and nothing else. Unsubscribe in one click.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;width:{{ newsletterFormWidth }}">
+        <input placeholder="Email address" value="{{ subscribeEmail }}" onChange="{{ onSubscribeEmailChange }}" style="{{ newsletterInputStyle }}"></input>
+        <button onClick="{{ subscribe }}" disabled="{{ subscribeDisabled }}" style="{{ subscribeStyle }}">{{ subscribeLabel }}</button>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { category: 'All', subscribeEmail: '', subscribed: false, previewMode: 'desktop' };
+  setPreviewDesktop = () => this.setState({previewMode:'desktop'});
+  setPreviewMobile = () => this.setState({previewMode:'mobile'});
+
+  setCategory = (c) => this.setState({category:c});
+  onSubscribeEmailChange = (e) => this.setState({subscribeEmail:e.target.value});
+  subscribe = () => { if(!this.state.subscribeEmail.trim()) return; this.setState({subscribed:true}); };
+
+  posts = [
+    {slotId:'sa-p1', category:'VAT', title:'VAT flat rate scheme: is it still worth it?', excerpt:'A short comparison of flat rate against standard accounting for typical service businesses.', author:'Eleanor Marsh', date:'30 Jun 2026', readTime:'4 min read'},
+    {slotId:'sa-p2', category:'PAYROLL', title:'Payroll changes for small employers this tax year', excerpt:'Thresholds, allowances and the two dates worth putting in your calendar now.', author:'Aisha Khan', date:'12 Jun 2026', readTime:'5 min read'},
+    {slotId:'sa-p3', category:'COMPLIANCE', title:'Confirmation statements: what Companies House actually checks', excerpt:'The five fields that cause most rejections, and how to keep your register clean.', author:'Priya Shah', date:'2 Jun 2026', readTime:'3 min read'},
+    {slotId:'sa-p4', category:'BOOKKEEPING', title:'Five bookkeeping habits that save you at year-end', excerpt:'Small monthly disciplines that turn a two-week year-end into a two-day one.', author:'Ben Okoro', date:'19 May 2026', readTime:'4 min read'},
+    {slotId:'sa-p5', category:'TAX', title:'Dividends or salary: how directors should pay themselves in 2026/27', excerpt:'A worked example at three profit levels, with the National Insurance effect shown.', author:'Tom Whitfield', date:'4 May 2026', readTime:'7 min read'},
+    {slotId:'sa-p6', category:'VAT', title:'Approaching the VAT threshold: what to do first', excerpt:'How to spot it early, what registration involves, and when voluntary registration pays.', author:'Eleanor Marsh', date:'21 Apr 2026', readTime:'5 min read'}
+  ];
+
+  renderVals(){
+    const s = this.state;
+    const cats = ['All','COMPLIANCE','VAT','PAYROLL','BOOKKEEPING','TAX'];
+    const categoryChips = cats.map(c=>{
+      const active = s.category===c;
+      return { label: c==='All' ? 'All articles' : c.charAt(0)+c.slice(1).toLowerCase(), onSelect:()=>this.setCategory(c),
+        style:'padding:9px 16px;border-radius:20px;font-size:12.5px;font-weight:600;cursor:pointer;'+(active?'background:#14161B;color:#fff;border:1px solid #14161B':'background:#fff;color:#40434C;border:1px solid rgba(20,22,27,.14)') };
+    });
+    const visiblePosts = s.category==='All' ? this.posts : this.posts.filter(p=>p.category===s.category);
+    const subscribeDisabled = !s.subscribeEmail.trim() || s.subscribed;
+    const pm = s.previewMode==='mobile';
+    return {
+      forcedMobile: pm,
+      pageRootStyle: pm ? 'width:100%;min-height:100vh;background:#D9D9D9;display:flex;justify-content:center;padding:24px 0' : 'width:100%;min-width:1100px',
+      pageFrameStyle: pm ? 'width:390px;max-width:100%;background:#F3F1EC;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);border:8px solid #14161B;max-height:844px;overflow-y:auto' : 'width:100%',
+      previewBtnStyle: {
+        desktop: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(!pm?'#14161B':'transparent')+';color:'+(!pm?'#fff':'rgba(20,22,27,.5)'),
+        mobile: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(pm?'#14161B':'transparent')+';color:'+(pm?'#fff':'rgba(20,22,27,.5)')
+      },
+      setPreviewDesktop: this.setPreviewDesktop, setPreviewMobile: this.setPreviewMobile,
+      secPadX: pm ? '24px' : '40px',
+      featCardPad: pm ? '24px 22px' : '38px 40px',
+      newsletterPad: pm ? '28px 24px' : '44px 48px',
+      newsletterTitleSize: pm ? '22px' : '28px',
+      newsletterFormWidth: pm ? '100%' : 'auto',
+      newsletterInputStyle: 'flex:1;min-width:180px;border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:14px 16px;font-size:14px;outline:none',
+      heroTitleStyle: "font-family:'Space Grotesk',sans-serif;font-size:"+(pm?'32px':'44px')+";line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:0 0 18px",
+      heroBodyStyle: "font-size:"+(pm?'14.5px':'16.5px')+";line-height:1.6;color:rgba(20,22,27,.64);margin:0",
+      categoryChips, visiblePosts,
+      showFeatured: s.category==='All' || s.category==='COMPLIANCE',
+      noPosts: visiblePosts.length===0 && s.category!=='COMPLIANCE',
+      subscribeEmail: s.subscribeEmail, onSubscribeEmailChange: this.onSubscribeEmailChange,
+      subscribe: this.subscribe, subscribeDisabled,
+      subscribeLabel: s.subscribed ? 'Subscribed' : 'Subscribe',
+      subscribeStyle: 'padding:14px 24px;border:none;border-radius:9px;font-size:14px;font-weight:600;white-space:nowrap;'+(subscribeDisabled?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff;cursor:pointer')
+    };
+  }
+}
+
+</script>
+</body>
+</html>

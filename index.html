@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:#F3F1EC;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;color:#14161B}
+  *{box-sizing:border-box}
+  input,select,textarea,button{font-family:'IBM Plex Sans',sans-serif}
+  a{color:#C1391F;text-decoration:none}
+  a:hover{color:#A62F18}
+</style>
+</helmet>
+<div style="{{ pageRootStyle }}">
+<div style="{{ pageFrameStyle }}">
+
+  <div style="min-height:42px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 14px;background:#EFEDE6;border-bottom:1px dashed rgba(20,22,27,.28);font-family:'IBM Plex Mono',monospace">
+    <div style="font-size:10.5px;color:rgba(20,22,27,.55);letter-spacing:.02em;white-space:nowrap">PROTOTYPE · SWISS AERO</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <button onClick="{{ setPreviewDesktop }}" style="{{ previewBtnStyle.desktop }}" title="Desktop preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+        <button onClick="{{ setPreviewMobile }}" style="{{ previewBtnStyle.mobile }}" title="Mobile preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
+        </button>
+      </div>
+      <span style="font-size:10.5px;color:rgba(20,22,27,.55);white-space:nowrap">Viewing as</span>
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Owner</a>
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Junior Staff</a>
+        <a href="client-portal.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Client</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteHeader" force-mobile="{{ forcedMobile }}" active="" hint-size="100%,124px"></dc-import>
+
+  <div style="max-width:1200px;margin:0 auto;padding:56px 24px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:center">
+    <div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(20,22,27,.1);border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;color:#40434C;margin-bottom:26px">
+        <span style="width:7px;height:7px;border-radius:50%;background:#2F7A4D"></span>
+        Accepting new clients for the 2026/27 tax year
+      </div>
+      <h1 style="{{ heroTitleStyle }}">Accounting that keeps you compliant, not just tidy.</h1>
+      <p style="{{ heroBodyStyle }}">Bookkeeping, payroll, VAT and Self Assessment for UK small businesses — handled by qualified accountants, filed on time, priced up front.</p>
+      <div style="display:flex;gap:12px;margin-bottom:38px">
+        <a href="Quote.dc.html" style="background:#C1391F;color:#fff;font-size:14.5px;font-weight:600;padding:15px 26px;border-radius:9px">Get my quote in 2 minutes</a>
+        <a href="Contact.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.16);color:#14161B;font-size:14.5px;font-weight:600;padding:15px 26px;border-radius:9px">Book a call</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:24px;padding-top:26px;border-top:1px dashed rgba(20,22,27,.2)">
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;line-height:1.1">500+</div>
+          <div style="font-size:12.5px;color:rgba(20,22,27,.55);margin-top:4px;white-space:nowrap">UK businesses</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;line-height:1.1">98%</div>
+          <div style="font-size:12.5px;color:rgba(20,22,27,.55);margin-top:4px;white-space:nowrap">on-time filing</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;line-height:1.1">4.9<span style="font-size:17px;color:rgba(20,22,27,.4)">/5</span></div>
+          <div style="font-size:12.5px;color:rgba(20,22,27,.55);margin-top:4px;white-space:nowrap">client rating</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;line-height:1.1;white-space:nowrap">5 days</div>
+          <div style="font-size:12.5px;color:rgba(20,22,27,.55);margin-top:4px;white-space:nowrap">average onboarding</div>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative">
+      <div style="position:relative;width:100%;height:460px;border-radius:16px;overflow:hidden;border:1px solid rgba(20,22,27,.1)">
+        <image-slot id="sa-hero" shape="rect" placeholder="Drop a hero photo — team at work, or an office interior"></image-slot>
+      </div>
+      <div style="position:absolute;bottom:24px;right:24px;background:#fff;border:1px solid rgba(20,22,27,.1);border-radius:12px;padding:16px 18px;box-shadow:0 12px 32px rgba(20,22,27,.14)">
+        <div style="font-size:11px;font-weight:600;color:rgba(20,22,27,.45);letter-spacing:.04em;margin-bottom:5px">NEXT VAT DEADLINE</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600">7 September 2026</div>
+        <div style="font-size:12px;color:#2F7A4D;font-weight:600;margin-top:3px">We file it for you — automatically</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#fff;border-top:1px solid rgba(20,22,27,.08);border-bottom:1px solid rgba(20,22,27,.08);padding:26px 0">
+    <div style="max-width:1200px;margin:0 auto;padding:0 {{ secPadX }};display:flex;align-items:center;gap:40px">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:rgba(20,22,27,.4);white-space:nowrap">WORKS WITH</div>
+      <div style="display:flex;gap:38px;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:rgba(20,22,27,.34)">
+        <span>Xero</span><span>QuickBooks</span><span>FreeAgent</span><span>HMRC MTD</span><span>Companies House</span><span>Nest Pensions</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:80px {{ secPadX }}">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:44px">
+      <div style="max-width:640px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">SERVICES</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.12;letter-spacing:-.02em;font-weight:600;margin:0 0 16px">Everything a UK small business has to file — in one place.</h2>
+        <p style="font-size:16px;line-height:1.62;color:rgba(20,22,27,.62);margin:0">Pick the services you need. Change them any time; your fee adjusts from the next billing cycle.</p>
+      </div>
+      <a href="Services.dc.html" style="font-size:13.5px;font-weight:600;white-space:nowrap">All services →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px">
+      <a href="Services.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:26px;display:block;color:#14161B">
+        <div style="width:40px;height:40px;border-radius:10px;background:#FBEAE6;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#C1391F">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="13" y2="17"></line></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:9px">Bookkeeping</div>
+        <p style="font-size:13.5px;line-height:1.6;color:rgba(20,22,27,.62);margin:0 0 16px">Bank feeds reconciled, receipts filed and management figures ready before you ask for them.</p>
+        <div style="border-top:1px solid rgba(20,22,27,.07);padding-top:13px;display:flex;align-items:baseline;gap:6px">
+          <span style="font-size:11.5px;color:rgba(20,22,27,.45);font-weight:600">FROM</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600">£60</span>
+          <span style="font-size:11.5px;color:rgba(20,22,27,.45)">/month</span>
+        </div>
+      </a>
+      <a href="Services.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:26px;display:block;color:#14161B">
+        <div style="width:40px;height:40px;border-radius:10px;background:#FBEAE6;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#C1391F">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"></circle><path d="M3 21c0-3.5 2.7-6.4 6-6.4s6 2.9 6 6.4"></path><circle cx="17.5" cy="9.5" r="2.4"></circle><path d="M16 14.6c2.6.5 4.5 2.9 4.5 6.4"></path></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:9px">Payroll &amp; pensions</div>
+        <p style="font-size:13.5px;line-height:1.6;color:rgba(20,22,27,.62);margin:0 0 16px">PAYE, payslips, RTI submissions and auto-enrolment for teams of any size.</p>
+        <div style="border-top:1px solid rgba(20,22,27,.07);padding-top:13px;display:flex;align-items:baseline;gap:6px">
+          <span style="font-size:11.5px;color:rgba(20,22,27,.45);font-weight:600">FROM</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600">£35</span>
+          <span style="font-size:11.5px;color:rgba(20,22,27,.45)">/month</span>
+        </div>
+      </a>
+      <a href="Services.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:26px;display:block;color:#14161B">
+        <div style="width:40px;height:40px;border-radius:10px;background:#FBEAE6;display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:#C1391F">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"></path><line x1="9" y1="8" x2="15" y2="8"></line><line x1="9" y1="12" x2="15" y2="12"></line></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:9px">VAT returns</div>
+        <p style="font-size:13.5px;line-height:1.6;color:rgba(20,22,27,.62);margin:0 0 16px">Making Tax Digital returns prepared, checked twice and filed to HMRC on your behalf.</p>
+        <div style="border-top:1px solid rgba(20,22,27,.07);padding-top:13px;display:flex;align-items:baseline;gap:6px">
+          <span style="font-size:11.5px;color:rgba(20,22,27,.45);font-weight:600">FROM</span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:600">£45</span>
+          <span style="font-size:11.5px;color:rgba(20,22,27,.45)">/month</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div style="background:#14161B;color:#fff">
+    <div style="max-width:1200px;margin:0 auto;padding:76px {{ secPadX }}">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:44px">
+        <div style="max-width:560px">
+          <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:14px">HOW IT WORKS</div>
+          <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;line-height:1.14;letter-spacing:-.02em;font-weight:600;margin:0">Switching takes about five working days.</h2>
+        </div>
+        <div style="font-size:13.5px;color:rgba(255,255,255,.55);max-width:280px;line-height:1.6">We handle the handover, including writing to your current accountant. There's no charge for any of it.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px">
+        <div style="border-top:2px solid #C1391F;padding-top:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:#C1391F;font-weight:600;margin-bottom:10px">01</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:9px">Get your quote</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.6)">Six questions online, or a short call if your structure is more involved.</div>
+        </div>
+        <div style="border-top:2px solid rgba(255,255,255,.18);padding-top:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.45);font-weight:600;margin-bottom:10px">02</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:9px">Sign the engagement letter</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.6)">Fixed fee confirmed in writing, plus the ID checks we're required to run.</div>
+        </div>
+        <div style="border-top:2px solid rgba(255,255,255,.18);padding-top:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.45);font-weight:600;margin-bottom:10px">03</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:9px">We collect your records</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.6)">We request professional clearance and pick up your file where it was left.</div>
+        </div>
+        <div style="border-top:2px solid rgba(255,255,255,.18);padding-top:20px">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(255,255,255,.45);font-weight:600;margin-bottom:10px">04</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:9px">You get portal access</div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.6)">Upload documents, track deadlines and message your accountant in one place.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:80px {{ secPadX }}">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:40px">
+      <div style="max-width:560px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">PLANS</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.12;letter-spacing:-.02em;font-weight:600;margin:0 0 16px">Fixed monthly fees, quoted before you commit.</h2>
+        <p style="font-size:16px;line-height:1.62;color:rgba(20,22,27,.62);margin:0">No setup charge, no minimum term, and no year-end invoice you didn't expect.</p>
+      </div>
+      <a href="Pricing.dc.html" style="font-size:13.5px;font-weight:600;white-space:nowrap">Full pricing →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px">
+      <a href="Pricing.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:26px;display:block;color:#14161B">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:6px">Starter</div>
+        <div style="font-size:13px;color:rgba(20,22,27,.55);margin-bottom:18px;line-height:1.5">Sole traders and side businesses finding their feet.</div>
+        <div style="display:flex;align-items:baseline;gap:5px"><span style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em">£95</span><span style="font-size:13px;color:rgba(20,22,27,.5)">/month</span></div>
+      </a>
+      <a href="Pricing.dc.html" style="background:#fff;border:1.5px solid #C1391F;border-radius:12px;padding:26px;display:block;color:#14161B">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600">Growth</div>
+          <span style="background:#FBEAE6;color:#C1391F;font-size:10px;font-weight:600;letter-spacing:.05em;padding:3px 8px;border-radius:10px">POPULAR</span>
+        </div>
+        <div style="font-size:13px;color:rgba(20,22,27,.55);margin-bottom:18px;line-height:1.5">Trading companies with VAT and a small payroll.</div>
+        <div style="display:flex;align-items:baseline;gap:5px"><span style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em">£245</span><span style="font-size:13px;color:rgba(20,22,27,.5)">/month</span></div>
+      </a>
+      <a href="Pricing.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:26px;display:block;color:#14161B">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;margin-bottom:6px">Full Service</div>
+        <div style="font-size:13px;color:rgba(20,22,27,.55);margin-bottom:18px;line-height:1.5">Established businesses that want it all handled.</div>
+        <div style="display:flex;align-items:baseline;gap:5px"><span style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em">£485</span><span style="font-size:13px;color:rgba(20,22,27,.5)">/month</span></div>
+      </a>
+    </div>
+  </div>
+
+  <div style="background:#fff;border-top:1px solid rgba(20,22,27,.08);border-bottom:1px solid rgba(20,22,27,.08)">
+    <div style="max-width:1200px;margin:0 auto;padding:80px {{ secPadX }};display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:center">
+      <div style="position:relative;width:100%;height:420px;border-radius:16px;overflow:hidden;border:1px solid rgba(20,22,27,.1)">
+        <image-slot id="sa-about" shape="rect" placeholder="Drop a photo of the team or the office"></image-slot>
+      </div>
+      <div>
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">ABOUT US</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:36px;line-height:1.14;letter-spacing:-.02em;font-weight:600;margin:0 0 20px">A small firm that answers the phone.</h2>
+        <p style="font-size:15.5px;line-height:1.68;color:rgba(20,22,27,.66);margin:0 0 16px">Swiss Aero was founded in London to give small business owners the kind of attention usually reserved for large clients. Every client is assigned one qualified accountant — the same person you email, call and meet.</p>
+        <p style="font-size:15.5px;line-height:1.68;color:rgba(20,22,27,.66);margin:0 0 28px">We file to HMRC and Companies House on your behalf, monitor your deadlines before they arrive, and tell you what a decision costs before you make it.</p>
+        <a href="About.dc.html" style="font-size:14px;font-weight:600">More about the firm →</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#14161B;color:#fff">
+    <div style="max-width:1200px;margin:0 auto;padding:76px {{ secPadX }}">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.45);margin-bottom:14px">CLIENTS</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;line-height:1.14;letter-spacing:-.02em;font-weight:600;margin:0 0 40px;max-width:520px">What it's like once the filing stops being your problem.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px">
+        <div style="background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:26px">
+          <div style="font-size:15px;line-height:1.62;color:rgba(255,255,255,.86);margin-bottom:20px">"Switched over in a week and finally stopped worrying about VAT deadlines. Everything is filed before I remember it is due."</div>
+          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.11)">
+            <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="sa-t1" shape="circle" placeholder=""></image-slot></div>
+            <div>
+              <div style="font-size:13px;font-weight:600">Owen Fenwick</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,.5)">Fenwick Digital Studio · Bristol</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:26px">
+          <div style="font-size:15px;line-height:1.62;color:rgba(255,255,255,.86);margin-bottom:20px">"Our Self Assessment used to be a January scramble. This year it was done in November and we knew the bill in advance."</div>
+          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.11)">
+            <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="sa-t2" shape="circle" placeholder=""></image-slot></div>
+            <div>
+              <div style="font-size:13px;font-weight:600">Nora Millbrook</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,.5)">Millbrook Joinery · Exeter</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:26px">
+          <div style="font-size:15px;line-height:1.62;color:rgba(255,255,255,.86);margin-bottom:20px">"Payroll for 22 people used to be a headache. Now it runs itself and someone always picks up the phone."</div>
+          <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.11)">
+            <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;flex:none;position:relative"><image-slot id="sa-t3" shape="circle" placeholder=""></image-slot></div>
+            <div>
+              <div style="font-size:13px;font-weight:600">Femi Kestrel</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,.5)">Kestrel Logistics · Birmingham</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:80px {{ secPadX }} 0">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:36px">
+      <div style="max-width:560px">
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">INSIGHTS</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:38px;line-height:1.12;letter-spacing:-.02em;font-weight:600;margin:0 0 16px">Plain-English notes on the rules that affect you.</h2>
+        <p style="font-size:16px;line-height:1.62;color:rgba(20,22,27,.62);margin:0">Written by our accountants, for people who would rather not read HMRC guidance.</p>
+      </div>
+      <a href="Insights.dc.html" style="font-size:13.5px;font-weight:600;white-space:nowrap">All articles →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px">
+      <a href="Insights.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;overflow:hidden;display:block;color:#14161B">
+        <div style="position:relative;width:100%;height:180px"><image-slot id="sa-home-p1" shape="rect" placeholder="Article image"></image-slot></div>
+        <div style="padding:22px 24px 26px">
+          <div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#C1391F;margin-bottom:10px">COMPLIANCE</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;line-height:1.32;margin-bottom:10px">Making Tax Digital for ITSA: what changes in 2026</div>
+          <div style="font-size:13px;line-height:1.58;color:rgba(20,22,27,.58);margin-bottom:16px">Who is in scope, what quarterly updates involve, and how to prepare without changing how you work.</div>
+          <div style="font-size:11.5px;color:rgba(20,22,27,.42)">Tom Whitfield · 14 Jul 2026 · 6 min read</div>
+        </div>
+      </a>
+      <a href="Insights.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;overflow:hidden;display:block;color:#14161B">
+        <div style="position:relative;width:100%;height:180px"><image-slot id="sa-home-p2" shape="rect" placeholder="Article image"></image-slot></div>
+        <div style="padding:22px 24px 26px">
+          <div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#C1391F;margin-bottom:10px">VAT</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;line-height:1.32;margin-bottom:10px">VAT flat rate scheme: is it still worth it?</div>
+          <div style="font-size:13px;line-height:1.58;color:rgba(20,22,27,.58);margin-bottom:16px">A short comparison of flat rate against standard accounting for typical service businesses.</div>
+          <div style="font-size:11.5px;color:rgba(20,22,27,.42)">Eleanor Marsh · 30 Jun 2026 · 4 min read</div>
+        </div>
+      </a>
+      <a href="Insights.dc.html" style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;overflow:hidden;display:block;color:#14161B">
+        <div style="position:relative;width:100%;height:180px"><image-slot id="sa-home-p3" shape="rect" placeholder="Article image"></image-slot></div>
+        <div style="padding:22px 24px 26px">
+          <div style="font-size:11px;font-weight:600;letter-spacing:.06em;color:#C1391F;margin-bottom:10px">PAYROLL</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;line-height:1.32;margin-bottom:10px">Payroll changes for small employers this tax year</div>
+          <div style="font-size:13px;line-height:1.58;color:rgba(20,22,27,.58);margin-bottom:16px">Thresholds, allowances and the two dates worth putting in your calendar now.</div>
+          <div style="font-size:11.5px;color:rgba(20,22,27,.42)">Aisha Khan · 12 Jun 2026 · 5 min read</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:80px {{ secPadX }}">
+    <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:16px;padding:{{ ctaBandPad }};display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+      <div style="max-width:560px">
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:32px;line-height:1.14;letter-spacing:-.02em;font-weight:600;margin:0 0 14px">Find out what you'd pay — in about two minutes.</h2>
+        <p style="font-size:15.5px;line-height:1.62;color:rgba(20,22,27,.62);margin:0">Six questions, no obligation, and the same fee rules our accountants use internally.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex:none">
+        <a href="Quote.dc.html" style="background:#C1391F;color:#fff;font-size:14.5px;font-weight:600;padding:15px 26px;border-radius:9px">Get my quote</a>
+        <a href="Pricing.dc.html" style="background:#F3F1EC;border:1px solid rgba(20,22,27,.14);color:#14161B;font-size:14.5px;font-weight:600;padding:15px 26px;border-radius:9px">See plans</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { previewMode: 'desktop' };
+  setPreviewDesktop = () => this.setState({previewMode:'desktop'});
+  setPreviewMobile = () => this.setState({previewMode:'mobile'});
+  renderVals(){
+    const m = this.state.previewMode==='mobile';
+    return {
+      forcedMobile: m,
+      pageRootStyle: m ? 'width:100%;min-height:100vh;background:#D9D9D9;display:flex;justify-content:center;padding:24px 0' : 'width:100%;min-width:1100px',
+      pageFrameStyle: m ? 'width:390px;max-width:100%;background:#F3F1EC;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);border:8px solid #14161B;max-height:844px;overflow-y:auto' : 'width:100%',
+      previewBtnStyle: {
+        desktop: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(!m?'#14161B':'transparent')+';color:'+(!m?'#fff':'rgba(20,22,27,.5)'),
+        mobile: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(m?'#14161B':'transparent')+';color:'+(m?'#fff':'rgba(20,22,27,.5)')
+      },
+      setPreviewDesktop: this.setPreviewDesktop, setPreviewMobile: this.setPreviewMobile,
+      heroTitleStyle: "font-family:'Space Grotesk',sans-serif;font-size:"+(m?'34px':'58px')+";line-height:1.08;letter-spacing:-.025em;font-weight:600;margin:0 0 "+(m?'14px':'22px')+";text-wrap:pretty",
+      heroBodyStyle: "font-size:"+(m?'14.5px':'17.5px')+";line-height:1.6;color:rgba(20,22,27,.66);margin:0 0 "+(m?'22px':'32px')+";max-width:520px;text-wrap:pretty",
+      secPadX: m ? '24px' : '40px',
+      ctaBandPad: m ? '28px 24px' : '52px 56px'
+    };
+  }
+}
+</script>
+</body>
+</html>

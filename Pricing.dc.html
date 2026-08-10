@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;background:#F3F1EC;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased;color:#14161B}
+  *{box-sizing:border-box}
+  a{color:#C1391F;text-decoration:none}
+  a:hover{color:#A62F18}
+</style>
+</helmet>
+<div style="{{ pageRootStyle }}">
+<div style="{{ pageFrameStyle }}">
+
+  <div style="min-height:42px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:8px 14px;background:#EFEDE6;border-bottom:1px dashed rgba(20,22,27,.28);font-family:'IBM Plex Mono',monospace">
+    <div style="font-size:10.5px;color:rgba(20,22,27,.55);letter-spacing:.02em;white-space:nowrap">PROTOTYPE · SWISS AERO</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <button onClick="{{ setPreviewDesktop }}" style="{{ previewBtnStyle.desktop }}" title="Desktop preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="1.5"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+        </button>
+        <button onClick="{{ setPreviewMobile }}" style="{{ previewBtnStyle.mobile }}" title="Mobile preview">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
+        </button>
+      </div>
+      <span style="font-size:10.5px;color:rgba(20,22,27,.55);white-space:nowrap">Viewing as</span>
+      <div style="display:flex;background:#fff;border:1px solid rgba(20,22,27,.18);border-radius:7px;padding:2px">
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Owner</a>
+        <a href="admin.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Junior Staff</a>
+        <a href="client-portal.html" style="padding:6px 12px;border:none;border-radius:5px;font-size:11.5px;font-weight:600;font-family:'IBM Plex Sans',sans-serif;background:transparent;color:rgba(20,22,27,.55);text-decoration:none;display:inline-block">Client</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteHeader" force-mobile="{{ forcedMobile }}" active="pricing" hint-size="100%,124px"></dc-import>
+
+  <div style="max-width:1200px;margin:0 auto;padding:56px {{ secPadX }} 0">
+    <div style="font-size:12.5px;color:rgba(20,22,27,.45);margin-bottom:18px"><a href="index.html" style="color:rgba(20,22,27,.45)">Home</a> · Pricing</div>
+    <div style="max-width:640px">
+      <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">PRICING</div>
+      <h1 style="{{ heroTitleStyle }}">Three ways to work with us.</h1>
+      <p style="{{ heroBodyStyle }}">Fixed monthly fees, quoted before you commit. No setup charge, no minimum term, no year-end invoice you didn't expect.</p>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:48px {{ secPadX }} 0">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;align-items:start">
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;padding:30px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:6px">Starter</div>
+        <div style="font-size:13px;color:rgba(20,22,27,.55);margin-bottom:20px;line-height:1.5">Sole traders and side businesses finding their feet.</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:22px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-.02em">£95</span>
+          <span style="font-size:13.5px;color:rgba(20,22,27,.55)">/month</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:26px">
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Monthly bookkeeping</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Self Assessment return</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Year-end accounts</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Email support</div>
+        </div>
+        <a href="Quote.dc.html" style="display:block;text-align:center;padding:13px;border-radius:9px;font-size:13.5px;font-weight:600;background:#F3F1EC;color:#14161B;border:1px solid rgba(20,22,27,.12)">Get my quote</a>
+      </div>
+
+      <div style="background:#14161B;color:#fff;border:1px solid #14161B;border-radius:14px;padding:30px">
+        <div style="display:inline-block;background:#C1391F;color:#fff;font-size:10.5px;font-weight:600;letter-spacing:.06em;padding:4px 10px;border-radius:12px;margin-bottom:16px">MOST POPULAR</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:6px">Growth</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:20px;line-height:1.5">Trading companies with VAT and a small payroll.</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:22px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-.02em">£245</span>
+          <span style="font-size:13.5px;color:rgba(255,255,255,.6)">/month</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:26px">
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85)"><span style="color:#8FC7A6;flex:none">✓</span>Everything in Starter</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85)"><span style="color:#8FC7A6;flex:none">✓</span>VAT returns (MTD)</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85)"><span style="color:#8FC7A6;flex:none">✓</span>Payroll for up to 5 people</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85)"><span style="color:#8FC7A6;flex:none">✓</span>Quarterly figures</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.85)"><span style="color:#8FC7A6;flex:none">✓</span>Priority support</div>
+        </div>
+        <a href="Quote.dc.html" style="display:block;text-align:center;padding:13px;border-radius:9px;font-size:13.5px;font-weight:600;background:#C1391F;color:#fff">Get my quote</a>
+      </div>
+
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;padding:30px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:6px">Full Service</div>
+        <div style="font-size:13px;color:rgba(20,22,27,.55);margin-bottom:20px;line-height:1.5">Established businesses that want it all handled.</div>
+        <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:22px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-.02em">£485</span>
+          <span style="font-size:13.5px;color:rgba(20,22,27,.55)">/month</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:26px">
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Everything in Growth</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Unlimited payroll</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Pension auto-enrolment</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Dedicated accountant</div>
+          <div style="display:flex;gap:9px;align-items:flex-start;font-size:13.5px;line-height:1.5;color:rgba(20,22,27,.7)"><span style="color:#2F7A4D;flex:none">✓</span>Quarterly review call</div>
+        </div>
+        <a href="Quote.dc.html" style="display:block;text-align:center;padding:13px;border-radius:9px;font-size:13.5px;font-weight:600;background:#F3F1EC;color:#14161B;border:1px solid rgba(20,22,27,.12)">Get my quote</a>
+      </div>
+    </div>
+    <div style="margin-top:22px;font-size:13px;color:rgba(20,22,27,.5);text-align:center">All fees exclude VAT. Turnover of £1m or more, group structures and overdue filings are quoted individually.</div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:72px {{ secPadX }} 0">
+    <div style="max-width:600px;margin-bottom:28px">
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:30px;line-height:1.14;letter-spacing:-.02em;font-weight:600;margin:0 0 12px">Base fees by business type and turnover</h2>
+      <p style="font-size:15px;line-height:1.62;color:rgba(20,22,27,.62);margin:0">Monthly fee before add-ons. Payroll, VAT, bookkeeping and pensions are priced on top.</p>
+    </div>
+    <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;overflow:hidden">
+      <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+        <thead>
+          <tr style="background:#F8F7F4">
+            <th style="text-align:left;padding:14px 20px;font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">TURNOVER</th>
+            <th style="text-align:right;padding:14px 20px;font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">SOLE TRADER</th>
+            <th style="text-align:right;padding:14px 20px;font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">LIMITED COMPANY</th>
+            <th style="text-align:right;padding:14px 20px;font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">PARTNERSHIP</th>
+            <th style="text-align:right;padding:14px 20px;font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">LLP</th>
+            <th style="text-align:right;padding:14px 20px;font-size:11px;color:rgba(20,22,27,.5);font-weight:600;letter-spacing:.05em">CONTRACTOR / IR35</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ feeRows }}" as="r" hint-placeholder-count="8">
+          <tr style="border-top:1px solid rgba(20,22,27,.07)">
+            <td style="padding:13px 20px;font-weight:600">{{ r.band }}</td>
+            <td style="padding:13px 20px;text-align:right;font-family:'IBM Plex Mono',monospace;color:{{ r.color }}">{{ r.sole }}</td>
+            <td style="padding:13px 20px;text-align:right;font-family:'IBM Plex Mono',monospace;color:{{ r.color }}">{{ r.ltd }}</td>
+            <td style="padding:13px 20px;text-align:right;font-family:'IBM Plex Mono',monospace;color:{{ r.color }}">{{ r.partnership }}</td>
+            <td style="padding:13px 20px;text-align:right;font-family:'IBM Plex Mono',monospace;color:{{ r.color }}">{{ r.llp }}</td>
+            <td style="padding:13px 20px;text-align:right;font-family:'IBM Plex Mono',monospace;color:{{ r.color }}">{{ r.contractor }}</td>
+          </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-top:18px">
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:20px">
+        <div style="font-size:13.5px;font-weight:600;margin-bottom:8px">VAT returns</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600">+£45<span style="font-size:11.5px;color:rgba(20,22,27,.45);font-family:'IBM Plex Sans',sans-serif;font-weight:400"> /mo</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:20px">
+        <div style="font-size:13.5px;font-weight:600;margin-bottom:8px">Payroll</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600">+£35<span style="font-size:11.5px;color:rgba(20,22,27,.45);font-family:'IBM Plex Sans',sans-serif;font-weight:400"> /mo</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:20px">
+        <div style="font-size:13.5px;font-weight:600;margin-bottom:8px">Bookkeeping</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600">+£60<span style="font-size:11.5px;color:rgba(20,22,27,.45);font-family:'IBM Plex Sans',sans-serif;font-weight:400"> /mo</span></div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:12px;padding:20px">
+        <div style="font-size:13.5px;font-weight:600;margin-bottom:8px">Pension</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:600">+£25<span style="font-size:11.5px;color:rgba(20,22,27,.45);font-family:'IBM Plex Sans',sans-serif;font-weight:400"> /mo</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;padding:72px {{ secPadX }} 80px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:start">
+      <div>
+        <div style="font-size:11.5px;font-weight:600;letter-spacing:.1em;color:#C1391F;margin-bottom:14px">FAQ</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:32px;line-height:1.14;letter-spacing:-.02em;font-weight:600;margin:0 0 16px">Questions about fees.</h2>
+        <p style="font-size:15px;line-height:1.65;color:rgba(20,22,27,.62);margin:0">Something not covered? <a href="Contact.dc.html">Send us a message</a> — we reply within one business day.</p>
+      </div>
+      <div>
+        <sc-for list="{{ faqRows }}" as="f" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(20,22,27,.09)">
+          <button onClick="{{ f.onToggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;background:none;border:none;padding:18px 0;text-align:left;cursor:pointer">
+            <span style="font-size:15px;font-weight:600;color:#14161B">{{ f.question }}</span>
+            <span style="font-size:19px;color:rgba(20,22,27,.35);flex:none;line-height:1">{{ f.sign }}</span>
+          </button>
+          <sc-if value="{{ f.open }}">
+          <div style="font-size:14px;line-height:1.65;color:rgba(20,22,27,.64);padding:0 0 20px;max-width:560px">{{ f.answer }}</div>
+          </sc-if>
+        </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { openFaq: 'f1', previewMode: 'desktop' };
+  toggleFaq = (id) => this.setState(s=>({openFaq: s.openFaq===id ? null : id}));
+  setPreviewDesktop = () => this.setState({previewMode:'desktop'});
+  setPreviewMobile = () => this.setState({previewMode:'mobile'});
+
+  renderVals(){
+    const bands = [
+      {band:'£0–20k', sole:45, ltd:65, partnership:55, llp:70, contractor:55},
+      {band:'£20k–90k', sole:85, ltd:110, partnership:95, llp:120, contractor:100},
+      {band:'£90k–200k', sole:130, ltd:165, partnership:150, llp:175, contractor:150},
+      {band:'£200k–350k', sole:175, ltd:220, partnership:200, llp:230, contractor:195},
+      {band:'£350k–500k', sole:215, ltd:270, partnership:245, llp:285, contractor:240},
+      {band:'£500k–750k', sole:265, ltd:330, partnership:300, llp:345, contractor:290},
+      {band:'£750k–1m', sole:320, ltd:395, partnership:360, llp:410, contractor:345},
+      {band:'£1m+', sole:0, ltd:0, partnership:0, llp:0, contractor:0}
+    ];
+    const fmt = (n) => n===0 ? 'On request' : ('£'+n);
+    const feeRows = bands.map(b=>({
+      band: b.band,
+      sole: fmt(b.sole), ltd: fmt(b.ltd), partnership: fmt(b.partnership), llp: fmt(b.llp), contractor: fmt(b.contractor),
+      color: b.sole===0 ? 'rgba(20,22,27,.45)' : '#14161B'
+    }));
+
+    const faqData = [
+      {id:'f1', question:'How is my quote calculated?', answer:'On your business type, annual turnover and the services you add — VAT, payroll, bookkeeping or pensions. The calculator on this site uses exactly the same rules our accountants use internally, so the figure you see is the figure we invoice.'},
+      {id:'f2', question:'Is there a contract minimum?', answer:'No. Fees are billed monthly on a rolling basis and you can cancel with 30 days notice. We will hand your records over promptly if you leave.'},
+      {id:'f3', question:'Can you take over from my current accountant?', answer:'Yes, and there is no charge for it. We write to them for professional clearance, collect your records and pick up where they left off, usually within five working days.'},
+      {id:'f4', question:'What if my turnover grows past a band?', answer:'We review your fee at each year end, and sooner if something changes materially. Increases are agreed with you before they take effect, never applied silently.'},
+      {id:'f5', question:'Do you charge for phone calls and emails?', answer:'No. Support is included in every plan. If a question turns into a piece of advisory work we will quote for it separately before starting.'},
+      {id:'f6', question:'What happens if I have overdue filings?', answer:'We can still help, but the catch-up work is quoted separately after a short call so we know what is outstanding and what penalties may already apply.'}
+    ];
+    const faqRows = faqData.map(f=>({...f, open: this.state.openFaq===f.id, sign: this.state.openFaq===f.id ? '−' : '+', onToggle:()=>this.toggleFaq(f.id)}));
+
+    const pm = this.state.previewMode==='mobile';
+    return {
+      feeRows, faqRows,
+      forcedMobile: pm,
+      pageRootStyle: pm ? 'width:100%;min-height:100vh;background:#D9D9D9;display:flex;justify-content:center;padding:24px 0' : 'width:100%;min-width:1100px',
+      pageFrameStyle: pm ? 'width:390px;max-width:100%;background:#F3F1EC;border-radius:28px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);border:8px solid #14161B;max-height:844px;overflow-y:auto' : 'width:100%',
+      previewBtnStyle: {
+        desktop: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(!pm?'#14161B':'transparent')+';color:'+(!pm?'#fff':'rgba(20,22,27,.5)'),
+        mobile: 'display:flex;align-items:center;padding:6px 9px;border:none;border-radius:5px;cursor:pointer;background:'+(pm?'#14161B':'transparent')+';color:'+(pm?'#fff':'rgba(20,22,27,.5)')
+      },
+      setPreviewDesktop: this.setPreviewDesktop, setPreviewMobile: this.setPreviewMobile,
+      heroTitleStyle: "font-family:'Space Grotesk',sans-serif;font-size:"+(pm?'32px':'44px')+";line-height:1.1;letter-spacing:-.02em;font-weight:600;margin:0 0 18px",
+      heroBodyStyle: "font-size:"+(pm?'14.5px':'16.5px')+";line-height:1.6;color:rgba(20,22,27,.64);margin:0",
+      secPadX: pm ? '24px' : '40px'
+    };
+  }
+}
+
+</script>
+</body>
+</html>
