@@ -971,15 +971,22 @@ class Component extends DCLogic {
     if(!this.state.loginEmail.trim() || !this.state.loginPassword.trim()) return;
     this.setState({loginStep:'twofa', loginError:null});
   };
-  demoLogin = () => this.setState({authed:true, loginError:null});
+  saveClientSession = () => {
+    try { localStorage.setItem('sa_client_session', JSON.stringify({name:this.state.profileName, email:this.state.profileEmail})); } catch(e) {}
+  };
+  clearClientSession = () => {
+    try { localStorage.removeItem('sa_client_session'); } catch(e) {}
+  };
+  demoLogin = () => { this.setState({authed:true, loginError:null}); this.saveClientSession(); };
   backToCredentials = () => this.setState({loginStep:'creds', twoFaCode:'', loginError:null});
   onTwoFaCodeChange = (e) => this.setState({twoFaCode:e.target.value.replace(/\D/g,'').slice(0,6), loginError:null});
   submitTwoFa = () => {
     if(this.state.twoFaCode.length !== 6) return;
     if(this.state.twoFaCode !== '204815'){ this.setState({loginError:'That code was not recognised. Check your authenticator app and try again.'}); return; }
     this.setState({authed:true, loginError:null});
+    this.saveClientSession();
   };
-  signOut = () => this.setState({authed:false, loginStep:'creds', loginEmail:'', loginPassword:'', twoFaCode:'', biometricPrompting:false, module:'dashboard'});
+  signOut = () => { this.setState({authed:false, loginStep:'creds', loginEmail:'', loginPassword:'', twoFaCode:'', biometricPrompting:false, module:'dashboard'}); this.clearClientSession(); };
 
   setBiometricKind = (k) => this.setState({biometricKind:k});
   goRegister = () => this.setState({loginStep:'register', regStep:1, loginError:null});
@@ -992,12 +999,12 @@ class Component extends DCLogic {
   regNext1 = () => this.setState({regStep:2});
   regNext2 = () => this.setState({regStep:3});
   completeRegistration = () => { if(this.state.regTwoFaCode.length!==6) return; this.setState({regStep:4}); };
-  enterPortal = () => this.setState({authed:true});
+  enterPortal = () => { this.setState({authed:true}); this.saveClientSession(); };
 
   startBiometric = () => {
     this.setState({biometricPrompting:true, loginError:null});
     clearTimeout(this._bio);
-    this._bio = setTimeout(()=>{ this.setState({authed:true, biometricPrompting:false}); }, 1500);
+    this._bio = setTimeout(()=>{ this.setState({authed:true, biometricPrompting:false}); this.saveClientSession(); }, 1500);
   };
 
   goDashboard = () => this.setState({module:'dashboard'});
