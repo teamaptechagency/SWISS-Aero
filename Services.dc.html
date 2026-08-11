@@ -7,6 +7,9 @@
 <script>
 document.addEventListener('contextmenu',function(e){e.preventDefault()});
 document.addEventListener('dragstart',function(e){if(e.target&&e.target.tagName==='IMG')e.preventDefault()});
+window.addEventListener('blur',function(){document.body&&document.body.classList.add('sa-privacy-blur')});
+window.addEventListener('focus',function(){document.body&&document.body.classList.remove('sa-privacy-blur')});
+document.addEventListener('visibilitychange',function(){document.body&&document.body.classList.toggle('sa-privacy-blur', document.hidden)});
 </script>
 </head>
 <body>
@@ -22,6 +25,8 @@ document.addEventListener('dragstart',function(e){if(e.target&&e.target.tagName=
   body{-webkit-user-select:none;-moz-user-select:none;user-select:none}
   input,textarea,[contenteditable]{-webkit-user-select:text;-moz-user-select:text;user-select:text}
   img{-webkit-user-drag:none;user-drag:none}
+  body{transition:filter .15s ease}
+  body.sa-privacy-blur{filter:blur(20px)}
 </style>
 </helmet>
 <div style="{{ pageRootStyle }}">

@@ -7,6 +7,37 @@
 <script>
 document.addEventListener('contextmenu',function(e){e.preventDefault()});
 document.addEventListener('dragstart',function(e){if(e.target&&e.target.tagName==='IMG')e.preventDefault()});
+window.addEventListener('blur',function(){document.body&&document.body.classList.add('sa-privacy-blur')});
+window.addEventListener('focus',function(){document.body&&document.body.classList.remove('sa-privacy-blur')});
+document.addEventListener('visibilitychange',function(){document.body&&document.body.classList.toggle('sa-privacy-blur', document.hidden)});
+(function(){
+  function currentIdentity(){
+    var text = document.body ? document.body.innerText : '';
+    if (text.indexOf('Eleanor Marsh') > -1) return 'Eleanor Marsh';
+    if (text.indexOf('Priya Shah') > -1) return 'Priya Shah';
+    return 'Swiss Aero Staff';
+  }
+  function stamp(){
+    var d = new Date();
+    return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  }
+  function buildWatermark(){
+    var wrap = document.getElementById('sa-watermark');
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.id = 'sa-watermark';
+      document.body.appendChild(wrap);
+    }
+    var label = currentIdentity() + ' · ' + stamp();
+    var rows = [];
+    for (var i=0;i<40;i++) rows.push('<span>'+label+'</span>');
+    wrap.innerHTML = rows.join('');
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    buildWatermark();
+    setInterval(buildWatermark, 30000);
+  });
+})();
 </script>
 </head>
 <body>
@@ -31,6 +62,10 @@ document.addEventListener('dragstart',function(e){if(e.target&&e.target.tagName=
   body{-webkit-user-select:none;-moz-user-select:none;user-select:none}
   input,textarea,[contenteditable]{-webkit-user-select:text;-moz-user-select:text;user-select:text}
   img{-webkit-user-drag:none;user-drag:none}
+  body{transition:filter .15s ease}
+  body.sa-privacy-blur{filter:blur(20px)}
+  #sa-watermark{position:fixed;inset:0;z-index:99999;pointer-events:none;overflow:hidden;display:flex;flex-wrap:wrap;align-content:flex-start;gap:48px;padding:24px;transform:rotate(-22deg) scale(1.4);opacity:.05}
+  #sa-watermark span{font-size:12px;font-family:'IBM Plex Mono',monospace;white-space:nowrap;color:#14161B}
 </style>
 </helmet>
 <div style="{{ pageRootStyle }}">
