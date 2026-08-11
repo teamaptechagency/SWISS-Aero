@@ -56,6 +56,68 @@ document.addEventListener('visibilitychange',function(){document.body&&document.
     </div>
   </div>
 
+  <div style="max-width:1200px;margin:0 auto;padding:0 {{ secPadX }} 8px">
+    <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;padding:{{ bookPad }}">
+      <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:4px">Book a free consultation</div>
+      <p style="font-size:13px;color:rgba(20,22,27,.55);margin:0">15-minute call with an accountant, no obligation. Pick a slot that works for you.</p>
+
+      <div style="{{ bookGridStyle }}">
+        <div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+            <button onClick="{{ prevBookMonth }}" disabled="{{ prevMonthDisabled }}" style="{{ monthNavStyle }}">‹</button>
+            <div style="font-size:13.5px;font-weight:600">{{ bookMonthLabel }}</div>
+            <button onClick="{{ nextBookMonth }}" disabled="{{ nextMonthDisabled }}" style="{{ monthNavStyleNext }}">›</button>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px">
+            <sc-for list="{{ bookWeekdayLabels }}" as="w" hint-placeholder-count="7">
+            <div style="text-align:center;font-size:10.5px;font-weight:600;color:rgba(20,22,27,.4);padding:4px 0">{{ w.label }}</div>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px">
+            <sc-for list="{{ bookCells }}" as="c" hint-placeholder-count="35">
+            <button onClick="{{ c.onSelect }}" disabled="{{ c.disabled }}" style="{{ c.style }}">{{ c.label }}</button>
+            </sc-for>
+          </div>
+          <div style="font-size:11px;color:rgba(20,22,27,.4);margin-top:10px">Mon–Fri only · times shown are UK local time</div>
+        </div>
+
+        <div>
+          <sc-if value="{{ showSlotPrompt }}">
+          <div style="display:flex;align-items:center;justify-content:center;min-height:160px;text-align:center;font-size:13px;color:rgba(20,22,27,.45);padding:20px;background:#F8F7F4;border-radius:10px">Pick a date to see available 15-minute slots.</div>
+          </sc-if>
+
+          <sc-if value="{{ showSlots }}">
+          <div style="font-size:12.5px;font-weight:600;color:rgba(20,22,27,.55);margin-bottom:10px">{{ selectedDateLabel }} — available times</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;margin-bottom:18px">
+            <sc-for list="{{ bookSlots }}" as="t" hint-placeholder-count="34">
+            <button onClick="{{ t.onSelect }}" disabled="{{ t.disabled }}" style="{{ t.style }}">{{ t.label }}</button>
+            </sc-for>
+          </div>
+          </sc-if>
+
+          <sc-if value="{{ showBookForm }}">
+          <div style="background:#F8F7F4;border-radius:10px;padding:16px 18px">
+            <div style="font-size:13px;margin-bottom:12px">{{ selectedDateLabel }} at {{ bookSelectedSlot }} — 15 min call</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <input placeholder="Your name" value="{{ bookName }}" onChange="{{ onBookNameChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:11px 13px;font-size:13.5px;outline:none"></input>
+              <input placeholder="Email" value="{{ bookEmail }}" onChange="{{ onBookEmailChange }}" style="border:1px solid rgba(20,22,27,.14);border-radius:9px;padding:11px 13px;font-size:13.5px;outline:none"></input>
+              <button onClick="{{ confirmBooking }}" disabled="{{ confirmDisabled }}" style="{{ confirmBtnStyle }}">Confirm booking</button>
+            </div>
+          </div>
+          </sc-if>
+
+          <sc-if value="{{ showBookConfirmed }}">
+          <div style="background:#E7F3EC;border-radius:10px;padding:18px 20px">
+            <div style="color:#2F7A4D;font-weight:600;font-size:14px;margin-bottom:6px">You're booked</div>
+            <p style="font-size:13px;line-height:1.6;color:#2F7A4D;margin:0 0 12px">15-minute call on {{ selectedDateLabel }} at {{ bookSelectedSlot }}. A calendar invite will be sent to {{ bookEmail }}.</p>
+            <button onClick="{{ resetBooking }}" style="padding:9px 16px;border:1px solid rgba(47,122,77,.3);background:#fff;border-radius:8px;font-size:12.5px;font-weight:600;color:#2F7A4D;cursor:pointer">Book another slot</button>
+          </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div style="max-width:1200px;margin:0 auto;padding:48px {{ secPadX }} 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;align-items:start">
     <div>
       <div style="background:#fff;border:1px solid rgba(20,22,27,.09);border-radius:14px;padding:28px 30px;margin-bottom:18px">
@@ -132,7 +194,8 @@ document.addEventListener('visibilitychange',function(){document.body&&document.
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { contactName:'', contactEmail:'', contactCompany:'', contactPhone:'', contactSubject:'New enquiry', contactPreference:'Email reply', contactMessage:'', contactConsent:false, contactSubmitted:false, isRealMobile:false };
+  state = { contactName:'', contactEmail:'', contactCompany:'', contactPhone:'', contactSubject:'New enquiry', contactPreference:'Email reply', contactMessage:'', contactConsent:false, contactSubmitted:false, isRealMobile:false,
+    bookMonthOffset:0, bookSelectedDate:null, bookSelectedSlot:null, bookName:'', bookEmail:'', bookConfirmed:false };
   componentDidMount(){
     this.checkDevice();
     this._onResize = () => this.checkDevice();
@@ -151,10 +214,86 @@ class Component extends DCLogic {
   toggleContactConsent = () => this.setState(s=>({contactConsent:!s.contactConsent}));
   submitContact = () => { if(!this.state.contactEmail.trim()||!this.state.contactConsent) return; this.setState({contactSubmitted:true}); };
 
+  pad2(n){ return n<10 ? '0'+n : ''+n; }
+  dateKeyFor(d){ return d.getFullYear()+'-'+this.pad2(d.getMonth()+1)+'-'+this.pad2(d.getDate()); }
+  formatDateLabel(key){
+    const p = key.split('-').map(Number);
+    const dt = new Date(p[0], p[1]-1, p[2]);
+    return dt.toLocaleDateString('en-GB',{weekday:'short', day:'numeric', month:'short'});
+  }
+  isSlotBooked(key, idx){
+    let h = 0; const str = key+'#'+idx;
+    for(let i=0;i<str.length;i++){ h = (h*31 + str.charCodeAt(i)) >>> 0; }
+    return (h % 7) === 0;
+  }
+  buildCalendarCells(monthOffset){
+    const today = new Date(); today.setHours(0,0,0,0);
+    const view = new Date(today.getFullYear(), today.getMonth()+monthOffset, 1);
+    const year = view.getFullYear(), month = view.getMonth();
+    const monthLabel = view.toLocaleDateString('en-GB',{month:'long', year:'numeric'});
+    const firstDow = (view.getDay()+6)%7;
+    const daysInMonth = new Date(year, month+1, 0).getDate();
+    const cells = [];
+    for(let i=0;i<firstDow;i++) cells.push({blank:true});
+    for(let d=1; d<=daysInMonth; d++){
+      const cellDate = new Date(year, month, d);
+      const key = this.dateKeyFor(cellDate);
+      const dow = cellDate.getDay();
+      const disabled = cellDate < today || dow===0 || dow===6;
+      cells.push({ blank:false, day:d, key, disabled, isToday: cellDate.getTime()===today.getTime() });
+    }
+    while(cells.length % 7 !== 0) cells.push({blank:true});
+    return { monthLabel, cells };
+  }
+  buildSlotTimes(){
+    const slots = [];
+    for(let mins=9*60; mins<=17*60+15; mins+=15){
+      slots.push(this.pad2(Math.floor(mins/60))+':'+this.pad2(mins%60));
+    }
+    return slots;
+  }
+
+  prevBookMonth = () => this.setState(s=>({bookMonthOffset: Math.max(0, s.bookMonthOffset-1)}));
+  nextBookMonth = () => this.setState(s=>({bookMonthOffset: Math.min(2, s.bookMonthOffset+1)}));
+  selectBookDate = (key) => this.setState({bookSelectedDate:key, bookSelectedSlot:null});
+  selectBookSlot = (slot) => this.setState({bookSelectedSlot:slot});
+  onBookNameChange = (e) => this.setState({bookName:e.target.value});
+  onBookEmailChange = (e) => this.setState({bookEmail:e.target.value});
+  confirmBooking = () => { if(!this.state.bookName.trim()||!this.state.bookEmail.trim()||!this.state.bookSelectedSlot) return; this.setState({bookConfirmed:true}); };
+  resetBooking = () => this.setState({bookSelectedDate:null, bookSelectedSlot:null, bookName:'', bookEmail:'', bookConfirmed:false});
+
   renderVals(){
     const s = this.state;
     const disabled = !s.contactEmail.trim() || !s.contactConsent || s.contactSubmitted;
     const pm = s.isRealMobile;
+    const accent = '#C1391F';
+
+    const cal = this.buildCalendarCells(s.bookMonthOffset);
+    const bookWeekdayLabels = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(l=>({label:l}));
+    const bookCells = cal.cells.map(c=>{
+      if(c.blank) return { label:'', disabled:true, onSelect:()=>{}, style:'visibility:hidden;border:none;background:none;padding:8px 0' };
+      const selected = s.bookSelectedDate === c.key;
+      let style = 'padding:8px 0;border-radius:8px;font-size:12.5px;font-weight:600;text-align:center;';
+      if(c.disabled) style += 'border:1.5px solid transparent;background:transparent;color:rgba(20,22,27,.22);cursor:not-allowed';
+      else if(selected) style += 'border:1.5px solid '+accent+';background:'+accent+';color:#fff;cursor:pointer';
+      else if(c.isToday) style += 'border:1.5px solid '+accent+';background:#fff;color:'+accent+';cursor:pointer';
+      else style += 'border:1.5px solid rgba(20,22,27,.12);background:#fff;color:#14161B;cursor:pointer';
+      return { label:String(c.day), disabled:c.disabled, onSelect: c.disabled ? ()=>{} : ()=>this.selectBookDate(c.key), style };
+    });
+
+    const bookSlots = s.bookSelectedDate ? this.buildSlotTimes().map((t,idx)=>{
+      const booked = this.isSlotBooked(s.bookSelectedDate, idx);
+      const selected = s.bookSelectedSlot === t;
+      let style = "padding:10px 6px;border-radius:8px;font-size:12px;font-weight:600;text-align:center;font-family:'IBM Plex Mono',monospace;";
+      if(booked) style += 'border:1.5px solid transparent;background:transparent;color:rgba(20,22,27,.25);cursor:not-allowed;text-decoration:line-through';
+      else if(selected) style += 'border:1.5px solid '+accent+';background:'+accent+';color:#fff;cursor:pointer';
+      else style += 'border:1.5px solid rgba(20,22,27,.12);background:#fff;color:#14161B;cursor:pointer';
+      return { label:t, disabled:booked, onSelect: booked ? ()=>{} : ()=>this.selectBookSlot(t), style };
+    }) : [];
+
+    const hasDate = !!s.bookSelectedDate;
+    const confirmDisabled = !s.bookName.trim() || !s.bookEmail.trim() || !s.bookSelectedSlot;
+
     return {
       forcedMobile: pm,
       pageRootStyle: 'width:100%',
@@ -173,7 +312,29 @@ class Component extends DCLogic {
       submitContact:this.submitContact, contactSubmitted:s.contactSubmitted,
       contactDisabled: disabled,
       contactBtnStyle: 'padding:13px 24px;border:none;border-radius:9px;font-size:13.5px;font-weight:600;'+(disabled?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:#C1391F;color:#fff;cursor:pointer'),
-      contactBtnLabel: s.contactSubmitted ? 'Message sent' : 'Send message'
+      contactBtnLabel: s.contactSubmitted ? 'Message sent' : 'Send message',
+
+      bookPad: pm ? '24px 22px' : '32px 34px',
+      bookGridStyle: 'display:grid;grid-template-columns:'+(pm?'1fr':'320px 1fr')+';gap:'+(pm?'24px':'32px')+';margin-top:20px',
+      bookMonthLabel: cal.monthLabel,
+      bookWeekdayLabels, bookCells,
+      prevBookMonth: this.prevBookMonth, nextBookMonth: this.nextBookMonth,
+      prevMonthDisabled: s.bookMonthOffset<=0,
+      nextMonthDisabled: s.bookMonthOffset>=2,
+      monthNavStyle: 'width:28px;height:28px;border-radius:7px;border:1px solid rgba(20,22,27,.14);background:#fff;font-size:14px;cursor:'+(s.bookMonthOffset<=0?'not-allowed':'pointer')+';color:'+(s.bookMonthOffset<=0?'rgba(20,22,27,.25)':'#14161B'),
+      monthNavStyleNext: 'width:28px;height:28px;border-radius:7px;border:1px solid rgba(20,22,27,.14);background:#fff;font-size:14px;cursor:'+(s.bookMonthOffset>=2?'not-allowed':'pointer')+';color:'+(s.bookMonthOffset>=2?'rgba(20,22,27,.25)':'#14161B'),
+      bookSlots,
+      showSlotPrompt: !hasDate && !s.bookConfirmed,
+      showSlots: hasDate && !s.bookConfirmed,
+      showBookForm: hasDate && !!s.bookSelectedSlot && !s.bookConfirmed,
+      showBookConfirmed: s.bookConfirmed,
+      selectedDateLabel: hasDate ? this.formatDateLabel(s.bookSelectedDate) : '',
+      bookSelectedSlot: s.bookSelectedSlot,
+      bookName: s.bookName, onBookNameChange: this.onBookNameChange,
+      bookEmail: s.bookEmail, onBookEmailChange: this.onBookEmailChange,
+      confirmBooking: this.confirmBooking, confirmDisabled,
+      confirmBtnStyle: 'padding:12px 18px;border:none;border-radius:9px;font-size:13px;font-weight:600;'+(confirmDisabled?'background:#E4E1DA;color:rgba(20,22,27,.35);cursor:not-allowed':'background:'+accent+';color:#fff;cursor:pointer'),
+      resetBooking: this.resetBooking
     };
   }
 }
