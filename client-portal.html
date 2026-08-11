@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script>
+document.addEventListener('contextmenu',function(e){e.preventDefault()});
+document.addEventListener('dragstart',function(e){if(e.target&&e.target.tagName==='IMG')e.preventDefault()});
+</script>
 </head>
 <body>
 <x-dc>
@@ -20,6 +24,9 @@
   ::-webkit-scrollbar-thumb{background:rgba(20,22,27,.18);border-radius:5px}
   ::-webkit-scrollbar-track{background:transparent}
   @keyframes sa-bio-pulse{0%,100%{box-shadow:0 0 0 0 rgba(193,57,31,.25)}50%{box-shadow:0 0 0 10px rgba(193,57,31,.06)}}
+  body{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  input,textarea,[contenteditable]{-webkit-user-select:text;-moz-user-select:text;user-select:text}
+  img{-webkit-user-drag:none;user-drag:none}
 </style>
 </helmet>
 <div style="{{ rootWidthStyle }}">

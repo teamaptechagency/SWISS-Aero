@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script>
+document.addEventListener('contextmenu',function(e){e.preventDefault()});
+document.addEventListener('dragstart',function(e){if(e.target&&e.target.tagName==='IMG')e.preventDefault()});
+</script>
 </head>
 <body>
 <x-dc>
@@ -17,6 +21,9 @@
   input,select,textarea,button{font-family:'IBM Plex Sans',sans-serif}
   a{color:#C1391F;text-decoration:none}
   a:hover{color:#A62F18}
+  body{-webkit-user-select:none;-moz-user-select:none;user-select:none}
+  input,textarea,[contenteditable]{-webkit-user-select:text;-moz-user-select:text;user-select:text}
+  img{-webkit-user-drag:none;user-drag:none}
 </style>
 </helmet>
 <div style="{{ pageRootStyle }}">
